@@ -68,12 +68,25 @@ jobs:
 
       - name: Copy images
         run: |
-          # Copy all images from clase/images/ to _site/images/
+          # Copy root images directory
           if [ -d "clase/images" ]; then
             mkdir -p _site/images
             cp -r clase/images/* _site/images/
             echo "Copied images to _site/images/"
           fi
+
+      - name: Copy images from content subdirectories
+        run: |
+          # Copy all images directories from content (convention: */images/)
+          find clase -type d -name "images" | grep -v "b_libros" | while read img_dir; do
+            # Get relative path from clase/
+            rel_path="${img_dir#clase/}"
+            # Create directory in _site
+            mkdir -p "_site/$rel_path"
+            # Copy all files in the images directory
+            cp -r "$img_dir"/* "_site/$rel_path/" 2>/dev/null || true
+            echo "Copied images from: $rel_path"
+          done
 
       - name: Copy favicon files
         run: |

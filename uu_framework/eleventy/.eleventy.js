@@ -69,8 +69,16 @@ module.exports = function(eleventyConfig) {
   // Copy fonts
   eleventyConfig.addPassthroughCopy({ "../uu_framework/eleventy/src/fonts": "fonts" });
 
-  // Copy images from content directory
-  // Using object form to ensure proper path mapping
+  // Copy images from all content subdirectories
+  // Convention: images for each section are stored in */images/ subdirectories
+  // Match numbered chapters (01_, 02_, etc.) and appendices (a_, b_, etc.)
+  ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'].forEach(num => {
+    eleventyConfig.addPassthroughCopy(`${num}_*/**/images/**`);
+  });
+  ['a', 'b', 'c'].forEach(letter => {
+    eleventyConfig.addPassthroughCopy(`${letter}_*/**/images/**`);
+  });
+  // Also copy root images directory if it exists
   eleventyConfig.addPassthroughCopy({ "images": "images" });
 
   // Copy PDF files from content directories (exclude b_libros which is gitignored)
@@ -241,7 +249,7 @@ module.exports = function(eleventyConfig) {
     if (outputPath && outputPath.endsWith(".html")) {
       // Transform href="...*.md" to href=".../" (remove .md, add trailing slash)
       // Also fix relative paths: ./file.md -> ../file/
-      return content.replace(
+      content = content.replace(
         /href="([^"]*?)\.md"/g,
         (match, path) => {
           // Don't transform external URLs
@@ -257,6 +265,15 @@ module.exports = function(eleventyConfig) {
           return `href="${newPath}/"`;
         }
       );
+
+      // Also fix relative image paths: ./images/ -> ../images/
+      // Because each page becomes a directory (file.md -> file/index.html)
+      content = content.replace(
+        /src="\.\/images\//g,
+        'src="../images/'
+      );
+
+      return content;
     }
     return content;
   });

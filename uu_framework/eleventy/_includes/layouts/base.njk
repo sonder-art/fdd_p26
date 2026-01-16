@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="{{ '/css/themes/fonts.css' | url }}">
   <link rel="stylesheet" href="{{ '/css/themes/eva01.css' | url }}" id="theme-stylesheet">
 
+  {# KaTeX for math rendering #}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+
   <style>
     .sidebar {
       transition: width 0.2s ease;
@@ -771,6 +774,18 @@
       }
     })();
   </script>
+
+  <!-- KaTeX for math rendering -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+      onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false,
+        ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'svg']
+      });"></script>
 
 </body>
 </html>

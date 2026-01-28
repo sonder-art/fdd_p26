@@ -5,4 +5,4 @@
 
 ## Evidencia
 
-![Certificado GitHub](./Captura\ de\ pantalla\ 2026-01-28\ a\ la\(s\)\ 5.18.33 p.m..png)
+![Certificado GitHub](/Users/jorgepuszkar/Desktop/fuentes/fdd_p26/clase/estudiantes/Jorgepuszkar/certificaciones/Captura\ de\ pantalla\ 2026-01-28\ a\ la\(s\)\ 5.18.33 p.m..png )

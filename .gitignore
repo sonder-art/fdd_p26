@@ -1,5 +1,29 @@
 # Byte-compiled / optimized / DLL files
+# Mac junk
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log__pycache__/
 *.py[codz]
 *$py.class
 

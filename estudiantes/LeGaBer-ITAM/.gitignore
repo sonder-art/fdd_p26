@@ -1,0 +1,30 @@
+# Linux
+.DS_Store
+.directory
+.Trash-*
+*~
+# Archivos temporales de edición
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+build/
+dist/
+
+# IDEs
+.vscode/
+.ipynb_checkpoints/
+
+# MongoDB y Datos
+*.log
+*.sqlite
+/mount/data/
+/mount/configdb/
+# ¡Importante! No subir el keyfile que configuramos
+mongo-keyfile

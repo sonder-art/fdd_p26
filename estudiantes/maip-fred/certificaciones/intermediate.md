@@ -1,7 +1,3 @@
-# Certificación Intermediate GitHub
-
-**Estudiante:** Alfredo Ibanez
-**Fecha:** 2026-02-04
-
+# Certificacion Intermediate
+**Usuario:** maip-fred
 ## Evidencia
-![Certificado](./intermediate.png)

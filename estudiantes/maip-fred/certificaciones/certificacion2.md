@@ -4,4 +4,4 @@
 **Fecha:** 2026-02-04
 
 ## Evidencia
-![Certificado](./certificado2.png)
+![Certificado](./evidencia2.png)

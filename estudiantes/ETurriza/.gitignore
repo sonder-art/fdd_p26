@@ -1,0 +1,6 @@
+#Phyton
+__pycache__/
+.*pyc
+
+#Sistema
+.DS_Store

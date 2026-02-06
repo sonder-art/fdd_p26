@@ -1,3 +1,8 @@
 # Certificación GitHub Concepts
+
 **Estudiante:** Paris Lopez
-![Certificado](./evidencia_github.png)
+**Fecha:** 2026-02-05
+
+## Evidencia
+
+![Certificado GitHub](./evidencia_github.png)

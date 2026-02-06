@@ -1,0 +1,40 @@
+# ===== Sistema =====
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ===== Entornos =====
+venv/
+.env/
+.venv/
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+
+# ===== Resultados =====
+outputs/
+results/
+logs/
+*.log
+
+# ===== Credenciales =====
+secrets.json
+credentials.json
+config.json
+
+# ===== VS Code =====
+.vscode/
+
+# ===== Archivos grandes =====
+*.csv
+*.xlsx
+*.zip
+*.tar
+*.gz

@@ -1,0 +1,53 @@
+# ==========================================
+# macOS (Específico para tu equipo)
+# ==========================================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# ==========================================
+# PYTHON (Entornos y archivos temporales)
+# ==========================================
+# Archivos compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales (¡MUY IMPORTANTE!)
+venv/
+.venv/
+env/
+ENV/
+bin/
+lib/
+include/
+share/
+
+# Distribución / Paquetes
+build/
+dist/
+*.egg-info/
+
+# ==========================================
+# DOCKER (Datos y archivos locales)
+# ==========================================
+# Ignorar bases de datos locales si persisten en carpetas
+data/
+db_data/
+# Archivo de variables de entorno (SEGURIDAD)
+.env
+
+# ==========================================
+# EDITORES DE CÓDIGO (VS Code e IntelliJ)
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==========================================
+# LOGS Y TEMPORALES
+# ==========================================
+*.log
+tmp/

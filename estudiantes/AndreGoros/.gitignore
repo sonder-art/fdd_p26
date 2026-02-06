@@ -1,0 +1,25 @@
+# === Sistema (Windows/Mac/WSL2) ===
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+.fuse_hidden*
+
+# === Python (Caché y Entornos) ===
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+
+# === IDEs y Editores ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === Archivos de Datos (Recomendado para fdd_p26) ===
+*.log
+data/

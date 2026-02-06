@@ -40,6 +40,14 @@ Este es el módulo más importante para la logística del curso. Aquí aprender�
 4.  **[Cheatsheet de Comandos](./04_cheatsheet.md)**
     *   Lista rápida de comandos para copiar y pegar.
 
+### Contenido Técnico (Opcional pero Recomendado)
+
+5.  **[Arquitectura de Git](./07_arquitectura_git.md)**
+    *   Cómo funcionan los hashes SHA-1
+    *   Los 3 objetos: blob, tree, commit
+    *   Por qué Git es un DAG (Directed Acyclic Graph)
+    *   Conceptos aplicables a blockchain, IPFS, etc.
+
 ---
 
 ## Flujo de Entrega de Tareas

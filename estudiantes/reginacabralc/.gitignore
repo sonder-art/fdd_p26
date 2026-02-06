@@ -1,0 +1,79 @@
+### --- SYSTEM FILES (macOS) ---
+# Archivos específicos de Apple que no aportan nada al código
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+### --- PYTHON ---
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribución / Empaquetado
+bin/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Entornos virtuales (MUY IMPORTANTE)
+.venv/
+venv/
+ENV/
+env/
+pythonenv*/
+
+### --- DOCKER ---
+# Ignorar logs de contenedores y bases de datos locales
+.docker/
+nm-data/
+*.log
+
+### --- IDEs & EDITORS ---
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# PyCharm / IntelliJ
+.idea/
+
+### --- DATA & LOGS ---
+# Evitar subir datasets pesados o archivos temporales de bash
+*.log
+*.sqlite
+*.csv
+*.json
+# Si manejas archivos de datos específicos, podrías ignorar una carpeta entera:
+data_raw/
+temp/
+
+### --- SECURITY & ENV VARS ---
+# NUNCA subir credenciales
+.env
+.env.local
+.env.*.local
+.flaskenv
+secret.txt
+auth/
+

@@ -1,0 +1,57 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Entornos virtuales
+venv/
+.venv/
+env/
+ENV/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+
+# Archivos de testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =====================
+# Docker
+# =====================
+# Overrides locales
+docker-compose.override.yml
+
+# Volúmenes locales
+docker-data/
+data/
+
+# =====================
+# VS Code / Editores
+# =====================
+.vscode/
+*.swp
+*.swo
+
+# =====================
+# Linux / Sistema
+# =====================
+.DS_Store
+Thumbs.db
+*~
+.cache/
+
+# =====================
+# Logs
+# =====================
+*.log
+
+# =====================
+# Variables sensibles
+# =====================
+.env
+.env.*

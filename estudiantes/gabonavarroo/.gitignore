@@ -1,0 +1,196 @@
+# ============================================
+# GITIGNORE ROBUSTO PARA CURSO FDD_P26
+# Windows + WSL2 + Python + Docker
+# ============================================
+
+# ===== SISTEMA OPERATIVO =====
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# WSL2 específico
+.wslconfig
+.wsl/
+
+# macOS (por si colaboras con alguien en Mac)
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+
+# ===== PYTHON =====
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Entornos virtuales (nombres comunes)
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+virtualenv/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# ===== DOCKER =====
+# Archivos de entorno con secrets
+.env
+.env.local
+.env.*.local
+docker-compose.override.yml
+
+# Logs de Docker
+*.log
+
+# ===== IDEs y EDITORES =====
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ===== DATOS Y ARCHIVOS GRANDES =====
+# Datasets comunes (ajusta según necesites)
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.hdf5
+*.h5
+
+# Imágenes grandes (descomenta si aplica)
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+# *.bmp
+
+# Archivos comprimidos
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# PDFs generados (si no son entregas)
+# *.pdf
+
+# ===== ARCHIVOS TEMPORALES =====
+# Archivos temporales de bash/scripts
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Archivos de sistema
+.Trash-*
+
+# ===== CREDENCIALES Y SECRETOS =====
+# Archivos de configuración sensibles
+secrets.yaml
+secrets.json
+credentials.json
+.secrets
+*.pem
+*.key
+
+# API keys
+.api_keys
+api_keys.txt
+
+# ===== NODE.JS (por si usas herramientas JS) =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===== ESPECÍFICO DEL CURSO =====
+# NO ignorar tu carpeta personal (importante)
+!estudiantes/*/
+
+# Archivos de prueba personal que no quieras subir
+estudiantes/*/scratch/
+estudiantes/*/temp/
+estudiantes/*/playground/
+estudiantes/*/.DS_Store
+
+# ===== MISC =====
+# Backups de editores
+*.bak
+*~
+
+# Archivos de sistema
+*.swp
+*.swo
+.DS_Store

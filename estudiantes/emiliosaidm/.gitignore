@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon folders
+Icon
+
+# Thumbnails
+._*
+
+# Folder files
+.Spotlight-V100
+.Trashes
+
+# Network volume
+.apdisk
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.egg-info/
+.eggs/
+*.egg
+.ipynb_checkpoints/
+.env
+.venv/
+venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo

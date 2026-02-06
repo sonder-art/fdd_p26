@@ -1,0 +1,24 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+.uv/
+
+# --- Base de Datos y Docker ---
+# Ignora archivos de datos de MongoDB para que no pesen en GitHub
+data/db/
+*.log
+.docker/
+
+# --- Sistema (Windows/WSL) ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+
+# --- Archivos de configuración sensible ---
+.env

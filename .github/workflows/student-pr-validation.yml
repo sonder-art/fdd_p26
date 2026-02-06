@@ -55,18 +55,75 @@ jobs:
           echo "$CHANGED_FILES"
           echo ""
 
+          # Define forbidden files/patterns (OS and IDE junk)
+          # These are NEVER allowed, even in student's own directory
+          is_forbidden_file() {
+            local file="$1"
+            local basename=$(basename "$file")
+            
+            # macOS files
+            [[ "$basename" == ".DS_Store" ]] && return 0
+            [[ "$basename" == "._.DS_Store" ]] && return 0
+            [[ "$basename" == "._"* ]] && return 0  # macOS resource forks
+            [[ "$basename" == ".AppleDouble" ]] && return 0
+            [[ "$basename" == ".LSOverride" ]] && return 0
+            [[ "$basename" == ".Spotlight-V100" ]] && return 0
+            [[ "$basename" == ".Trashes" ]] && return 0
+            
+            # Windows files
+            [[ "$basename" == "Thumbs.db" ]] && return 0
+            [[ "$basename" == "Thumbs.db:encryptable" ]] && return 0
+            [[ "$basename" == "ehthumbs.db" ]] && return 0
+            [[ "$basename" == "Desktop.ini" ]] && return 0
+            
+            # IDE/Editor directories and files
+            [[ "$file" == *"/.idea/"* ]] && return 0
+            [[ "$file" == *"/.vscode/"* ]] && return 0
+            [[ "$file" == *"/.vs/"* ]] && return 0
+            [[ "$basename" == "*.swp" ]] && return 0
+            [[ "$basename" == "*.swo" ]] && return 0
+            [[ "$basename" == "*~" ]] && return 0
+            
+            # Python cache
+            [[ "$file" == *"/__pycache__/"* ]] && return 0
+            [[ "$basename" == "*.pyc" ]] && return 0
+            [[ "$basename" == "*.pyo" ]] && return 0
+            [[ "$file" == *"/.ipynb_checkpoints/"* ]] && return 0
+            
+            # Node
+            [[ "$file" == *"/node_modules/"* ]] && return 0
+            
+            # Environment files (security)
+            [[ "$basename" == ".env" ]] && return 0
+            [[ "$basename" == ".env.local" ]] && return 0
+            [[ "$basename" == ".env."* ]] && return 0
+            
+            return 1
+          }
+
           # Check each file
           INVALID_FILES=""
+          FORBIDDEN_FILES=""
           VALID_COUNT=0
           INVALID_COUNT=0
+          FORBIDDEN_COUNT=0
 
           while IFS= read -r file; do
             if [[ -z "$file" ]]; then
               continue
             fi
 
+            # First check if it's a forbidden file (never allowed anywhere)
+            if is_forbidden_file "$file"; then
+              echo "🚫 $file (archivo prohibido)"
+              FORBIDDEN_FILES="$FORBIDDEN_FILES\n  - $file"
+              ((FORBIDDEN_COUNT++))
+              continue
+            fi
+
             # Check if file is within allowed directory
-            if [[ "$file" == estudiantes/"$PR_AUTHOR"/* ]]; then
+            # Pattern: estudiantes/USERNAME/ or estudiantes/USERNAME/anything
+            if [[ "$file" =~ ^estudiantes/"$PR_AUTHOR"(/.*)?$ ]]; then
               echo "✅ $file"
               ((VALID_COUNT++))
             else
@@ -79,14 +136,35 @@ jobs:
           echo ""
           echo "=============================================="
 
+          # Handle forbidden files error
+          if [[ $FORBIDDEN_COUNT -gt 0 ]]; then
+            echo ""
+            echo "🚫 ERROR: ARCHIVOS PROHIBIDOS DETECTADOS"
+            echo ""
+            echo "Los siguientes archivos NO deben estar en el repositorio:"
+            echo -e "$FORBIDDEN_FILES"
+            echo ""
+            echo "Estos archivos son generados automaticamente por el sistema"
+            echo "operativo o tu IDE y no deben ser commiteados."
+            echo ""
+            echo "Para eliminarlos de tu commit:"
+            echo "  git rm --cached <archivo>"
+            echo "  git commit --amend"
+            echo ""
+            echo "Agrega un archivo .gitignore con estos patrones para evitar"
+            echo "commitearlos en el futuro."
+            echo ""
+          fi
+
+          # Handle invalid location error
           if [[ $INVALID_COUNT -gt 0 ]]; then
             echo ""
-            echo "❌ ERROR: CAMBIOS NO PERMITIDOS"
+            echo "❌ ERROR: CAMBIOS FUERA DE TU DIRECTORIO"
             echo ""
             echo "Solo puedes modificar archivos dentro de tu carpeta:"
             echo "  estudiantes/$PR_AUTHOR/"
             echo ""
-            echo "Archivos que NO puedes modificar:"
+            echo "Archivos en ubicaciones NO permitidas:"
             echo -e "$INVALID_FILES"
             echo ""
             echo "=============================================="
@@ -97,11 +175,15 @@ jobs:
             echo "3. Usa: git checkout main -- <archivo> para deshacer cambios"
             echo "4. Haz push de los cambios corregidos"
             echo ""
-            exit 1
-          else
-            echo ""
-            echo "✅ VALIDACION EXITOSA"
-            echo ""
-            echo "Todos los $VALID_COUNT archivo(s) estan en tu directorio permitido."
-            echo ""
           fi
+
+          # Exit with error if any issues found
+          if [[ $FORBIDDEN_COUNT -gt 0 || $INVALID_COUNT -gt 0 ]]; then
+            exit 1
+          fi
+
+          echo ""
+          echo "✅ VALIDACION EXITOSA"
+          echo ""
+          echo "Todos los $VALID_COUNT archivo(s) estan en tu directorio permitido."
+          echo ""

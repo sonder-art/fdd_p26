@@ -1,0 +1,40 @@
+=== NIVEL: Warmup (3) ===
+Regex usado: foo
+Explicación:
+	•	foo hace match con las cadenas que tengan foo
+Proceso de pensamiento:
+	•	Identifique que se repetia
+
+⸻
+
+=== NIVEL: Anchors (6) ===
+Regex usado: (ick)$
+Explicación:
+	•	(ick) busca la cadena ick.
+	•	$ pide ick esté al final de la palabra.
+Proceso de pensamiento:
+	•	Vi que todas las que me pedian terminaban en ick
+
+⸻
+
+=== NIVEL: It never ends (14) ===
+Regex usado: ^(?!.*i)(?!.*z).*fu
+Explicación:
+	•	^ inicio de la cadena.
+		•	(?!.*i) no deja que haya i
+		•	(?!.*z) no deja que haya z
+	•	.*fu exige que aparezca fu en algún lugar.
+Proceso de pensamiento:
+	•	vi que los que queria tenian fu en alguna parte, y los que no queria tenian i o z
+
+⸻
+
+=== NIVEL: Backrefs (19) ===
+Regex usado: ^(.{2}).*\1(?!.*ys)
+Explicación:
+	•	^ inicio.
+	•	(.{2}) captura los primeros 2 caracteres (cualquier par).
+	•	.*\1 exige que ese mismo par capturado aparezca otra vez más adelante.
+	•	(?!.*ys) prohíbe que la cadena contenga ys en cualquier parte 
+Proceso de pensamiento:
+	•	vi el patrón los primeros 2 caracteres se repiten” luego agregué una exclusión 

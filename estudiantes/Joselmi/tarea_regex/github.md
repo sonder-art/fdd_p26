@@ -7,10 +7,10 @@
 
 Las explicaciones están en regex_golf.txt
 
-![Nivel 1(./Warmup.png)
+![Nivel 1](./Warmup.png)
 
-![Nivel 2(./Anchors.png)
+![Nivel 2](./Anchors.png)
 
-![Nivel 3(./Golf.png)
+![Nivel 3](./Golf.png)
 
-![Nivel 4(./Backrefs.png)
+![Nivel 4](./Backrefs.png)

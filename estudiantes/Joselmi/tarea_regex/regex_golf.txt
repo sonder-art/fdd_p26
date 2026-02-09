@@ -1,0 +1,22 @@
+=== NIVEL: [Warmup] ===
+Regex usado: foo
+Explicación: Esto busca que la cadena “foo” esté literalmente dentro de la palabra. 
+Proceso de pensamiento: Todas las palabras que me pedían tenían la secuencias “fool” o “foot”, las cuales tienen en común la subcadena “foo”. Además, ninguna de las palabras que no debían aceptarse contenía esta secuencia. 
+
+=== NIVEL: [Anchors] ===
+Regex usado:  .*ck$
+Explicación: .* permite que pueda haber cero o más caracteres antes del final de la cadena. Luego, ck hace que después de dichas cadenas tenga que aparecer literalmente “ck” y $ lo que hace es marcar el final de la línea, asegurando que no haya caracteres después. 
+Proceso de pensamiento: Todas las palabras que se debían aceptar terminaban en “ck”, por lo que era necesario usar el $ para garantizar que esa secuencia apareciera al final.
+
+=== NIVEL: [It never ends] ===
+Regex usado:  .+fu|\bfu\b
+Explicación: Básicamente hay dos casos de aceptación, que se separan por “|”, el cuál funciona como un “or”.
+•	Primera parte ( .+fu):  .+ obliga a que exista al menos un carácter antes de “fu”. 
+•	Segunda parte: Como uno de los casos de aceptación solo era “fu” y como no podía utilizar $, utilice \b para marcar el límite de palabra y asegurar que no haya caracteres adicionales. 
+Proceso de pensamiento: Las palabras que tenía que aceptar terminaban en fu, mientras de las que debía rechazar comenzaban con fu. Por ello, tuve que garantizar que antes de “fu” hubiera al menos un carácter cualquiera, sin dejar fuera el caso particular en el que fu es la palabra completa.
+
+=== NIVEL: [Backrefs] ===
+Regex usado: ([a-z]{3,4}).*\1
+Explicación: [a-z] indica que cada posición puede ser cualquiera de las letras entre a y z. Mientras que {3,4} indica que debe ser una combinación con longitud entre 3 y 4 de los caracteres especificados antes. Luego, .* indica que puede tener cero o más caracteres después de la cadena obtenida. Finalmente \1 exige que vuelva a aparecer exactamente la misma subcadena más adelante; cabe recalcar que al utilizar un LLM para ver por qué me macheaba todo con (([a-z]{3,4}).*){2} me explicó que para que REGIX sepa que es la misma cadena se utiliza \1.
+Proceso de pensamiento: Todas las palabras tenían sus primeros 3 o 4 caracteres repetidos dentro de la misma palabra en diferentes posiciones. Entonces, lo que quería era lograr que leyera la misma subcadena dos veces en la misma palabra.
+

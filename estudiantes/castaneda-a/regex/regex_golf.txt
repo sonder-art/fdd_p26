@@ -1,0 +1,37 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: al escribir "foo", busca todos los caracteres que tengan ese string.
+Proceso de pensamiento: empecé a probar cosas basicas como escribir grep, pero luego vi que solamente con escribir el comando directo reaccionaba.
+
+
+
+
+
+=== NIVEL: Anchors ===
+Regex usado: ick$
+Explicación: el $ es el marcador para que lo de la izquierda venga al final de la frase.
+Proceso de pensamiento: Leí la información de regex en la página de sonder art, y al llegar a la explicación de $, fue inmediato.
+
+
+
+
+
+=== NIVEL: It never ends ===
+Regex usado: fu\b
+Explicación: \b checa que haya un espacio despues de la cadena fu.
+Proceso de pensamiento: Primero, pensé en hacer algo como([a-z]fu)|[algo que incluya solo al fu], pero era muy complejo. Despues de cavar un poco, encontre ese util comando.
+
+
+
+
+
+=== NIVEL: Backrefs ===
+Regex usado: (\w{3}).*\1
+Explicación: \w{3} captura exactamente 3 caracteres del tipo palabra. Despues, .* hace que le sigan cualquier caracter y cualquier cantidad. Al final, \1 referencia el grupo que capturo al inicio.
+Proceso de pensamiento: Me costó trabajo, pero finalmente vi que el patrón es que las palabras tienen cadenas de 3 letras que se repiten 2 veces. Pense en agrupar las palabras, luego de seguirlas con cualquier caracter hasta que encuentre el mismo grupo de antes.
+
+
+
+
+
+

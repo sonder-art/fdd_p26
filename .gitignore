@@ -1,4 +1,11 @@
-# Byte-compiled / optimized / DLL files
+# macOS
+.DS_Store
+
+# Archivos temporales
+*~
+
+# Logs
+*.log# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class

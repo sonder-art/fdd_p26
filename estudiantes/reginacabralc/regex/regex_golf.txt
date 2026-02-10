@@ -1,0 +1,22 @@
+Regina Cabral Corres
+218796
+
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: busca exactamente la secuencia foo
+Proceso de pensamiento: Empecé buscando foot, me di cuenta que me faltaban palabras que debían coincidir, noté que TODAS incluían la secuencia foo
+
+=== NIVEL: Anchors ===
+Regex usado: ick$
+Explicación: busca ick al final de la línea con $
+Proceso de pensamiento: noté que todas las palabras con las que debía coincidir terminaban en “ick”, entonces use el símbolo para fin de línea
+
+=== NIVEL: It never ends ===
+Regex usado: [a-z]*fu\b
+Explicación: Permite uno o más caracteres (con *) entre a-z (con [a-z] y luego la secuencia fu y limita la palabra (con \b)
+Proceso de pensamiento: primero intente con [a-z]*fu pero eso me arrojó 3 palabras de las prohibidas (“futz”, “fusillade”, “functional”), noté así que me faltaba limitar que no tuviera nada después de fu, por lo que agregué el \b que indica límite de palabra (recordaba haberlo escuchado y lo encontré en el recurso dado por la página de la clase https://quickref.me/regex)
+
+=== NIVEL: Backrefs ===
+Regex usado: (...).*\1
+Explicación: Primero pide 3 caracteres cualquiera (con (...)). Luego pide cualquier carácter cero o más veces (con .*). Finalmente pide que se repita la secuencia de 3 caracteres (con \1).
+Proceso de pensamiento: Noté que todas las palabras requeridas repetían un patrón dentro de sí misma, es decir galagala (“gala” 2 veces) o allochirally (“all” 2 veces) y vi que todos los patrones eran de 3 caracteres y que siempre estaba el patrón al principio del String. De nuevo, con https://quickref.me/regex confirme que \1 obligaba a repetir el primer patrón

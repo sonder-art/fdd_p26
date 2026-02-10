@@ -1,0 +1,85 @@
+Bandit 6-10 José Malfavaun 213398
+
+Nivel 6 a 7
+1. ¿Qué necesito hacer?
+Ocupamos encontrar la contraseña q pertenece al usuario bandit7, al grupo bandit6 y que es de 33 bytes
+2. ¿Qué comando(s) creo que necesito?
+Ocupamos find para encontrar el archivo con esas características (usuario, el grupo y el tamaño), después usamos cat para leer ese archivo y así tener la contraseña
+3. ¿Dónde busqué información?
+https://stackoverflow.com/questions
+https://explainshell.com/explain?cmd=find
+4. Comandos que ejecuté:
+$ whoami
+$ ls
+$ find / -type f -user bandit7 -group bandit6 -size 33c
+$ cat /var/lib/dpkg/info/bandit7.password
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Busque cómo usar el find con 3 parámetros y encontré que funciona así: (-type f, -user, -group y -size); desp aparecían muchos mensajes que decían permission denied pero entre ellos estaba la contraseña; use cat para leerlo y ya me dio la contraseña
+
+
+Nivel 7 a 8
+1. ¿Qué necesito hacer?
+Ocupamos encontrar la contraseña q está dentro del archivo data.txt, nos especifica q en la línea donde aparece la palabra millionth
+
+2. ¿Qué comando(s) creo que necesito?
+Ocupamos grep para buscar una secuencia específica de texto, tons no podemos usar find
+3. ¿Dónde busqué información?
+https://stackoverflow.com/questions
+https://explainshell.com/explain?cmd=find
+4. Comandos que ejecuté:
+$ whoami
+$ ls (pa ver q si esta el data.txt y no está escondido o algo)
+$ grep millionth data.txt (ya este me regresa la línea completa donde aparece millionth y ahí está la contraseña)
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sabía q find no serviría y q se tenía q hacer de otra manera, busque cómo encontrar por palabra y vi q era con grep y con eso cómo utilizarla, y como ya este me regresaba la contraseña ya no usamos cat
+
+
+Nivel 8 a 9
+1. ¿Qué necesito hacer?
+Ocupamos encontrar la contraseña dentro del archivo data.txt, este tiene muchas líneas y todas se repiten menos una y esa es la contraseña
+2. ¿Qué comando(s) creo que necesito?
+sort para ordenar las líneas dle archivo, uniq para identificar la línea q queremos (este comando identifica las líneas repetidas o las únicas)
+3. ¿Dónde busqué información?
+https://stackoverflow.com/questions
+https://explainshell.com/explain?cmd=find
+4. Comandos que ejecuté:
+$ whoami
+$ ls
+$ sort data.txt | uniq -u
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Al inicio estaba perdido pq ambos comandos no los he practicado, entonces se q tenia q usar un comando que me identificara las líneas únicas (igual use -u para q me regresara solo las únicas), pero no funcionaba si solo ponía eso; tras darle muchas vueltas vi q tenia q ordenar la línea y asi llegue a q tenía q usar sort
+
+
+Nivel 9 a 10
+1. ¿Qué necesito hacer?
+Ocupamos encontrar la contraseña igual dentro de data.txt pero ahora tiene binarios
+2. ¿Qué comando(s) creo que necesito?
+string para sacar los textos legibles en mi archivo d binarios y grep para filtrar las líneas q tienen el carácter =
+3. ¿Dónde busqué información?
+https://stackoverflow.com/questions
+https://explainshell.com/explain?cmd=find
+4. Comandos que ejecuté:
+$ whoami
+$ ls
+$ strings data.txt
+$ strings data.txt | grep =
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Al inicio no, el overthewire t sugiere usar varios comandos y tras ver todos vi q strings me servía para ver lo legible en un archivo d binarios, pero no vi muchas líneas, entonces vi q teníamos q filtrar por el carácter = y así ya encontre la contraseña
+
+
+Nivel 10 a 11
+1. ¿Qué necesito hacer?
+Ocupamos encontrar la contraseña en un archivo codificado en Base64 y hay de decodificarlo
+2. ¿Qué comando(s) creo que necesito?
+Ocupamos el comando base64 para decodificarlo
+3. ¿Dónde busqué información?
+man base64
+https://stackoverflow.com/questions
+https://explainshell.com/explain?cmd=find
+4. Comandos que ejecuté:
+$ whoami
+$ ls
+$ base64 data.txt
+$ base64 -d data.txt
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Más o menos, busque como usar el comando base64, pero no funciono pq faltaba ponerle -d para q decodificarlo; sino tenía -d codifica

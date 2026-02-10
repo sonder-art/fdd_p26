@@ -1,0 +1,19 @@
+=== NIVEL: warmup ===
+Regex usado: Al inicio le ponía grep ".*foo.*", pero después vi que no se ponía grep por lo que puse .*foo.*
+Explicación: [qué hace cada parte del regex] .* lo que hace es agarrar cualquier cosa antes de foo y cualquier cosa después de foo
+Proceso de pensamiento: [cómo llegaste a ese regex] Dado que quiero cualquier cosa antes de foo, se le pone .*, pues con .+ espera al menos un carcater después
+
+=== NIVEL: Anchors ===
+Regex usado: .*ick$
+Explicación: [qué hace cada parte del regex] .* lo que hace es agarrar cualquier cosa antes de ick, pero termina con ea combinación, por lo que se pone $ para marcar el fin de lo que se busca
+Proceso de pensamiento: [cómo llegaste a ese regex] Dado que quiero cualquier cosa antes de ick, se le pone .*, pues con .+ espera al menos un carcater después (que en este caso también aplica) y quiero que ick sea la ultima cadena de la palabra
+
+=== NIVEL: It never ends ===
+Regex usado: .*fu(?!.)
+Explicación: [qué hace cada parte del regex] .* lo que hace es agarrar cualquier cosa antes de fu, pero termina con fu. Sin poder usar $ debo de marcar que ya es lo último, cosa que (?!.) que lo que haces que niega que pueda haber lo que sigue de !, pero quiero que sea al menos 1 cosa cualquiera, y con . lo logro
+Proceso de pensamiento: [cómo llegaste a ese regex] Sabía que quería que hubiera algo o no antes de fu, de manera que .*fu cubre eso. Dado que no podía utilizar $, mi primer intento fue voy a negar que se pueda poner cualquier cosa después. Encontré que (?!PATRON) hace que no haya lo que describas en PATRON, y quería al menos una cosa y . lo representa bien por que es al menos un caracter cualquiera
+
+=== NIVEL: Backrefs ===
+Regex usado: ^un[dt]|s[a]|^p[ehu]|^[lmteb]|^f[ru]|^he|^ca|.*g$|.*(la)$|.*(lly)$
+Explicación: [qué hace cada parte del regex] Dado que no encontré un patrón lo que hice fue poner | para hacer todos los casos en los que las palabras de la izquierda tuvieran la forma que ponía entre cada | y evitaba que los de la derecha se colaran
+Proceso de pensamiento: [cómo llegaste a ese regex] No encontré un patrón general, entonces, busqué patrones individuales de manera que los pudiera unir con |

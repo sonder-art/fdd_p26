@@ -1,0 +1,46 @@
+Damian Gallardo
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación:
+foo = busca la subcadena “foo” en cualquier parte de la palabra.
+
+
+Proceso de pensamiento:
+Vi que todas las palabras buenas contenían “foo”y las malas no lo tenían. Entonces lo más directo era buscar esa subcadena tal cual, sin nada extra
+=== NIVEL: Anchors ===
+Regex usado: ick$
+Explicación:
+ick = coincide con esas letras exactas.
+
+
+$ = ancla de fin de línea/palabra 
+Proceso de pensamiento:
+Noté que las palabras correctas terminaban en “ick”, mientras que las incorrectas a veces lo tenían en medio, pero no al final. Así que usé el fin de línea con $ para forzar “ick al final”.
+=== NIVEL: It never ends ===
+Regex usado: fu\b
+Explicación:
+fu = coincide con “fu”.
+
+
+\b = límite de palabra (termina la palabra ahí).
+
+
+Proceso de pensamiento:
+El nivel no permite $, pero el patrón era el mismo: las correctas terminan en “fu” y las incorrectas siguen con letras. Entonces en vez de $ usé \b, que también me asegura que “fu” quede justo al final de la palabra
+=== NIVEL: Backrefs ===
+Regex usado: (...).*\1
+Explicación:
+( ... ) = captura 3 caracteres seguidos (un “bloque” de 3 letras).
+
+
+.* = cualquier cosa en medio (cualquier cantidad de caracteres).
+
+
+\1 = vuelve a aparecer exactamente lo que capturé en el primer grupo.
+
+
+Proceso de pensamiento:
+Primero pensé en repetir 2 letras, pero eso daba falsos positivos. Al ver las buenas, noté que lo que realmente se repetía era un bloque más “fuerte”, de 3 letras. Por eso capturé 3 caracteres y exigí que se repitieran con el backreference \1.
+
+
+

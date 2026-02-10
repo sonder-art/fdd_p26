@@ -1,0 +1,38 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: Busca la cadena "foo".
+Proceso de pensamiento: Me inspiré en la parte de REGLA del apartado
+	de la tarea.
+
+=== NIVEL: Anchors ===
+Regex usado: ick$      
+Explicación: Verficia que el final de las palabras sea "ick".         
+Proceso de pensamiento: Todas las palabras deseadas terminan 
+	con "ick", entonces queremos verificar que después de 
+	"ick" ya no hayan carácateres.
+
+=== NIVEL: It never ends ===
+Regex usado: fu(?![a-z])       
+Explicación: La cadena busca la cadena literal "fu" y después
+	se usa el negative look-ahead para verficar que no haya
+	más letras: cumple la función del $.         
+Proceso de pensamiento: Similar al anterior, aunque hubo que
+	probar muchas cosas para intentar sustituir al símbolo de
+	$.
+
+=== NIVEL: Ranges ===
+Regex usado: ^[a-f]{1,6}$
+Explicación: La expresíon busca cadenas de longitud entre uno y 
+	seis que contengan únicamente letras entre la a y la f.
+Proceso de pensamiento: Noté que las palabrasque queríamos solo
+	tenían letras entre la a y la f, entonces busqué una manera
+	de quitar las cadenas con letras fuera de ese rango.
+
+=== NIVEL: Backrefs ===
+Regex usado: ([a-z]{3}).*\1
+Explicación: La expresión genera un grupo de tres letras, luego considera
+	cualquier símbolo, y después verifica si se repiten el patrón 
+	guardado por el primer grupo.
+Proceso de pensamiento: Noté que las palabras deseadas cumplían que la 
+	secuencia de las primeras tes letras se volvía a repetir en 
+	 algún punto de la palabra. 

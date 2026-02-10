@@ -1,0 +1,19 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: el "foo" lo que hace es que agarra y regresa todos los renglones donde en alguna parte del renglón se matchee este patrón. En cualquier parte donde salga un foo, el regex lo aprueba.
+Proceso de pensamiento: Pensé en que justamente se tenía que aprobar cada renglón donde "foo" se cumpliera, entonces pues simplemente escribí
+ 
+=== NIVEL: Anchors===
+Regex usado: ick$
+Explicación: lo que revisa es que llegue a la secuencia ick e inmediatamente después llegue al final de la cadena. Es como si revisara que ick estuviera al final, pero mas bien ve los caracteres literales y después de eso solo checa que ya no sigan más.
+Proceso de pensamiento: Vi el patrón de las palabras que tenia que matchear y después de eso pensé en que cada una de ellas termina en ick.
+ 
+=== NIVEL: It never ends ===
+Regex usado: fu\b
+Explicación: lo que hace es que busca los caracteres literales "fu" y después lo que marca el \b es el límite de palabra.
+Proceso de pensamiento: Sabía que tenía que encontrar el regex que permitiera que fu estuviera al final de la línea pero al no haber $ no sabía que usar. Probé \b porque pensé que capaz aplicaba lo mismo que con $, pues estaría en el final porque ahí se iba a encontrar el límite de la palabra analizada. Funcionó.
+ 
+=== NIVEL: Backrefs===
+Regex usado: (…).*\1
+Explicación: lo que hace es que concatena en un grupo a los tres primeros caracteres de la palabra (pueden ser los que sean). Después de eso puede haber diversos caracteres sin importar cuales son siempre y cuando al final se repita el primer trío. Revisar que se repita se logra con \1, que llama al primer grupo que había generado con el (…).
+Proceso de pensamiento: Me di cuenta de que las palabras que tenía que aprobar tenían en común que repitieran las primeras tres letras después. Por lo tanto, busqué como guardar los caracteres de una palabra y después como hacer referencia a esos grupos guardados. Funcionó.

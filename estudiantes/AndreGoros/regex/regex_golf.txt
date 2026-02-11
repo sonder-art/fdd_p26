@@ -1,0 +1,18 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: busca la cadena f-o-o
+Proceso de pensamiento: Me di cuenta que todos los que había que cumplir decían %foo% y los otros no
+=== NIVEL: Anchors ===
+Regex usado: ick$ / k$
+Explicación: $ para señalar que es la terminación de la cadena
+Proceso de pensamiento: en un inicio me di cuenta que todos acaban en ick, pero luego vi que podia simplificarse solo a terminación k
+
+=== NIVEL: It never ends ===
+Regex usado: fu\b
+Explicación: \b checa que después de la cadena le siga un espacio vacío/limite (word boundary)
+Proceso de pensamiento: Después de la fu ya no hay mas. Había pensado en usar $, pero este estaba prohibido así que busque comandos útiles para regex.
+
+=== NIVEL: Backrefs ===
+Regex usado: (\w{3}).*\1
+Explicación: busca una coincidencia de tres caracteres y la almacenara, después habrá n cantidad de caracteres cualesquiera en medio y les seguirá exactamente la misma cadena de tres caracteres
+Proceso de pensamiento: Note que habían grupos de tres o mas letras que se repetían dentro de una misma cadena. Por ello busque cual era la forma de encontrar subcadenas con algún tipo de patron y me encontré con la retro referencia (\w+).*\1

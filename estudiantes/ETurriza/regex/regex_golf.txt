@@ -1,0 +1,10 @@
+# Regex Golf
+**Estudiante:** Eduardo Turriza
+**Fecha:** 2026-02-10
+
+## Evidencia
+
+![Warmup](./warmup.png)
+![Anchors](./anchors.png)
+![It never ends](./it_never_ends.png)
+![Backrefs](./backrefs.png)

@@ -1,0 +1,19 @@
+Nivel: Warmup
+Regex usado: foo
+Explicación: Para este simplemente busca foo
+Proceso de pensamiento: Me di cuenta que ninguna de las palabras de la columna derecha tiene foo
+
+Nivel: Anchors
+Regex usado: ick$
+Explicación: El $ indica que la palabra necesariamente tiene que terminar con $
+Proceso de pensamiento: Me di cuenta que ninguna de las palabras de la columna derecha terminan con $, entonces esa fue la forma más intuitiva de filtrarlas
+
+Nivel: It never ends
+Regex usado: fu\b
+Explicación: \b indica final, entonces le estamos diciendo a regex que queremos que nuestra palabra termine necesariamente con fu
+Proceso de pensamiento: Mi problema principal fue que en este nivel no se podía utilizar $ para indicar final, en su lugar utilizamos \b que indica límite de palabra. 
+
+Nivel: Backrefs
+Regexs usado: (…).*\1
+Explicación: (…) indica una cadena con tres caracteres, .* indica cualquier elemento repetido cualquier cantidad de veces y finalmente que la cadena del principio se repita una sola vez
+Proceso de pensamiento: Al inicio pensé que el truco se encontraba en las vocales, después me di cuenta que todas las palabras de la columna izquierda repetían cadenas de tres caracteres en todos los escenarios, por lo que ese fue el filtro final

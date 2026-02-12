@@ -1,0 +1,34 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+
+Explicación: solo es una cadena de caracteres específicos, entonces solo tiene que encontrar al menos una coincidencia con ella.
+
+Proceso de pensamiento: pues primero vi que todas las del lado izquierdo tenían doble "o" pero vi que había una del lado derecho que también lo tenia. Después simplemente me di cuenta que en vez de "oo" debía ser "foo" porque coincidía con todas del lado izquierdo y ninguna del derecho.
+
+=== NIVEL: Anchors ===
+Regex usado: .*ick$
+
+Explicación: el .* permite que del lado izquierdo de la palabra haya cualquier cosa 0 o más veces; esto va seguido del "ick" que hace que busque exactamente esas 3 letras juntas dentro de la palabra; por último el $ sirve para decir que ahí se termina la linea. Entonces todo junto deben incluir solo las palabras que terminan con "ick".
+
+Proceso de pensamiento: vi que en ambas columnas de palabras utilizaba dentro de la palabra "ick" pero la columna izquierda solo lo usaba el "ick" al final de la palabra. Al inicio creí que se podía solo con *ick pero me di cuenta que me faltaba el punto antes del *. Pero aún no quedaba al 100, pues me faltaba especificar que así debía terminar la palabra y entonces metí el $. De hecho ya viéndolo bien en realidad solo necesitaba ick$.
+
+
+=== NIVEL: It never ends ===
+Regex usado:fu(?![a-z])
+
+Explicación: busca un "fu" y pide que lo que venga después no sea ninguna otra letra minúscula.
+
+Proceso de pensamiento: la verdad me costó bastante. Hice varios intentos hasta que repasando la presentación vi el ?! y lo traté de implementar pero pensé que no me estaba sirviendo hasta que le pregunté a chat cómo se utiliza y ya comprendí mi error y era que no estaba utilizándolo dentro de paréntesis.
+
+
+=== NIVEL: Backrefs ===
+Regex usado: ([a-z]{3}).*\1
+
+Explicación: ([a-z]{3}) guarda 3 letras consecutivas en un grupo; el .* permite que pueda hacer cualquier cosa en medio y \1 pide que vuelva a aparecer el grupo creado.
+
+Proceso de pensamiento: la verdad  encontrar el patrón no me tomó tanto tiempo, pero crear el regex si me costo muchísimo porque no sabía hacer varias cosas de las que usé. Primero tuve que buscar cómo agrupar 3 caracteres juntos (pensé que era de 2 pero luego vi que había una palabra de la columna derecha que aún la contaba y fue cuando me di cuenta que debía agrupar 3 caracteres). La solución no estaba tan complicada pero no se me había ocurrido. Lo difícil fue hacer que el regex pidiera que se repitiera ese grupo de 3 caracteres pero busqué cómo se hacía y lo usé.
+
+
+
+
+

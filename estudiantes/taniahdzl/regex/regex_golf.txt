@@ -1,0 +1,45 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: todas las palabras tenían "foo" en ellas, por lo que fui literal al buscar tal cual ese patrón
+Proceso de pensamiento:
+ 1) [a-z]: buscaba las palabras sin mayúsculas pero aún habían minúsculas que no debían hacer match
+ 2) Se buscaron patrones en la segunda letra con "a" y "o"
+ 3) Me di cuenta de que había tal cual un patrón en "foo"
+ 
+=== NIVEL: Anchors === 
+Regex usado: .ick$
+Explicación: busco las palabras que terminen en "ick" sin importar cómo empiecen
+Proceso de pensamiento: 
+ 1) Dado el nivel pasado, busqué un patrón en las palabras que era "ick" 
+ 2) Todas las palabras tenían este patrón, pero queríamos las que terminaran en "ick"
+ 3) Como no importaba cómo comenzara la palabra, se usó ".ick"
+ 4) Para indicar que quería que la palabra tuviera esa terminación se agregó "$"
+
+=== NIVEL: It never ends ===
+Regex usado: fu\b
+Explicación: Busca las palabras que tengan el patrón "fu" y en cuanto termine, le indica con \b que es el límite de la palabra
+Proceso de pensamiento: 
+ 1) El patrón era "fu" al final de la palabra pero no se podía usar $
+ 2) Intenté usar .fu pero no tomaba a "fu" en sí
+ 3) Al ver que las palabras eran específicas, intenté usar .?fu | tofu | snafu sin éxito
+ 4) Al investigar, vi que otra manera de limitar la búsqueda era con \b, por lo que usé fu\b
+
+=== NIVEL: Ranges ===
+Regex usado: ^[abcdef]+$
+Explicación: Busca las palabras que comiencen con las letras en el conjunto y deja que estén repetidas varias veces sin otra cosa al final. 
+Proceso de pensamiento: 
+ 1) Quería hacer una lista con las letras que sí quería menos las que no quería: [a,b,c,d,e,f]+[^m,n,p,u,r,t,y,x,z]
+ 2) Aún agarraba palabras que no quería, por lo que intenté [a,b,c,d,e,f]+ sin éxito
+ 3) Le agregué $ al final para reducir las opciones, pero había que ser específica con el principio de la palabra
+ 4) Al agregar ^para indicar que comenzara con una letra en el conjunto se eligieron las palabras específicas
+
+=== NIVEL: Backrefs ===
+Regex usado: (...).*\1
+Explicación: Toma las primeras 3 letras, deja que haya lo que sea de por medio y busca su repetido 1 vez
+Proceso de pensamiento: 
+ 1) Comencé por [a-z] y a{2,} para descartar patrones de una sola letra o mayúsculas
+ 2) Al darme cuenta de que se repetían las primeras 3 letras, investigué cómo se usaba buscar patrones y encontré (...)
+ 3) Intenté (...)* pero sólo tomaba las últimas tres letras en vez de las primeras 
+ 4) Investigué cómo repetir el primer patrón al menos una vez y encontré el \1
+ 5) Dejar (...)*\1 únicamente tomaba los patrones seguidos
+ 6) Al poner (...).*\1 ya dejaba letras de por medio entre el patrón repetido

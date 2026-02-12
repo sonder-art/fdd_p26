@@ -1,0 +1,62 @@
+=== NIVEL 6-> 7===
+1. ¿Qué necesito hacer? Encontrar el archivo que cumple con las tres condiciones descritas: 
+2. ¿Qué comando(s) creo que necesito? ls, find, cd y pwd
+3. ¿Dónde busqué información? google
+4. Comandos que ejecuté:
+   $ ls ./* -lR | grep "bandit7 bandit6"
+   $ ls ./* -lR | grep "bandit7 bandit6" | -v "Permission"
+5. ¿Funcionó? Si no, ¿qué ajusté?
+No porque me estaba dando los mensajes de todos los errores, después tuve que agregar 2>&1 para que el stderror lo filtrara y lo hiciera std output y filtrarlo con grep.
+Me quedó así
+ls ./* -lR 2>&1 | grep "bandit7 bandit6"| grep -v "Permission"
+Me dio el nombre: "bandit7.password"
+Ejecuté: find -name "bandit7.password" | grep -v "Permission" y me seguían apareciendo los denegados
+Así que hice esto: find -name "bandit7.password" 2>&1 | grep -v "Permission"
+y al final para leer la contraseña cat $(find -name "bandit7.password" 2>&1 | grep -v "Permission")
+
+PW6: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+=== NIVEL 7->8 ===
+1. ¿Qué necesito hacer? Buscar la palabra millionth
+2. ¿Qué comando(s) creo que necesito? cat y grep
+3. ¿Dónde busqué información? no oucpé información
+4. Comandos que ejecuté:
+   $ fcat data.txt | grep "millionth"
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí
+
+PW7: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+=== NIVEL 8->9 ===
+1. ¿Qué necesito hacer? Buscar aquella línea que no esté repetida
+2. ¿Qué comando(s) creo que necesito? uniq y cat
+3. ¿Dónde busqué información? man
+4. Comandos que ejecuté:
+   $ cat data.txt | uniq -u
+5. ¿Funcionó? Si no, ¿qué ajusté?
+No, decía que -u solo borraba aquellos que eran adyacentes, por eso los tenías que ordenar con sort y quedaba: sor data.txt | uni -u
+
+PW8: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+=== NIVEL 9->10 ===
+1. ¿Qué necesito hacer? Buscar aquella línea que está a lado de "...==..." y que es human readable
+2. ¿Qué comando(s) creo que necesito? grep cat
+3. ¿Dónde busqué información? man grep
+4. Comandos que ejecuté:
+   $ cat data.txt | grep -P "==.*[a-z]"
+5. ¿Funcionó? Si no, ¿qué ajusté?
+No, me marcaba error de grep porque estaba usando binary file de Type, por lo que tenía que buscar aquellos que solo eran tipo texto
+cat data.txt | grep --binary-files=text -Pi "==.*[a-z]"
+
+PW9: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+=== NIVEL 10->11 ===
+1. ¿Qué necesito hacer? Decodificar la información en base64
+2. ¿Qué comando(s) creo que necesito? base64
+3. ¿Dónde busqué información? man base64
+4. Comandos que ejecuté:
+   $ cat data.txt | base64 -d
+5. ¿Funcionó? Si no, ¿qué ajusté?
+Sí
+
+PW10: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr

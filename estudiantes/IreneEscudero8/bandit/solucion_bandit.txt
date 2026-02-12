@@ -1,0 +1,102 @@
+Irene Escudero Cazarez
+000215698
+
+
+=== NIVEL 0 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+   Conectarme al juego a traves de mi terminal
+2. ¿Qué comando(s) creo que necesito?
+   ssh 
+3. ¿Dónde busqué información? (link o man page)
+   https://itsfoss.com/ssh-to-port/
+4. Comandos que ejecuté:
+   $ ssh -p 2220 bandit0@bandit.labs.overthewire.org
+   $ contrasenya: bandit0
+5. ¿Funcionó? Si, ¿qué ajusté? nada
+
+
+=== NIVEL 1 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+   abrir el readme
+2. ¿Qué comando(s) creo que necesito?
+   cat y ls
+3. ¿Dónde busqué información? (link o man page)
+   Notas del curso
+4. Comandos que ejecuté:
+   $ ls y ya que vi el readme
+   $ cat readme
+5. ¿Funcionó? Si, ¿qué ajusté? nada
+   ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+
+=== NIVEL 2 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+   abrir el documento llamado "-" sin que la terminal se confunda
+2. ¿Qué comando(s) creo que necesito?
+   cat
+3. ¿Dónde busqué información? (link o man page)
+   https://stackoverflow.com/questions/42187323/how-to-open-a-dashed-filename-using-terminal
+4. Comandos que ejecuté:
+   $ ls
+   $ cat ./-
+5. ¿Funcionó? Si, ¿qué ajusté? Nada
+   263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+
+=== NIVEL 3 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+   abrir el documento llamado "--spaces in this filename--" sin que la terminal se confunda
+2. ¿Qué comando(s) creo que necesito? cat
+3. ¿Dónde busqué información? (link o man page)
+   Logica
+4. Comandos que ejecuté:
+   $ ls
+   $ cat ./-TAB que me autocompleto: cat ./--spaces\ in\ this\ filename--
+5. ¿Funcionó? Si, ¿qué ajusté? Nada
+   MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+
+=== NIVEL 4 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+abrir un archive oculto, entonces empezara con un punto
+2. ¿Qué comando(s) creo que necesito?
+   cat y ls -a 
+3. ¿Dónde busqué información? (link o man page)
+   Notas de clase
+4. Comandos que ejecuté:
+   $ ls
+   $ cd inhere/.TAB y autocompleto: cat inhere/...Hiding-From-You
+5. ¿Funcionó? Si, ¿qué ajusté? Nada
+   2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+
+=== NIVEL 5 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+   abrir un archivo en la carpeta inhere, que es el unico que si esta en numeros y letras
+2. ¿Qué comando(s) creo que necesito?
+   cd y cat
+3. ¿Dónde busqué información? (link o man page)
+   Notas de clase
+4. Comandos que ejecuté:
+   $ cd inhere
+   $ ls -a me aparecieron varios archivos
+   $ cat ./-file0X intente todos hasta que el 7 dio la contrasenya
+5. ¿Funcionó? Si, ¿qué ajusté? Nada
+  4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+
+=== NIVEL 6 ===
+1. ¿Qué necesito hacer? (en tus palabras)
+   Encontrar l rchivo que cumpla esas condiciones
+2. ¿Qué comando(s) creo que necesito?
+   find, ls, cat y cd
+3. ¿Dónde busqué información? (link o man page)
+   https://linuxize.com/post/how-to-find-files-in-linux-using-the-command-line/
+4. Comandos que ejecuté:
+   $ cd inhere
+   $ ls
+   $ find . -size 1033c obtenemos: ./maybehere07/.file2
+   $ cat ./maybehere07/.file2
+5. ¿Funcionó? Si, ¿qué ajusté? El punto al inicio
+  HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+ 

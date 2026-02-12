@@ -1,0 +1,24 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: busca las palabras que contengan ese patron
+Proceso de pensamiento: las palabras de la izquierda todas contenian este patron, ya sea al inicio o final de la palabra o enmedio, pero las de la derecho no. Intente poner grep pero solo lo admitio hast que puse "foo" a secas y ya.
+
+![Warmup](./Warmup.png)
+
+=== NIVEL: Anchors ===
+Regex usado: ^[a-zA-Z]*ick$
+Explicación: ^ significa que debe de empezar con eso, lo que confunde por que ese simbolo Tambien es el de negacion. [a-zA-Z] es el rango de letras que pueden estar y se le pone una cerradura de Kleene, es decir cero o varias de esas. y que $ termine con ick
+Proceso de pensamiento: primero pense en solo poner ick pero algunas del lado derecho si entraban entonces entendi que debia termiar con ick.
+![Anchors](./Anchors.png)
+
+=== NIVEL: It never ends ===
+Regex usado: [a-zA-Z]*fu\b
+Explicación: Se usa la misma logica que con elo anterior pero la diferencia es que no nos permiten usar $ por que ese marca un fin de linea no fin de palabra, como lo es /b 
+Proceso de pensamiento: Vi qu edebia terminar con fu pero no se permitia el $ que usamos en el ejercicio pasado, entonces use /b en su lugar.
+![It never ends](./It_never_ends.png)
+
+=== NIVEL: Backrefs ===
+Regex usado: ^[a-zA-Z]*([a-zA-Z]{3,}).*\1[a-zA-Z]*$
+Explicación: ^ dice que debe de iniciar con cualquier letra en el rango de a a z A a Z y que depues de eso debe de ir un conjunto de al menos 3 letras en ese mismo rango, esta debe de estar separado por un numero de 0 a o que sea de letras que se representa por el .* y despues con el \1 le decimos que busque el mismo patron de por lo menos 3 letras o mas que dijimos antes y que sea seguido de cualquier letra y $ fin de linea.
+Proceso de pensamiento: Tarde mucho pero entendi que el patron es que se repiten ciertos patrones en las palabras de la izquierda, pero que Tambien se pueden cumplir en la derecho por lo que especificamos que Deben de ser minimo un grupo de 3 letras, y tuve que investigar en internet como hacer para que busque el mismo patron que es con el \1
+![Backrefs](./Backrefs.png)

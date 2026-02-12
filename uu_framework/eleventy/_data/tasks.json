@@ -1,6 +1,150 @@
 {
   "homework": [
     {
+      "id": "01.01",
+      "title": "Ver videos de Sistemas Operativos y entenderlos",
+      "due": "2026-01-20",
+      "points": "10",
+      "chapter": "Pipeline De Datos",
+      "file": "02_pipeline_de_datos/01_pipeline_de_datos.md",
+      "url": "/02_pipeline_de_datos/01_pipeline_de_datos/",
+      "summary": "Ver los siguientes videos y entender los conceptos de Sistemas Operativos:\nhttps://www.youtube.com/w",
+      "overdue": true,
+      "type": "homework"
+    },
+    {
+      "id": "03.01",
+      "title": "Ver video teórico de la terminal y entenderlo",
+      "due": "2026-01-22",
+      "points": "10",
+      "chapter": "Fsf Os",
+      "file": "03_fsf_os/01_fsf_os.md",
+      "url": "/03_fsf_os/01_fsf_os/",
+      "summary": "**Instrucciones:**\nVer el siguiente video y entender los conceptos de Terminal:\n\n- [Beginner's Guide",
+      "overdue": true,
+      "type": "homework"
+    },
+    {
+      "id": "03.02",
+      "title": "Realizar los dos primeros módulos del curso de shell",
+      "due": "2026-01-22",
+      "points": "10",
+      "chapter": "Fsf Os",
+      "file": "03_fsf_os/01_fsf_os.md",
+      "url": "/03_fsf_os/01_fsf_os/",
+      "summary": "**Instrucciones:**\nCompletar los dos primeros módulos del curso de shell en DataCamp:\n\n1. Manipular ",
+      "overdue": true,
+      "type": "homework"
+    },
+    {
+      "id": "4.0",
+      "title": "Videos SSH",
+      "due": "2026-01-27",
+      "points": "10",
+      "chapter": "Terminal",
+      "file": "04_terminal/00_index.md",
+      "url": "/04_terminal/00_index/",
+      "summary": "Ver los siguientes videos sobre SSH (se preguntará al respecto en clase), necesitaras instalar y con",
+      "overdue": true,
+      "type": "homework"
+    },
+    {
+      "id": "4.1",
+      "title": "Bandit OverTheWire",
+      "due": "2026-01-27",
+      "points": "15",
+      "chapter": "Terminal",
+      "file": "04_terminal/00_index.md",
+      "url": "/04_terminal/00_index/",
+      "summary": "**URL:** [https://overthewire.org/wargames/bandit/bandit0.html](https://overthewire.org/wargames/ban",
+      "overdue": true,
+      "type": "homework"
+    },
+    {
+      "id": "6.3",
+      "title": "Curso Intermediate GitHub Concepts",
+      "due": "2026-02-05",
+      "points": "20",
+      "chapter": "Git",
+      "file": "06_git/00_index.md",
+      "url": "/06_git/00_index/",
+      "summary": "Completa el curso [Intermediate GitHub Concepts](https://app.datacamp.com/learn/courses/intermediate",
+      "overdue": true,
+      "type": "homework"
+    },
+    {
+      "id": "6.0",
+      "title": "Curso GitHub Concepts + Lectura Módulo 6",
+      "due": "2026-01-29",
+      "points": "0",
+      "chapter": "Git",
+      "file": "06_git/01_setup_ssh.md",
+      "url": "/06_git/01_setup_ssh/",
+      "summary": "Completa el curso [GitHub Concepts](https://app.datacamp.com/learn/courses/introduction-to-github-co",
+      "overdue": true,
+      "type": "homework"
+    },
+    {
+      "id": "6.2",
+      "title": "Fork y Clone del repositorio",
+      "due": "2026-01-29",
+      "points": "0",
+      "chapter": "Git",
+      "file": "06_git/02_repo_structure.md",
+      "url": "/06_git/02_repo_structure/",
+      "summary": "Haz Fork del repositorio del curso, clónalo a tu máquina y configura el remote `upstream`. Crea tu c",
+      "overdue": true,
+      "type": "homework"
+    },
+    {
+      "id": "6.1",
+      "title": "Certificación GitHub Concepts + Configuración SSH",
+      "due": "2026-01-29",
+      "points": "20",
+      "chapter": "Git",
+      "file": "06_git/05_task_certifications.md",
+      "url": "/06_git/05_task_certifications/",
+      "summary": "Completa el curso [Introduction to GitHub Concepts](https://app.datacamp.com/learn/courses/introduct",
+      "overdue": true,
+      "type": "homework"
+    },
+    {
+      "id": "7.0",
+      "title": "Instalar Docker y Podman",
+      "due": "2026-02-10",
+      "points": "0",
+      "chapter": "Regex",
+      "file": "07_regex/00_index.md",
+      "url": "/07_regex/00_index/",
+      "summary": "**Objetivo:** Tener Docker y Podman instalados y funcionando **SIN usar sudo**.\n\n### 1. Instalar Doc",
+      "overdue": false,
+      "type": "homework"
+    },
+    {
+      "id": "7.1",
+      "title": "RegexGolf - Niveles básicos",
+      "due": "2026-02-10",
+      "points": "20",
+      "chapter": "Regex",
+      "file": "07_regex/00_index.md",
+      "url": "/07_regex/00_index/",
+      "summary": "**URL:** [https://alf.nu/RegexGolf?world=regex&level=r00](https://alf.nu/RegexGolf?world=regex&level",
+      "overdue": false,
+      "type": "homework"
+    },
+    {
+      "id": "7.2",
+      "title": "Bandit OverTheWire - Niveles 6-10",
+      "due": "2026-02-12",
+      "points": "20",
+      "chapter": "Regex",
+      "file": "07_regex/00_index.md",
+      "url": "/07_regex/00_index/",
+      "summary": "**URL:** [https://overthewire.org/wargames/bandit/](https://overthewire.org/wargames/bandit/)\n\n### O",
+      "overdue": false,
+      "type": "homework"
+    },
+    {
       "id": "A.1.1",
       "title": "Crear cuentas: LLMs y DataCamp",
       "due": "2026-01-15",
@@ -9,7 +153,7 @@
       "file": "a_stack/01_introduction/01_cuentas.md",
       "url": "/a_stack/01_introduction/01_cuentas/",
       "summary": "Crea cuentas en las plataformas de LLM (Gemini, ChatGPT, Claude, etc.) y únete al grupo de DataCamp ",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -21,7 +165,7 @@
       "file": "a_stack/02_llms/01_conceptos_llm.md",
       "url": "/a_stack/02_llms/01_conceptos_llm/",
       "summary": "Leer toda la seccion A.2 LLMs, y despues completar el curso.  \nCompleta el curso [AI Assisted Coding",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -33,7 +177,7 @@
       "file": "a_stack/03_os_setup/01_wsl_install.md",
       "url": "/a_stack/03_os_setup/01_wsl_install/",
       "summary": "Leer seccion A.3 completa.  s\nInstala WSL2 en tu computadora Windows siguiendo esta guía. Verifica q",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     },
     {
@@ -45,10 +189,39 @@
       "file": "a_stack/03_os_setup/02_browser_env.md",
       "url": "/a_stack/03_os_setup/02_browser_env/",
       "summary": "Crea tu cuenta de GitHub y solicita el GitHub Student Developer Pack siguiendo esta guía. Esto es re",
-      "overdue": false,
+      "overdue": true,
       "type": "homework"
     }
   ],
-  "exams": [],
+  "exams": [
+    {
+      "id": "5.E",
+      "title": "Examen: Terminal, Bash y Sistemas Operativos",
+      "date": "2026-02-03",
+      "location": null,
+      "duration": "1 hora",
+      "points": null,
+      "chapter": "Bash",
+      "file": "05_bash/00_index.md",
+      "url": "/05_bash/00_index/",
+      "summary": "Examen en clase sobre los módulos 4 (Terminal) y 5 (Bash). Vale 10 puntos.\n\n**Temas:**\n- Sistemas Op",
+      "overdue": true,
+      "type": "exam"
+    },
+    {
+      "id": "6.E",
+      "title": "Examen: Git y GitHub",
+      "date": "2026-02-05",
+      "location": null,
+      "duration": "1 hora",
+      "points": null,
+      "chapter": "Git",
+      "file": "06_git/00_index.md",
+      "url": "/06_git/00_index/",
+      "summary": "Examen en clase sobre el módulo 6 (Git y GitHub). Vale 10 puntos.\n\n**Temas:**\n- Flujo de trabajo: Sy",
+      "overdue": true,
+      "type": "exam"
+    }
+  ],
   "projects": []
 }

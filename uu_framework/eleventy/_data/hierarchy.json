@@ -27,6 +27,19 @@
             ""
           ],
           "summary": null
+        },
+        {
+          "name": "02_temario.md",
+          "path": "01_introduccion/02_temario.md",
+          "type": "file",
+          "title": "Temario del Curso",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
         }
       ],
       "has_index": true,
@@ -59,6 +72,501 @@
       ],
       "has_index": false,
       "title": "Pipeline De Datos"
+    },
+    {
+      "name": "03_fsf_os",
+      "path": "03_fsf_os",
+      "type": "directory",
+      "order": [
+        0,
+        3,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_fsf_os.md",
+          "path": "03_fsf_os/01_fsf_os.md",
+          "type": "file",
+          "title": "Pipeline de Datos",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        }
+      ],
+      "has_index": false,
+      "title": "Fsf Os"
+    },
+    {
+      "name": "04_terminal",
+      "path": "04_terminal",
+      "type": "directory",
+      "order": [
+        0,
+        4,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_conceptos_basicos.md",
+          "path": "04_terminal/01_conceptos_basicos.md",
+          "type": "file",
+          "title": "Conceptos Básicos de la Terminal",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_navegacion.md",
+          "path": "04_terminal/02_navegacion.md",
+          "type": "file",
+          "title": "Navegación y Rutas",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_atajos_tips.md",
+          "path": "04_terminal/03_atajos_tips.md",
+          "type": "file",
+          "title": "Atajos y Productividad",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04_manipulacion_archivos.md",
+          "path": "04_terminal/04_manipulacion_archivos.md",
+          "type": "file",
+          "title": "Manipulación de Archivos",
+          "order": [
+            0,
+            4,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_comandos_utiles.md",
+          "path": "04_terminal/05_comandos_utiles.md",
+          "type": "file",
+          "title": "Comandos Útiles",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "06_instalacion_paquetes.md",
+          "path": "04_terminal/06_instalacion_paquetes.md",
+          "type": "file",
+          "title": "Instalación de Paquetes",
+          "order": [
+            0,
+            6,
+            0,
+            ""
+          ],
+          "summary": null
+        }
+      ],
+      "has_index": true,
+      "title": "Módulo 4: La Terminal"
+    },
+    {
+      "name": "05_bash",
+      "path": "05_bash",
+      "type": "directory",
+      "order": [
+        0,
+        5,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_bash_como_lenguaje.md",
+          "path": "05_bash/01_bash_como_lenguaje.md",
+          "type": "file",
+          "title": "Bash como Lenguaje de Programación",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_variables.md",
+          "path": "05_bash/02_variables.md",
+          "type": "file",
+          "title": "Variables en Bash",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_variables_entorno.md",
+          "path": "05_bash/03_variables_entorno.md",
+          "type": "file",
+          "title": "Variables de Entorno",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04_entrada_salida.md",
+          "path": "05_bash/04_entrada_salida.md",
+          "type": "file",
+          "title": "Entrada y Salida (I/O)",
+          "order": [
+            0,
+            4,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_expansion_sustitucion.md",
+          "path": "05_bash/05_expansion_sustitucion.md",
+          "type": "file",
+          "title": "Expansión y Sustitución",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "06_scripting_basico.md",
+          "path": "05_bash/06_scripting_basico.md",
+          "type": "file",
+          "title": "Scripting Básico",
+          "order": [
+            0,
+            6,
+            0,
+            ""
+          ],
+          "summary": null
+        }
+      ],
+      "has_index": true,
+      "title": "Módulo 5: Bash - El Lenguaje"
+    },
+    {
+      "name": "06_git",
+      "path": "06_git",
+      "type": "directory",
+      "order": [
+        0,
+        6,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_setup_ssh.md",
+          "path": "06_git/01_setup_ssh.md",
+          "type": "file",
+          "title": "Git y GitHub: Configuración Inicial",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_repo_structure.md",
+          "path": "06_git/02_repo_structure.md",
+          "type": "file",
+          "title": "Estructura del Curso y Tu Carpeta Personal",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_workflow.md",
+          "path": "06_git/03_workflow.md",
+          "type": "file",
+          "title": "Flujo de Trabajo para Entregar Tareas",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04_cheatsheet.md",
+          "path": "06_git/04_cheatsheet.md",
+          "type": "file",
+          "title": "Cheatsheet: Comandos Básicos de Git, GitHub y Terminal",
+          "order": [
+            0,
+            4,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_task_certifications.md",
+          "path": "06_git/05_task_certifications.md",
+          "type": "file",
+          "title": "Tarea: Configuración y Certificación de GitHub",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "07_arquitectura_git.md",
+          "path": "06_git/07_arquitectura_git.md",
+          "type": "file",
+          "title": "Arquitectura de Git: Cómo Funciona Por Dentro",
+          "order": [
+            0,
+            7,
+            0,
+            ""
+          ],
+          "summary": null
+        }
+      ],
+      "has_index": true,
+      "title": "Módulo 6: Git y GitHub"
+    },
+    {
+      "name": "07_regex",
+      "path": "07_regex",
+      "type": "directory",
+      "order": [
+        0,
+        7,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_que_es_regex.md",
+          "path": "07_regex/01_que_es_regex.md",
+          "type": "file",
+          "title": "¿Qué es Regex?",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_caracteres_literales.md",
+          "path": "07_regex/02_caracteres_literales.md",
+          "type": "file",
+          "title": "Caracteres Literales",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_metacaracteres.md",
+          "path": "07_regex/03_metacaracteres.md",
+          "type": "file",
+          "title": "Metacaracteres: Los Símbolos Especiales",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04_estructuras.md",
+          "path": "07_regex/04_estructuras.md",
+          "type": "file",
+          "title": "Estructuras: [], (), {}",
+          "order": [
+            0,
+            4,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "05_ejemplos_terminal.md",
+          "path": "07_regex/05_ejemplos_terminal.md",
+          "type": "file",
+          "title": "Ejemplos Prácticos en Terminal",
+          "order": [
+            0,
+            5,
+            0,
+            ""
+          ],
+          "summary": null
+        }
+      ],
+      "has_index": true,
+      "title": "Módulo 7: Expresiones Regulares (Regex)"
+    },
+    {
+      "name": "08_containers",
+      "path": "08_containers",
+      "type": "directory",
+      "order": [
+        0,
+        8,
+        0,
+        ""
+      ],
+      "children": [
+        {
+          "name": "01_que_son_contenedores.md",
+          "path": "08_containers/01_que_son_contenedores.md",
+          "type": "file",
+          "title": "¿Qué son los contenedores?",
+          "order": [
+            0,
+            1,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "02_docker.md",
+          "path": "08_containers/02_docker.md",
+          "type": "file",
+          "title": "Docker",
+          "order": [
+            0,
+            2,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "03_podman.md",
+          "path": "08_containers/03_podman.md",
+          "type": "file",
+          "title": "Podman",
+          "order": [
+            0,
+            3,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "04_benchmarks.md",
+          "path": "08_containers/04_benchmarks.md",
+          "type": "file",
+          "title": "Benchmarks: midiendo el rendimiento de contenedores",
+          "order": [
+            0,
+            4,
+            0,
+            ""
+          ],
+          "summary": null
+        },
+        {
+          "name": "scripts",
+          "path": "08_containers/scripts",
+          "type": "directory",
+          "order": [
+            2,
+            999,
+            0,
+            "scripts"
+          ],
+          "children": [
+            {
+              "name": "analyze.py",
+              "path": "08_containers/scripts/analyze.py",
+              "type": "code",
+              "title": "analyze.py",
+              "order": [
+                2,
+                999,
+                0,
+                "analyze.py"
+              ]
+            },
+            {
+              "name": "results",
+              "path": "08_containers/scripts/results",
+              "type": "directory",
+              "order": [
+                2,
+                999,
+                0,
+                "results"
+              ],
+              "children": [],
+              "has_index": false,
+              "title": "Results"
+            }
+          ],
+          "has_index": false,
+          "title": "Scripts"
+        }
+      ],
+      "has_index": true,
+      "title": "Módulo 8: Contenedores"
     },
     {
       "name": "a_stack",

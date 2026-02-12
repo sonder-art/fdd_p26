@@ -1,0 +1,7 @@
+runtime,approach,result,time_seconds,error_msg
+docker,dind_privileged,error,30.57,Terminated failed to connect to the docker API at tcp://docker:2375: lookup docker on 10.10.0.1:53: no such host 
+docker,socket_mount,success,2.90, 
+docker,dind_relaxed_security,error,30.47,Terminated failed to connect to the docker API at tcp://docker:2375: lookup docker on 10.10.0.1:53: no such host 
+podman,pinp_basic,error,2.44,Copying config sha256:a40c03cbb81c59bfb0e0887ab0b1859727075da7b9cc576a1cec2c771f38c5fb Writing manifest to image destination Error: crun: mount `proc` to `proc`: Operation not permitted: OCI permissio
+podman,pinp_privileged,success,2.60, 
+podman,pinp_vfs,error,2.61,Copying config sha256:a40c03cbb81c59bfb0e0887ab0b1859727075da7b9cc576a1cec2c771f38c5fb Writing manifest to image destination Error: crun: mount `proc` to `proc`: Operation not permitted: OCI permissio

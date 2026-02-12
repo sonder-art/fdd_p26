@@ -11,6 +11,1632 @@
     "components": [],
     "has_frontmatter": true
   },
+  "06_git/03_workflow.md": {
+    "path": "clase/06_git/03_workflow.md",
+    "title": "Flujo de Trabajo para Entregar Tareas",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "06_git/04_cheatsheet.md": {
+    "path": "clase/06_git/04_cheatsheet.md",
+    "title": "Cheatsheet: Comandos Básicos de Git, GitHub y Terminal",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "06_git/07_arquitectura_git.md": {
+    "path": "clase/06_git/07_arquitectura_git.md",
+    "title": "Arquitectura de Git: Cómo Funciona Por Dentro",
+    "type": "lesson",
+    "order": 7,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "06_git/02_repo_structure.md": {
+    "path": "clase/06_git/02_repo_structure.md",
+    "title": "Estructura del Curso y Tu Carpeta Personal",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "6.2",
+          "title": "Fork y Clone del repositorio",
+          "due": "2026-01-29",
+          "points": "0"
+        },
+        "content_preview": "Haz Fork del repositorio del curso, clónalo a tu máquina y configura el remote `upstream`. Crea tu carpeta personal en `estudiantes/tu_usuario/`."
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "06_git/01_setup_ssh.md": {
+    "path": "clase/06_git/01_setup_ssh.md",
+    "title": "Git y GitHub: Configuración Inicial",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "6.0",
+          "title": "Curso GitHub Concepts + Lectura Módulo 6",
+          "due": "2026-01-29",
+          "points": "0"
+        },
+        "content_preview": "Completa el curso [GitHub Concepts](https://app.datacamp.com/learn/courses/introduction-to-github-concepts) y lee todo el Módulo 6 (Git y GitHub)."
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "06_git/05_task_certifications.md": {
+    "path": "clase/06_git/05_task_certifications.md",
+    "title": "Tarea: Configuración y Certificación de GitHub",
+    "type": "lesson",
+    "order": 5,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "6.1",
+          "title": "Certificación GitHub Concepts + Configuración SSH",
+          "due": "2026-01-29",
+          "points": "20"
+        },
+        "content_preview": "Completa el curso [Introduction to GitHub Concepts](https://app.datacamp.com/learn/courses/introduction-to-github-concepts) y configura tu entorno SSH. Sube evidencia siguiendo las instrucciones de es"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "06_git/00_index.md": {
+    "path": "clase/06_git/00_index.md",
+    "title": "Módulo 6: Git y GitHub",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exam",
+        "attrs": {
+          "id": "6.E",
+          "title": "Examen: Git y GitHub",
+          "date": "2026-02-05",
+          "duration": "1 hora"
+        },
+        "content_preview": "Examen en clase sobre el módulo 6 (Git y GitHub). Vale 10 puntos.\n\n**Temas:**\n- Flujo de trabajo: Sync → Branch → Work → Push → PR\n- Zona Prohibida vs Zona Segura\n- Comandos básicos de Git (`clone`, `"
+      },
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "6.3",
+          "title": "Curso Intermediate GitHub Concepts",
+          "due": "2026-02-05",
+          "points": "20"
+        },
+        "content_preview": "Completa el curso [Intermediate GitHub Concepts](https://app.datacamp.com/learn/courses/intermediate-github-concepts).\n\n**Entrega (igual que la tarea anterior):**\n1. Pull Request con evidencia del cer"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "08_containers/04_benchmarks.md": {
+    "path": "clase/08_containers/04_benchmarks.md",
+    "title": "Benchmarks: midiendo el rendimiento de contenedores",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Medir startup latency",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Ejecuta el benchmark:\n\n```bash\ncd scripts\nbash bench_startup.sh 20\n```\n\n2. Revisa los resultados:\n\n```bash\ncat results/startup.csv\n```\n\n3. Calcula el promedio de cada runtime. ¿Cuántas veces más le"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Medir memoria",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Antes de empezar, cierra aplicaciones pesadas para tener una medición más limpia.\n\n2. Ejecuta:\n\n```bash\nbash bench_memory.sh\n```\n\n3. Revisa los resultados y responde:\n   - ¿Cuánta memoria usó el da"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Medir CPU",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Ejecuta:\n\n```bash\nbash bench_cpu.sh\n```\n\n2. Calcula el porcentaje de overhead: `(tiempo_contenedor - tiempo_bare) / tiempo_bare * 100`\n\n3. ¿Es significativo el overhead de CPU? ¿Cuándo podría impor"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Medir I/O",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Ejecuta:\n\n```bash\nbash bench_io.sh\n```\n\n2. Compara las velocidades. ¿Cuánto más lento es overlay vs bare metal?\n\n3. ¿Los volúmenes recuperan el rendimiento perdido?\n\n4. ¿Qué implicaciones tiene est"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Contenedores anidados",
+          "difficulty": "3"
+        },
+        "content_preview": "1. Ejecuta:\n\n```bash\nbash bench_nested.sh\n```\n\n⚠️ **Es probable que falle.** Eso es parte del ejercicio. Lee el error con atención.\n\n2. Si falló:\n   - ¿Qué error dio Docker-in-Docker? ¿Qué permisos pi"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Medir escalamiento",
+          "difficulty": "3"
+        },
+        "content_preview": "1. Ejecuta:\n\n```bash\nbash bench_scale.sh\n```\n\n⚠️ Este benchmark puede tardar varios minutos y usar recursos significativos.\n\n2. Grafica los resultados (o usa `analyze.py`):\n   - Eje X: número de conte"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Analizar resultados de benchmarks",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Ejecuté benchmarks de contenedores (Docker vs Podman vs bare metal) y obtuve estos resultados:\n\n```\n[pega los contenidos de tus CSVs o la salida del benchmark aquí]\n```\n\nMi hardware es:\n- CPU: [modelo"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "08_containers/02_docker.md": {
+    "path": "clase/08_containers/02_docker.md",
+    "title": "Docker",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Tu primer contenedor",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Ejecuta un contenedor de Ubuntu en modo interactivo:\n\n```bash\ndocker run -it --rm ubuntu bash\n```\n\n2. Dentro del contenedor, ejecuta:\n\n```bash\nwhoami\nhostname\ncat /etc/os-release\nps aux\nls /\n```\n\n3"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Construir tu propia imagen",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Crea un directorio de trabajo:\n\n```bash\nmkdir mi-primer-imagen && cd mi-primer-imagen\n```\n\n2. Crea un script `hola.sh`:\n\n```bash\n#!/bin/bash\necho \"Hola, soy un contenedor!\"\necho \"Me llamo: $(hostna"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Explorar aislación",
+          "difficulty": "2"
+        },
+        "content_preview": "Este ejercicio demuestra la aislación entre contenedores y el host.\n\n1. En tu **máquina host**, crea un archivo:\n\n```bash\necho \"archivo del host\" > /tmp/prueba_host.txt\n```\n\n2. Lanza un contenedor y b"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Volúmenes y persistencia",
+          "difficulty": "2"
+        },
+        "content_preview": "Los contenedores son efímeros — cuando se eliminan, su contenido desaparece. Los volúmenes permiten persistir datos.\n\n1. Ejecuta un contenedor y crea un archivo **sin volumen**:\n\n```bash\ndocker run --"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Debugging de Docker",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy aprendiendo Docker. Al intentar construir/ejecutar un contenedor, obtuve un error.\n\n**Mi Dockerfile:**\n\n```dockerfile\n[pega tu Dockerfile aquí]\n```\n\n**Comando ejecutado:**\n\n```bash\n[pega tu coma"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Crear Dockerfile para mi proyecto",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Necesito crear un Dockerfile para mi proyecto. Aquí están los detalles:\n\n- **Lenguaje**: [Python/Node/etc.]\n- **Dependencias**: [lista las dependencias o archivo de dependencias]\n- **Comando para ejec"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "08_containers/01_que_son_contenedores.md": {
+    "path": "clase/08_containers/01_que_son_contenedores.md",
+    "title": "¿Qué son los contenedores?",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Pensamiento: VMs vs contenedores",
+          "difficulty": "1"
+        },
+        "content_preview": "Responde las siguientes preguntas **sin buscar en internet** (piensa primero, luego verifica):\n\n1. ¿Por qué un contenedor arranca en segundos pero una VM tarda minutos?\n2. Si un contenedor comparte el"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Namespaces en acción",
+          "difficulty": "2"
+        },
+        "content_preview": "Vamos a ver los namespaces de un contenedor en tiempo real.\n\n1. Lanza un contenedor en segundo plano:\n\n```bash\ndocker run -d --name ns_test ubuntu sleep 3600\n```\n\n2. Encuentra el PID del contenedor en"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Entender namespaces y cgroups",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy aprendiendo sobre contenedores. Entiendo que los contenedores usan namespaces y cgroups del kernel de Linux.\n\nNecesito que me expliques:\n\n1. ¿Qué pasa exactamente cuando un contenedor ve su proc"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "08_containers/00_index.md": {
+    "path": "clase/08_containers/00_index.md",
+    "title": "Módulo 8: Contenedores",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Verificación de instalación",
+          "difficulty": "1"
+        },
+        "content_preview": "Ejecuta los siguientes comandos y confirma que obtienes una versión válida:\n\n```bash\ndocker --version\n# Docker version 2X.X.X, build XXXXXXX\n\npodman --version\n# podman version 4.X.X o 5.X.X\n```\n\nAhora"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Diagnosticar instalación de Docker/Podman",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy en un curso de ciencia de datos. Necesito tener Docker y Podman instalados.\n\nMi sistema operativo es: [Windows/macOS/Linux]\n\nAl ejecutar:\n\n```\n[pega el comando que falló]\n```\n\nObtuve este error:"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "08_containers/03_podman.md": {
+    "path": "clase/08_containers/03_podman.md",
+    "title": "Podman",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Podman básico",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Ejecuta el mismo contenedor con Docker y con Podman:\n\n```bash\ndocker run --rm ubuntu echo \"Hola desde Docker\"\npodman run --rm ubuntu echo \"Hola desde Podman\"\n```\n\n2. Compara la salida de informació"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Misma imagen, ambos runtimes",
+          "difficulty": "2"
+        },
+        "content_preview": "Vamos a verificar que la **misma imagen** funciona igual en ambos runtimes.\n\n1. Crea un directorio de trabajo y un `Dockerfile`:\n\n```bash\nmkdir test-ambos && cd test-ambos\n```\n\n```dockerfile\nFROM ubun"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Rootless en acción",
+          "difficulty": "2"
+        },
+        "content_preview": "Este ejercicio demuestra la diferencia de seguridad entre rootful y rootless.\n\n1. En Docker, verifica quién eres dentro del contenedor:\n\n```bash\ndocker run --rm ubuntu id\n# uid=0(root) gid=0(root) ..."
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Migrar de Docker a Podman",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy migrando un proyecto de Docker a Podman. Mi configuración actual es:\n\n**docker-compose.yml:**\n\n```yaml\n[pega tu docker-compose.yml aquí]\n```\n\n**Problemas encontrados:**\n\n```\n[pega errores o dife"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "07_regex/01_que_es_regex.md": {
+    "path": "clase/07_regex/01_que_es_regex.md",
+    "title": "¿Qué es Regex?",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": false
+  },
+  "07_regex/05_ejemplos_terminal.md": {
+    "path": "clase/07_regex/05_ejemplos_terminal.md",
+    "title": "Ejemplos Prácticos en Terminal",
+    "type": "lesson",
+    "order": 5,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Extraer información de logs",
+          "difficulty": "2"
+        },
+        "content_preview": "Crea un archivo `server.log`:\n```\n2024-01-15 10:30:00 INFO User login: admin\n2024-01-15 10:31:00 ERROR Database connection failed\n2024-01-15 10:32:00 INFO Request from 192.168.1.100\n2024-01-15 10:33:0"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Validar datos",
+          "difficulty": "3"
+        },
+        "content_preview": "Crea un archivo con varios formatos y escribe regex para:\n\n1. Números de teléfono: `(XXX) XXX-XXXX`\n2. Códigos postales mexicanos: `XXXXX`\n3. URLs que empiecen con https\n4. Contraseñas con al menos un"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "07_regex/02_caracteres_literales.md": {
+    "path": "clase/07_regex/02_caracteres_literales.md",
+    "title": "Caracteres Literales",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Buscar literales",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Crea un archivo `frutas.txt` con:\n   ```\n   manzana\n   pera\n   manzana verde\n   pera roja\n   platano\n   ```\n\n2. Usa `grep` para encontrar:\n   - Todas las líneas con \"manzana\"\n   - Todas las líneas "
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "07_regex/03_metacaracteres.md": {
+    "path": "clase/07_regex/03_metacaracteres.md",
+    "title": "Metacaracteres: Los Símbolos Especiales",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Entender cuantificadores",
+          "difficulty": "2"
+        },
+        "content_preview": "Sin ejecutar, predice qué líneas coinciden:\n\n**Archivo:**\n```\na\naa\naaa\nab\naab\naaab\nb\nba\n```\n\n**Patrones:**\n1. `a+`\n2. `a*b`\n3. `^a+$`\n4. `a?b`\n\nDespués verifica tus respuestas con `grep -E`."
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "07_regex/00_index.md": {
+    "path": "clase/07_regex/00_index.md",
+    "title": "Módulo 7: Expresiones Regulares (Regex)",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "7.0",
+          "title": "Instalar Docker y Podman",
+          "due": "2026-02-10",
+          "points": "0"
+        },
+        "content_preview": "**Objetivo:** Tener Docker y Podman instalados y funcionando **SIN usar sudo**.\n\n### 1. Instalar Docker\n\n1. **Instalación:**\n   - [https://docs.docker.com/engine/install/](https://docs.docker.com/engi"
+      },
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "7.1",
+          "title": "RegexGolf - Niveles básicos",
+          "due": "2026-02-10",
+          "points": "20"
+        },
+        "content_preview": "**URL:** [https://alf.nu/RegexGolf?world=regex&level=r00](https://alf.nu/RegexGolf?world=regex&level=r00)\n\n### Objetivo:\nCompletar los siguientes niveles de RegexGolf:\n- **Warmup**\n- **Anchors**\n- **I"
+      },
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "7.2",
+          "title": "Bandit OverTheWire - Niveles 6-10",
+          "due": "2026-02-12",
+          "points": "20"
+        },
+        "content_preview": "**URL:** [https://overthewire.org/wargames/bandit/](https://overthewire.org/wargames/bandit/)\n\n### Objetivo:\nCompletar los niveles del **6 al 10** de Bandit (tener la contraseña para entrar al nivel 1"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "07_regex/04_estructuras.md": {
+    "path": "clase/07_regex/04_estructuras.md",
+    "title": "Estructuras: [], (), {}",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Distinguir estructuras",
+          "difficulty": "2"
+        },
+        "content_preview": "Predice qué coincide con cada patrón:\n\n**Texto de prueba:**\n```\nab\naabb\nabab\nabc\ncab\n12\n123\n1234\n```\n\n**Patrones:**\n1. `[ab]+` vs `(ab)+`\n2. `[0-9]{3}`\n3. `[abc]{2}`\n4. `^[0-9]+$`"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Construir patrones",
+          "difficulty": "2"
+        },
+        "content_preview": "Escribe el regex para:\n\n1. Exactamente 4 dígitos (como un PIN)\n2. Una o más vocales\n3. \"hola\" o \"adios\"\n4. Cualquier caracter que NO sea vocal"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "05_bash/05_expansion_sustitucion.md": {
+    "path": "clase/05_bash/05_expansion_sustitucion.md",
+    "title": "Expansión y Sustitución",
+    "type": "lesson",
+    "order": 5,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Practicar sustitución de comandos",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# 1. Guarda comandos en variables\nmi_usuario=$(whoami)\nmi_shell=$(echo $SHELL | cut -d'/' -f3)\nnum_archivos=$(ls ~ | wc -l)\n\n# 2. Usa las variables\necho \"Soy $mi_usuario, uso $mi_shell\"\necho \""
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Calculadora con $(())",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Datos\nprecio=100\ncantidad=5\nimpuesto=16\n\n# Cálculos\nsubtotal=$((precio * cantidad))\niva=$((subtotal * impuesto / 100))\ntotal=$((subtotal + iva))\n\n# Mostrar\necho \"Subtotal: \\$$subtotal\"\necho "
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Expansión avanzada",
+          "difficulty": "3"
+        },
+        "content_preview": "{% raw %}\n```bash\n# 1. Valores por defecto\nnombre=${NOMBRE:-Usuario}\necho \"Hola, $nombre\"\n\n# 2. Longitud\nemail=\"usuario@ejemplo.com\"\necho \"Tu email tiene ${#email} caracteres\"\n\n# 3. Subcadenas\nfecha=\""
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Expansión de llaves",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# 1. Lista\necho {perro,gato,pez}\n\n# 2. Secuencia numérica\necho {1..10}\n\n# 3. Secuencia con padding\necho {01..10}\n\n# 4. Crear estructura de proyecto\nmkdir -p mi_proyecto/{src,tests,docs}\nls mi_"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Proyecto completo con expansiones",
+          "difficulty": "3"
+        },
+        "content_preview": "```bash\n# Crear estructura de proyecto con fecha\nnombre_proyecto=\"app\"\nfecha=$(date +%Y%m%d_%H%M%S)\ndir_proyecto=\"${nombre_proyecto}_${fecha}\"\n\n# Crear estructura\nmkdir -p \"$dir_proyecto\"/{src,tests,d"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "05_bash/03_variables_entorno.md": {
+    "path": "clase/05_bash/03_variables_entorno.md",
+    "title": "Variables de Entorno",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Explorar tus variables de entorno",
+          "difficulty": "1"
+        },
+        "content_preview": "```bash\n# ¿Cuántas variables de entorno tienes?\nenv | wc -l\n\n# Busca variables interesantes\nenv | grep -i user\nenv | grep -i home\nenv | grep -i shell\n\n# Las más importantes\necho \"Usuario: $USER\"\necho "
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Conocer tu sistema",
+          "difficulty": "1"
+        },
+        "content_preview": "```bash\n# Completa esta información de tu sistema\necho \"=== MI SISTEMA ===\"\necho \"Usuario: $USER\"\necho \"Hostname: $HOSTNAME\"\necho \"Home: $HOME\"\necho \"Shell: $SHELL\"\necho \"Editor: $EDITOR\"\necho \"Idioma"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diferencia entre export y no export",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Sin export\nSECRETA=\"sin_export\"\nbash -c 'echo \"Secreta: $SECRETA\"'\n# ¿Qué imprime?\n\n# Con export\nexport PUBLICA=\"con_export\"\nbash -c 'echo \"Publica: $PUBLICA\"'\n# ¿Qué imprime?\n\n# Python tamb"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Modificar PATH temporalmente",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Crea un directorio para scripts\nmkdir -p ~/mis_scripts\n\n# Agrega a PATH\nexport PATH=\"$PATH:$HOME/mis_scripts\"\n\n# Verifica\necho $PATH | tr ':' '\\n' | tail -3\n\n# Ahora cualquier script en ~/mi"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Explorar tu .bashrc",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# ¿Tienes un .bashrc?\nls -la ~/.bashrc\n\n# Ver las primeras 20 líneas\nhead -20 ~/.bashrc\n\n# Buscar exports existentes\ngrep \"export\" ~/.bashrc\n\n# Buscar aliases\ngrep \"alias\" ~/.bashrc\n```"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Configurar entorno de desarrollo",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# 1. Crea variables para tu proyecto\nexport PROYECTO=\"mi_app\"\nexport PROYECTO_DIR=\"$HOME/proyectos/$PROYECTO\"\nexport PROYECTO_ENV=\"desarrollo\"\n\n# 2. Verifica\necho \"Proyecto: $PROYECTO\"\necho \"D"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Agregar directorio a PATH",
+          "difficulty": "3"
+        },
+        "content_preview": "```bash\n# 1. Crea un directorio para scripts personales\nmkdir -p ~/bin\n\n# 2. Crea un script simple\necho '#!/bin/bash\necho \"Hola desde mi script!\"' > ~/bin/saludo\n\n# 3. Hazlo ejecutable\nchmod +x ~/bin/"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Ver herencia de variables",
+          "difficulty": "3"
+        },
+        "content_preview": "```bash\n# 1. Variable sin exportar\nLOCAL=\"soy_local\"\n\n# 2. Variable exportada\nexport GLOBAL=\"soy_global\"\n\n# 3. Crea un script para probar\ncat << 'EOF' > /tmp/test_vars.sh\n#!/bin/bash\necho \"LOCAL: $LOC"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "05_bash/02_variables.md": {
+    "path": "clase/05_bash/02_variables.md",
+    "title": "Variables en Bash",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Crear tus primeras variables",
+          "difficulty": "1"
+        },
+        "content_preview": "Ejecuta en tu terminal:\n\n```bash\n# Crea estas variables\nmi_nombre=\"Tu Nombre Aquí\"\nmi_edad=20\nmi_lenguaje=\"Python\"\n\n# Verifica que existen (no producen output, eso es normal)\n```"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Comillas simples vs dobles",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\nnombre=\"Carlos\"\nruta=\"/home/$nombre\"\n\n# Predice el resultado antes de ejecutar\necho \"Dobles: $nombre\"\necho 'Simples: $nombre'\n\necho \"Ruta con dobles: $ruta\"\necho 'Ruta con simples: $ruta'\n\n# ¿"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Explorar variables especiales",
+          "difficulty": "1"
+        },
+        "content_preview": "```bash\n# Ejecuta cada línea y observa\necho \"Soy $USER\"\necho \"Mi home está en $HOME\"\necho \"Estoy en $PWD\"\necho \"Mi proceso es $$\"\n\n# El código de salida\nls /tmp\necho \"Código de salida: $?\"\n\nls /direct"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Construir mensajes con variables",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Define variables\nnombre=\"Ada\"\nlenguaje=\"Python\"\naños_exp=5\n\n# Construye un mensaje (usa estas variables)\nmensaje=\"$nombre programa en $lenguaje y tiene $años_exp años de experiencia\"\necho $m"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Crear tarjeta de presentación",
+          "difficulty": "2"
+        },
+        "content_preview": "Crea variables con tu información y genera una \"tarjeta\":\n\n```bash\n# Tu información\nnombre=\"Tu Nombre\"\nocupacion=\"Estudiante\"\nuniversidad=\"ITAM\"\nsemestre=5\nhobby=\"programar\"\n\n# Genera la tarjeta\necho "
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Construir rutas dinámicas",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Variables base\nusuario=$(whoami)\nfecha=$(date +%Y-%m-%d)\nproyecto=\"analisis\"\n\n# Construye rutas\nruta_home=\"/home/${usuario}\"\nruta_backup=\"${ruta_home}/backups/${fecha}\"\nruta_proyecto=\"${ruta"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Variables y cálculos",
+          "difficulty": "3"
+        },
+        "content_preview": "```bash\n# Datos\nprecio_unitario=150\ncantidad=5\ndescuento=10\n\n# Cálculos\nsubtotal=$((precio_unitario * cantidad))\ndescuento_valor=$((subtotal * descuento / 100))\ntotal=$((subtotal - descuento_valor))\n\n"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "05_bash/01_bash_como_lenguaje.md": {
+    "path": "clase/05_bash/01_bash_como_lenguaje.md",
+    "title": "Bash como Lenguaje de Programación",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Prueba los comentarios",
+          "difficulty": "1"
+        },
+        "content_preview": "Ejecuta en tu terminal:\n\n```bash\n# Esto no hace nada\necho \"Esto sí se ejecuta\"  # pero esto es comentario\n# echo \"Esto NO se ejecuta\"\n```\n\n¿Cuántas líneas de output ves?"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Expresiones básicas",
+          "difficulty": "1"
+        },
+        "content_preview": "Ejecuta cada línea en tu terminal:\n\n```bash\n# 1. Matemáticas\necho $((2 + 2))\necho $((10 - 3))\necho $((4 * 5))\n\n# 2. Una variable\nsaludo=\"Hola mundo\"\necho $saludo\n\n# 3. Capturar un comando\nusuario=$(wh"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Tu primera sesión de Bash",
+          "difficulty": "1"
+        },
+        "content_preview": "Abre tu terminal y ejecuta:\n\n```bash\n# 1. Verifica tu shell\necho $SHELL\n\n# 2. Un cálculo\necho \"2 + 2 = $((2 + 2))\"\n\n# 3. Tu usuario\necho \"Usuario: $(whoami)\"\n\n# 4. Directorio actual\necho \"Estás en: $("
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Crear variables y usarlas",
+          "difficulty": "1"
+        },
+        "content_preview": "```bash\n# Crea estas variables (¡sin espacios alrededor del =!)\nmi_nombre=\"Tu Nombre\"\nmi_edad=25\nmi_ciudad=\"CDMX\"\n\n# Ahora úsalas\necho \"Me llamo $mi_nombre\"\necho \"Tengo $mi_edad años\"\necho \"Vivo en $m"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Matemáticas con Bash",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Usa $(( )) para calcular\na=10\nb=3\n\necho \"Suma: $((a + b))\"\necho \"Resta: $((a - b))\"\necho \"Multiplicación: $((a * b))\"\necho \"División: $((a / b))\"\necho \"Residuo: $((a % b))\"\n\n# ¿Qué resultado"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "05_bash/00_index.md": {
+    "path": "clase/05_bash/00_index.md",
+    "title": "Módulo 5: Bash - El Lenguaje",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exam",
+        "attrs": {
+          "id": "5.E",
+          "title": "Examen: Terminal, Bash y Sistemas Operativos",
+          "date": "2026-02-03",
+          "duration": "1 hora"
+        },
+        "content_preview": "Examen en clase sobre los módulos 4 (Terminal) y 5 (Bash). Vale 10 puntos.\n\n**Temas:**\n- Sistemas Operativos, Terminal y Bash"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "05_bash/06_scripting_basico.md": {
+    "path": "clase/05_bash/06_scripting_basico.md",
+    "title": "Scripting Básico",
+    "type": "lesson",
+    "order": 6,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Crear tu primer script",
+          "difficulty": "1"
+        },
+        "content_preview": "```bash\n# 1. Crea el archivo\ncat << 'EOF' > hola.sh\n#!/bin/bash\necho \"===========================\"\necho \"  INFORMACIÓN DEL SISTEMA\"\necho \"===========================\"\necho \"Usuario: $USER\"\necho \"Fecha"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Experimentar con el shebang",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# 1. Script con shebang correcto\ncat << 'EOF' > test1.sh\n#!/bin/bash\necho \"Shell: $BASH_VERSION\"\nEOF\nchmod +x test1.sh\n./test1.sh\n\n# 2. Script SIN shebang\ncat << 'EOF' > test2.sh\necho \"Sin she"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Script con argumentos",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Crea saludar.sh\ncat << 'EOF' > saludar.sh\n#!/bin/bash\n# Uso: ./saludar.sh nombre\n\nif [ -z \"$1\" ]; then\n    echo \"Uso: $0 nombre\"\n    exit 1\nfi\n\necho \"¡Hola, $1!\"\necho \"Bienvenido al sistema."
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Códigos de salida",
+          "difficulty": "1"
+        },
+        "content_preview": "```bash\n# Ejecuta y observa $?\ntrue\necho $?   # 0\n\nfalse\necho $?   # 1\n\nls /tmp\necho $?   # 0\n\nls /noexiste\necho $?   # 2\n```"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Practicar condiciones",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Crea verificar.sh\ncat << 'EOF' > verificar.sh\n#!/bin/bash\narchivo=$1\n\nif [ -z \"$archivo\" ]; then\n    echo \"Uso: $0 archivo\"\n    exit 1\nfi\n\nif [ -e \"$archivo\" ]; then\n    echo \"$archivo exist"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Loops en acción",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Crea contador.sh\ncat << 'EOF' > contador.sh\n#!/bin/bash\n# Cuenta desde 1 hasta el argumento\n\nlimite=${1:-10}\n\necho \"Contando hasta $limite:\"\nfor i in $(seq 1 $limite); do\n    echo $i\ndone\nec"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Probar el script de backup",
+          "difficulty": "3"
+        },
+        "content_preview": "```bash\n# 1. Crea el script (copia el código de arriba)\nnano backup.sh\n\n# 2. Hazlo ejecutable\nchmod +x backup.sh\n\n# 3. Prueba (con valores por defecto)\n./backup.sh\n\n# 4. Prueba con argumentos\nmkdir -p"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "05_bash/04_entrada_salida.md": {
+    "path": "clase/05_bash/04_entrada_salida.md",
+    "title": "Entrada y Salida (I/O)",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Experimentar con stdout y stderr",
+          "difficulty": "1"
+        },
+        "content_preview": "```bash\n# 1. Comando que solo produce stdout\necho \"Esto va a stdout\"\n\n# 2. Forzar un mensaje a stderr (usando >&2)\necho \"Esto va a stderr\" >&2\n\n# 3. Comando que produce ambos\nls /home /directorio_inve"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Practicar redirección básica",
+          "difficulty": "1"
+        },
+        "content_preview": "```bash\n# 1. Crea un archivo con >\necho \"Primera línea\" > mi_archivo.txt\n\n# 2. Agrega líneas con >>\necho \"Segunda línea\" >> mi_archivo.txt\necho \"Tercera línea\" >> mi_archivo.txt\n\n# 3. Ver contenido\nca"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Separar stdout y stderr",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Crea un comando que genere ambos\nls /home /directorio_inventado\n\n# Ahora sepáralos en archivos diferentes\nls /home /directorio_inventado > salida.txt 2> errores.txt\n\n# Verifica\necho \"=== SAL"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Practicar here documents",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# 1. Here document básico\ncat << EOF\nLínea uno\nLínea dos\nEOF\n\n# 2. Con variables (se expanden)\nusuario=$USER\ncat << EOF\nUsuario actual: $usuario\nHome: $HOME\nEOF\n\n# 3. Sin expansión (literal)\nc"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Interactuar con read",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Programa interactivo simple\necho \"=== ENCUESTA ===\"\n\nread -p \"Tu nombre: \" nombre\nread -p \"Tu edad: \" edad\nread -p \"Tu lenguaje favorito: \" lenguaje\n\necho \"\"\necho \"=== RESULTADOS ===\"\necho \""
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Calculadora interactiva",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Pedir dos números\nread -p \"Primer número: \" a\nread -p \"Segundo número: \" b\n\n# Mostrar operaciones\necho \"Resultados:\"\necho \"$a + $b = $((a + b))\"\necho \"$a - $b = $((a - b))\"\necho \"$a * $b = $"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Cadena de pipes",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Cuenta cuántos archivos .md hay en /home\nls -la /home | wc -l\n\n# Lista procesos y busca bash\nps aux | grep bash\n\n# Combina varios comandos\ncat /etc/passwd | cut -d: -f1 | sort | head -10\n# ¿"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Crear log de sistema",
+          "difficulty": "2"
+        },
+        "content_preview": "```bash\n# Crea un archivo de log\necho \"=== LOG INICIADO $(date) ===\" > sistema.log\n\n# Agrega información\necho \"Usuario: $USER\" >> sistema.log\necho \"Home: $HOME\" >> sistema.log\necho \"Shell: $SHELL\" >> "
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Filtrar errores",
+          "difficulty": "3"
+        },
+        "content_preview": "```bash\n# Comando que genera errores y salida\nls /home /etc /noexiste /tmp /tampoco\n\n# Guarda solo la salida exitosa\nls /home /etc /noexiste /tmp /tampoco 2> /dev/null > exitoso.txt\n\n# Guarda solo los"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Menú interactivo",
+          "difficulty": "3"
+        },
+        "content_preview": "```bash\necho \"=== MENÚ ===\"\necho \"1. Ver fecha\"\necho \"2. Ver usuario\"\necho \"3. Ver directorio\"\necho \"4. Salir\"\necho \"\"\nread -p \"Elige opción (1-4): \" opcion\n\n# Responder según opción\ncase $opcion in\n "
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "04_terminal/05_comandos_utiles.md": {
+    "path": "clase/04_terminal/05_comandos_utiles.md",
+    "title": "Comandos Útiles",
+    "type": "lesson",
+    "order": 5,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Comandos que usarás en Bandit",
+          "difficulty": "2"
+        },
+        "content_preview": "Estos comandos aparecen en los niveles de Bandit. Practícalos:\n\n```bash\n# Ver archivos ocultos\nls -la\n\n# Leer contenido de archivos\ncat archivo.txt\n\n# Buscar texto en archivos\ngrep \"palabra\" archivo.t"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Buscar y filtrar",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Encuentra todos los archivos `.md` en el directorio actual:\n   ```bash\n   find . -name \"*.md\"\n   ```\n\n2. Busca la palabra \"error\" en todos los archivos de texto:\n   ```bash\n   grep -r \"error\" --inc"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Pipes y redirección",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Lista todos los archivos y guárdalos en `listado.txt`:\n   ```bash\n   ls -la > listado.txt\n   ```\n\n2. Encuentra los 3 directorios más grandes:\n   ```bash\n   du -h --max-depth=1 | sort -hr | head -4\n"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Detective de archivos",
+          "difficulty": "2"
+        },
+        "content_preview": "Encuentra información en tu sistema:\n\n```bash\n# ¿Cuántos archivos .py hay en tu home?\nfind ~ -name \"*.py\" 2>/dev/null | wc -l\n\n# ¿Cuáles son los 5 archivos más grandes?\nfind ~ -type f -exec ls -s {} \\"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Grep avanzado",
+          "difficulty": "3"
+        },
+        "content_preview": "Crea un archivo de log para practicar:\n\n```bash\ncat << 'EOF' > practice.log\n2026-01-20 10:30:15 INFO User login successful\n2026-01-20 10:31:22 ERROR Database connection failed\n2026-01-20 10:32:45 INFO"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Pipeline maestro",
+          "difficulty": "3"
+        },
+        "content_preview": "Crea un archivo con datos:\n\n```bash\ncat << 'EOF' > datos.csv\nnombre,edad,ciudad\nAna,25,CDMX\nCarlos,30,Monterrey\nDiana,25,Guadalajara\nEduardo,35,CDMX\nFernanda,28,Monterrey\nEOF\n```\n\nUsa pipes para:\n\n```"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Monitor de sistema",
+          "difficulty": "2"
+        },
+        "content_preview": "Practica comandos de monitoreo:\n\n```bash\n# Espacio en disco\ndf -h\n\n# Uso de memoria\nfree -h\n\n# Top 5 procesos por CPU\nps aux --sort=-%cpu | head -6\n\n# Top 5 procesos por memoria\nps aux --sort=-%mem | "
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Buscar texto en proyecto",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Tengo un proyecto de código y necesito encontrar todas las ocurrencias de [palabra/función/variable].\n\nEl proyecto está en: [ruta]\nLenguajes: [Python/JavaScript/etc]\n\nDame el comando grep más eficient"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Analizar logs",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Tengo un archivo de logs grande y necesito:\n1. Encontrar todos los errores de las últimas 24 horas\n2. Contar cuántas veces aparece cada tipo de error\n3. Extraer solo las líneas con un patrón específic"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Comando complejo",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Necesito hacer esto en la terminal:\n[describe lo que quieres hacer]\n\nEjemplo de mi estructura de archivos:\n```\n[muestra tu estructura]\n```\n\nDame el comando o pipeline de comandos para lograrlo. Explíc"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Permisos de archivo",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Tengo este error de permisos:\n\n```\n[pega el error]\n```\n\nEl archivo tiene estos permisos (resultado de ls -la):\n```\n[pega los permisos]\n```\n\n¿Qué permisos necesito y cuál es el comando chmod correcto? "
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "04_terminal/01_conceptos_basicos.md": {
+    "path": "clase/04_terminal/01_conceptos_basicos.md",
+    "title": "Conceptos Básicos de la Terminal",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Primeros comandos",
+          "difficulty": "1"
+        },
+        "content_preview": "Antes de empezar Bandit, verifica que tu terminal funciona:\n\n1. Abre tu terminal (Ubuntu en WSL2, Terminal en Mac, o tu terminal de Linux)\n2. Ejecuta `echo $SHELL` - ¿Qué shell estás usando?\n3. Ejecut"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Identificar partes de comandos",
+          "difficulty": "1"
+        },
+        "content_preview": "Para cada comando, identifica: **comando**, **banderas** y **argumentos**:\n\n1. `pwd`\n2. `ls -la`\n3. `cd /var/log`\n4. `cp -r fotos/ backup/`\n5. `grep -n \"TODO\" *.py`\n6. `rm -rf node_modules/`\n7. `cat a"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Construir comandos",
+          "difficulty": "2"
+        },
+        "content_preview": "Escribe el comando para cada descripción:\n\n1. Listar archivos con detalles y tamaños legibles\n2. Copiar la carpeta `proyecto/` a `proyecto_backup/` incluyendo subcarpetas\n3. Buscar la palabra \"passwor"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Experimentar con banderas",
+          "difficulty": "2"
+        },
+        "content_preview": "Ejecuta estos comandos y compara los resultados:\n\n```bash\n# Sin banderas vs con banderas\nls\nls -l\nls -la\nls -lah\n\n# Orden de banderas (¿importa?)\nls -la\nls -al\n\n# Banderas largas vs cortas\nls --all\nls"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Prueba cancelar",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Ejecuta `sleep 100` (espera 100 segundos)\n2. Presiona `Ctrl + C` para cancelarlo\n3. Observa cómo vuelve el prompt"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Exploración inicial",
+          "difficulty": "1"
+        },
+        "content_preview": "Ejecuta estos comandos y anota qué hace cada uno:\n\n```bash\nwhoami\nhostname\npwd\ndate\ncal\nuptime\n```\n\n**Pregunta:** ¿Cuánto tiempo lleva encendida tu computadora?"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Usando opciones",
+          "difficulty": "1"
+        },
+        "content_preview": "Experimenta con opciones:\n\n```bash\n# Sin opciones\ndate\n\n# Con opción de formato\ndate +\"%Y-%m-%d\"\n\n# Solo hora\ndate +\"%H:%M:%S\"\n```\n\n**Pregunta:** ¿Qué significa `%Y`, `%m`, `%d`?"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Obtener ayuda",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Ejecuta `man ls` y encuentra:\n   - ¿Qué hace la opción `-h`?\n   - ¿Qué hace la opción `-S`?\n2. Sal del manual con `q`\n3. Prueba `ls --help | less` para ver la ayuda con scroll"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Entender un error",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy aprendiendo a usar la terminal de Linux. Ejecuté este comando:\n\n```\n[pega tu comando aquí]\n```\n\nY obtuve este error:\n\n```\n[pega el error aquí]\n```\n\n¿Qué significa este error y cómo lo soluciono?"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Explicar un comando",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Explícame qué hace este comando de terminal paso a paso, como si fuera principiante:\n\n```\n[pega el comando aquí]\n```\n\nDesglosa cada parte: el comando base, las opciones y los argumentos."
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "04_terminal/02_navegacion.md": {
+    "path": "clase/04_terminal/02_navegacion.md",
+    "title": "Navegación y Rutas",
+    "type": "lesson",
+    "order": 2,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Quiz de rutas (práctica para Bandit)",
+          "difficulty": "2"
+        },
+        "content_preview": "Responde mentalmente estas preguntas (te servirán en Bandit):\n\n1. Si estás en `/home/usuario/proyectos/python`, ¿cuál es la ruta relativa a `/home/usuario/documentos`?\n2. ¿Qué significa `~` y a qué ru"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Explorar ls -l",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Ejecuta `ls -l` en tu home y responde:\n   - ¿Cuántos directorios hay? (empiezan con `d`)\n   - ¿Cuál es el archivo más grande?\n   - ¿Quién es el dueño de los archivos?\n\n2. Compara:\n   ```bash\n   ls "
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Navegación básica",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Abre tu terminal\n2. Ejecuta `pwd` - ¿dónde estás?\n3. Ejecuta `ls` - ¿qué hay?\n4. Ejecuta `cd /` y luego `ls` - ¿qué ves en la raíz?\n5. Ejecuta `cd ~` para volver a tu home"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Rutas relativas",
+          "difficulty": "2"
+        },
+        "content_preview": "Desde tu home (`~`):\n\n1. Crea una estructura: `mkdir -p proyectos/python/ejercicio1`\n2. Navega a `ejercicio1` usando ruta relativa\n3. Ejecuta `pwd` para verificar\n4. Vuelve a home usando `cd ../../../"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Diferencia absoluta vs relativa",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Navega a `/tmp` usando ruta absoluta\n2. Desde `/tmp`, intenta ir a tu home de dos formas:\n   - Ruta absoluta: `cd /home/tu_usuario`\n   - Usando `~`: `cd ~`\n3. ¿Cuál es más corta?"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Mapa mental del sistema",
+          "difficulty": "2"
+        },
+        "content_preview": "Explora estas rutas y anota qué contienen:\n\n```bash\nls /\nls /home\nls /usr/bin | head -20\nls /etc | head -20\nls /tmp\n```\n\n**Pregunta:** ¿Para qué crees que sirve cada directorio?"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Carrera de navegación",
+          "difficulty": "2"
+        },
+        "content_preview": "Cronometra cuánto tardas en:\n\n1. Ir a `/var/log`\n2. Volver a tu home\n3. Ir a `/etc`\n4. Volver al directorio anterior (`cd -`)\n5. Crear `~/prueba/nivel1/nivel2/nivel3` con un solo comando\n\n**Objetivo:*"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Encuentra tu archivo de configuración de bash",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Ve a tu home: `cd ~`\n2. Lista archivos ocultos: `ls -la`\n3. Encuentra `.bashrc` o `.zshrc`\n4. Muestra su contenido: `cat ~/.bashrc`\n\n**Pregunta:** ¿Qué tipo de configuraciones tiene?"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Convertir ruta Windows a Linux",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Tengo esta ruta de Windows:\n\n```\nC:\\Users\\MiUsuario\\Documents\\proyecto\\archivo.txt\n```\n\n¿Cómo accedo a este archivo desde WSL2? Explícame cómo funcionan las rutas en /mnt/c/"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Entender estructura de directorios",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Soy nuevo en Linux. Explícame para qué sirven estos directorios del sistema:\n- /home\n- /etc\n- /var\n- /usr\n- /tmp\n- /bin\n\nDame ejemplos prácticos de cuándo usaría cada uno."
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Practicar rutas",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Dame 5 ejercicios de práctica para convertir rutas absolutas a relativas y viceversa en Linux. Incluye las respuestas para que pueda verificar.\n\nEstoy en el directorio: /home/usuario/proyectos/python"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "04_terminal/03_atajos_tips.md": {
+    "path": "clase/04_terminal/03_atajos_tips.md",
+    "title": "Atajos y Productividad",
+    "type": "lesson",
+    "order": 3,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Atajos esenciales para Bandit",
+          "difficulty": "1"
+        },
+        "content_preview": "Practica estos atajos que te ayudarán en Bandit:\n\n1. `Tab` - autocompletar nombres de archivos (muy útil cuando no sabes qué hay)\n2. `Ctrl + C` - cancelar un comando (si algo se queda pegado)\n3. `↑` -"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Practica navegación",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Escribe (sin ejecutar): `echo \"esta es una linea muy larga de ejemplo\"`\n2. Presiona `Ctrl + A` - cursor al inicio\n3. Presiona `Ctrl + E` - cursor al final\n4. Presiona `Ctrl + ←` varias veces - salt"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Practica edición",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Escribe: `echo \"texto que voy a borrar parcialmente\"`\n2. Presiona `Ctrl + A` para ir al inicio\n3. Presiona `Ctrl + K` - borra todo\n4. Presiona `Ctrl + Y` - recupera el texto\n5. Presiona `Ctrl + W` "
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Practica Tab completion",
+          "difficulty": "1"
+        },
+        "content_preview": "1. Escribe `cd /u` y presiona `Tab` → se completa a `/usr/`\n2. Escribe `ls /e` y presiona `Tab` → se completa a `/etc/`\n3. Escribe `cd ~` y presiona `Tab` dos veces → muestra carpetas en tu home"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Practica pipes",
+          "difficulty": "2"
+        },
+        "content_preview": "Ejecuta estos comandos y entiende qué hace cada pipe:\n\n```bash\n# 1. ¿Cuántos archivos/carpetas hay en /etc?\nls /etc | wc -l\n\n# 2. ¿Cuáles son los últimos 5 comandos que ejecutaste?\nhistory | tail -5\n\n"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Práctica integral de atajos",
+          "difficulty": "2"
+        },
+        "content_preview": "Realiza estas tareas usando atajos:\n\n1. Escribe `echo \"hola mundo\"` y ejecútalo\n2. Presiona `↑` para recuperarlo, cambia \"hola\" por \"adios\" usando `Ctrl + A` y `Ctrl + →`\n3. Ejecuta `history | tail -5"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Speedrun de edición",
+          "difficulty": "2"
+        },
+        "content_preview": "Practica estos atajos hasta que sean automáticos:\n\n1. Escribe: `echo \"Este es un comando muy largo que quiero editar rápidamente\"`\n2. Ve al inicio con `Ctrl + A`\n3. Ve al final con `Ctrl + E`\n4. Borra"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Maestro del historial",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Ejecuta estos comandos:\n   ```bash\n   echo \"primero\"\n   ls -la\n   echo \"segundo\"\n   pwd\n   echo \"tercero\"\n   ```\n\n2. Usa `Ctrl + R` y busca \"echo\"\n3. Presiona `Ctrl + R` otra vez para ir al siguien"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Comodines en acción",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Crea archivos de prueba:\n   ```bash\n   mkdir ~/practica_comodines && cd ~/practica_comodines\n   touch archivo{1..5}.txt documento{A,B,C}.md imagen{01..03}.png\n   ```\n\n2. Practica comodines:\n   ```b"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Alias útiles",
+          "difficulty": "3"
+        },
+        "content_preview": "Crea estos alias y pruébalos:\n\n```bash\n# Alias temporales (se pierden al cerrar terminal)\nalias ll='ls -lah'\nalias ..='cd ..'\nalias ...='cd ../..'\nalias cls='clear'\nalias myip='curl -s ifconfig.me'\n``"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Crear alias personalizados",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Soy estudiante de ciencia de datos y uso mucho la terminal. Dame 10 alias útiles para:\n- Navegar más rápido\n- Trabajar con Git\n- Activar entornos virtuales de Python\n- Ver logs y procesos\n\nExplícame c"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Atajos que no funcionan",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy en [macOS/Linux/WSL2] y el atajo [Ctrl + algo] no funciona. \n\n¿Por qué puede ser? ¿Hay un equivalente o configuración que deba cambiar?"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Personalizar el prompt",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Quiero personalizar cómo se ve mi prompt de bash/zsh. Actualmente se ve así:\n\n```\nusuario@computadora:~$\n```\n\nQuiero que muestre:\n- El directorio actual de forma abreviada\n- La rama de Git si estoy en"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "04_terminal/00_index.md": {
+    "path": "clase/04_terminal/00_index.md",
+    "title": "Módulo 4: La Terminal",
+    "type": "lesson",
+    "order": 0,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "4.0",
+          "title": "Videos SSH",
+          "due": "2026-01-27",
+          "points": "10"
+        },
+        "content_preview": "Ver los siguientes videos sobre SSH (se preguntará al respecto en clase), necesitaras instalar y configurar to ssh local apra jugar bandit. **Si tienes wsl2 hazlo en wsl2 no powershell**:\n\n1. [Video 1"
+      },
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "4.1",
+          "title": "Bandit OverTheWire",
+          "due": "2026-01-27",
+          "points": "15"
+        },
+        "content_preview": "**URL:** [https://overthewire.org/wargames/bandit/bandit0.html](https://overthewire.org/wargames/bandit/bandit0.html)\n\nBandit es un juego de \"wargames\" para aprender comandos de terminal. Tu objetivo:"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Verificar tu terminal",
+          "difficulty": "1"
+        },
+        "content_preview": "Antes de continuar, asegúrate de que tu terminal funciona:\n\n```bash\n# 1. Abre tu terminal\n\n# 2. Ejecuta estos comandos y verifica que no hay errores:\nwhoami\npwd\nls\necho \"¡Mi terminal funciona!\"\n\n# 3. "
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Ayuda si tu terminal no funciona",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy intentando usar la terminal en [Windows WSL2 / macOS / Linux] y tengo este problema:\n\n[describe tu problema]\n\nCuando ejecuto [comando], obtengo:\n\n```\n[pega el error o comportamiento inesperado]\n"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "04_terminal/04_manipulacion_archivos.md": {
+    "path": "clase/04_terminal/04_manipulacion_archivos.md",
+    "title": "Manipulación de Archivos",
+    "type": "lesson",
+    "order": 4,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Crear estructura de proyecto",
+          "difficulty": "1"
+        },
+        "content_preview": "Crea esta estructura con un solo comando:\n\n```\nmi_proyecto/\n├── src/\n├── tests/\n└── docs/\n```\n\n**Solución:** `mkdir -p mi_proyecto/{src,tests,docs}`"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Organizar archivos",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Crea esta estructura:\n   ```bash\n   mkdir -p ejercicio/{entrada,salida,respaldo}\n   ```\n\n2. Crea archivos de prueba:\n   ```bash\n   touch ejercicio/entrada/data{1..3}.txt\n   ```\n\n3. Copia los archiv"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Renombrar en masa",
+          "difficulty": "2"
+        },
+        "content_preview": "1. Crea archivos de prueba:\n   ```bash\n   touch file_{a,b,c}.txt\n   ```\n\n2. Renómbralos manualmente uno por uno:\n   ```bash\n   mv file_a.txt archivo_a.txt\n   ```\n\n3. Verifica con `ls`\n\n> **Atajo:** De"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Estructura de proyecto Python",
+          "difficulty": "2"
+        },
+        "content_preview": "Crea la estructura típica de un proyecto Python:\n\n```bash\nmkdir -p mi_proyecto/{src,tests,docs,data/{raw,processed}}\ntouch mi_proyecto/README.md\ntouch mi_proyecto/requirements.txt\ntouch mi_proyecto/sr"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Backup y restauración",
+          "difficulty": "2"
+        },
+        "content_preview": "Practica hacer backups:\n\n```bash\n# Crea archivos de prueba\nmkdir original\necho \"datos importantes\" > original/datos.txt\necho \"config\" > original/config.txt\n\n# Haz backup con fecha\ncp -r original/ back"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Renombrado masivo simulado",
+          "difficulty": "3"
+        },
+        "content_preview": "1. Crea archivos con nombres desordenados:\n   ```bash\n   mkdir renombrar && cd renombrar\n   touch \"archivo con espacios.txt\"\n   touch \"MAYUSCULAS.txt\"\n   touch \"foto_2024_01_15.jpg\"\n   ```\n\n2. Renómbr"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Limpieza segura",
+          "difficulty": "2"
+        },
+        "content_preview": "Practica eliminar de forma segura:\n\n```bash\n# Crea archivos para borrar\nmkdir basura\ntouch basura/temp{1..5}.txt\n\n# SIEMPRE verifica antes de borrar\nls basura/\n\n# Usa -i para confirmar cada archivo\nrm"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Organizar descargas",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Tengo mi carpeta de Descargas llena de archivos desordenados. Dame comandos de terminal para:\n\n1. Listar todos los archivos por tipo (pdf, jpg, zip, etc.)\n2. Crear carpetas para cada tipo\n3. Mover los"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Recuperar archivo borrado",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Accidentalmente borré un archivo importante con `rm`. ¿Hay alguna forma de recuperarlo en Linux?\n\nTambién explícame cómo puedo prevenir esto en el futuro (alias, papelera de terminal, etc.)"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Copiar entre WSL2 y Windows",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Necesito copiar archivos entre mi sistema WSL2 y Windows frecuentemente. \n\n1. ¿Cuál es la mejor forma de hacerlo?\n2. ¿Dónde están mis archivos de Windows desde WSL2?\n3. ¿Dónde están mis archivos de WS"
+      }
+    ],
+    "has_frontmatter": false
+  },
+  "04_terminal/06_instalacion_paquetes.md": {
+    "path": "clase/04_terminal/06_instalacion_paquetes.md",
+    "title": "Instalación de Paquetes",
+    "type": "lesson",
+    "order": 6,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Configurar entorno de desarrollo",
+          "difficulty": "2"
+        },
+        "content_preview": "Configura tu entorno para desarrollo en Python:\n\n1. Actualiza tu sistema:\n   ```bash\n   sudo apt update && sudo apt upgrade -y\n   ```\n\n2. Instala herramientas básicas:\n   ```bash\n   sudo apt install -"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Explorar paquetes instalados",
+          "difficulty": "1"
+        },
+        "content_preview": "Investiga qué tienes instalado:\n\n```bash\n# Ver todos los paquetes apt (puede ser largo)\napt list --installed | head -30\n\n# Buscar paquetes específicos\napt list --installed | grep python\n\n# Ver informa"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Instalar herramienta útil",
+          "difficulty": "2"
+        },
+        "content_preview": "Instala `tldr` - páginas de manual simplificadas:\n\n```bash\n# Opción 1: Con pip\npip3 install tldr\n\n# Opción 2: Con npm (si tienes Node)\nnpm install -g tldr\n\n# Uso\ntldr ls\ntldr tar\ntldr git commit\n```\n\n"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Crear proyecto Python desde cero",
+          "difficulty": "3"
+        },
+        "content_preview": "Practica el flujo completo:\n\n```bash\n# 1. Crear directorio del proyecto\nmkdir mi_primer_proyecto && cd mi_primer_proyecto\n\n# 2. Crear entorno virtual\npython3 -m venv venv\n\n# 3. Activar entorno\nsource "
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Simular error y resolverlo",
+          "difficulty": "2"
+        },
+        "content_preview": "Practica resolver problemas comunes:\n\n```bash\n# Error 1: Falta sudo\napt install htop\n# Solución:\nsudo apt install htop\n\n# Error 2: Paquete no encontrado\nsudo apt install paquete_que_no_existe\n# Soluci"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Instalar software específico",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Quiero instalar [nombre del software] en [Ubuntu/macOS/WSL2].\n\n1. ¿Cuál es la mejor forma de instalarlo?\n2. ¿Hay dependencias que necesite instalar primero?\n3. ¿Cómo verifico que se instaló correctame"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Resolver error de instalación",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Estoy intentando instalar [paquete] con [apt/pip/brew] y obtengo este error:\n\n```\n[pega el error completo]\n```\n\nMi sistema es [Ubuntu/macOS/WSL2] versión [X].\n\n¿Cómo soluciono este error?"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Configurar entorno de desarrollo",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Soy estudiante de [ciencia de datos/desarrollo web/etc] y estoy configurando mi computadora con [Ubuntu/macOS/WSL2].\n\nDame una lista de herramientas esenciales que debería instalar, con los comandos e"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Entender gestor de paquetes",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Explícame las diferencias entre:\n- apt (Ubuntu/Debian)\n- brew (macOS)\n- pip (Python)\n- npm (Node.js)\n- conda (Anaconda)\n\n¿Cuándo uso cada uno? ¿Pueden coexistir? ¿Pueden causar conflictos?"
+      },
+      {
+        "type": "prompt",
+        "attrs": {
+          "title": "Limpiar sistema",
+          "for": "ChatGPT/Claude"
+        },
+        "content_preview": "Mi sistema [Ubuntu/WSL2/macOS] está usando mucho espacio en disco.\n\nDame comandos para:\n1. Ver qué está usando más espacio\n2. Limpiar paquetes y caché de apt/brew\n3. Limpiar paquetes de pip no utiliza"
+      },
+      {
+        "type": "exercise",
+        "attrs": {
+          "title": "Preparar tu sistema para el curso",
+          "difficulty": "2"
+        },
+        "content_preview": "Asegúrate de tener estas herramientas instaladas (las necesitarás más adelante):\n\n**Ubuntu/WSL2:**\n```bash\nsudo apt update\nsudo apt install -y git curl wget python3 python3-pip\n```\n\n**macOS:**\n```bash"
+      }
+    ],
+    "has_frontmatter": false
+  },
   "02_pipeline_de_datos/01_pipeline_de_datos.md": {
     "path": "clase/02_pipeline_de_datos/01_pipeline_de_datos.md",
     "title": "Pipeline de Datos",
@@ -20,7 +1646,18 @@
     "summary": null,
     "tags": [],
     "due_date": null,
-    "components": [],
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "01.01",
+          "title": "Ver videos de Sistemas Operativos y entenderlos",
+          "due": "2026-01-20",
+          "points": "10"
+        },
+        "content_preview": "Ver los siguientes videos y entender los conceptos de Sistemas Operativos:\nhttps://www.youtube.com/watch?v=26QPDBe-NB8 \nhttps://www.youtube.com/watch?v=KN8YgJnShPM&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZB"
+      }
+    ],
     "has_frontmatter": true
   },
   "01_introduccion/01_introduccion.md": {
@@ -28,6 +1665,18 @@
     "title": "Presentación Introducción",
     "type": "lesson",
     "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [],
+    "has_frontmatter": true
+  },
+  "01_introduccion/02_temario.md": {
+    "path": "clase/01_introduccion/02_temario.md",
+    "title": "Temario del Curso",
+    "type": "lesson",
+    "order": 2,
     "date": null,
     "summary": null,
     "tags": [],
@@ -45,6 +1694,39 @@
     "tags": [],
     "due_date": null,
     "components": [],
+    "has_frontmatter": true
+  },
+  "03_fsf_os/01_fsf_os.md": {
+    "path": "clase/03_fsf_os/01_fsf_os.md",
+    "title": "Pipeline de Datos",
+    "type": "lesson",
+    "order": 1,
+    "date": null,
+    "summary": null,
+    "tags": [],
+    "due_date": null,
+    "components": [
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "03.01",
+          "title": "Ver video teórico de la terminal y entenderlo",
+          "due": "2026-01-22",
+          "points": "10"
+        },
+        "content_preview": "**Instrucciones:**\nVer el siguiente video y entender los conceptos de Terminal:\n\n- [Beginner's Guide to the Bash Terminal](https://www.youtube.com/watch?v=4RPtJ9UyHS0)\n\n*Se preguntará al respecto en l"
+      },
+      {
+        "type": "homework",
+        "attrs": {
+          "id": "03.02",
+          "title": "Realizar los dos primeros módulos del curso de shell",
+          "due": "2026-01-22",
+          "points": "10"
+        },
+        "content_preview": "**Instrucciones:**\nCompletar los dos primeros módulos del curso de shell en DataCamp:\n\n1. Manipular archivos y directorios\n2. Manipulación de Datos\n\n- [Introduction to Shell - DataCamp](https://app.da"
+      }
+    ],
     "has_frontmatter": true
   },
   "a_stack/01_introduction/01_cuentas.md": {

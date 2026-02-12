@@ -1,0 +1,19 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: foo busca la cadena foo entre las palabras.
+Proceso de pensamiento: recordé que para buscar cadenas literales solo tienes que ponerlas en la regex.
+
+=== NIVEL: Anchors ===
+Regex usado: ick$
+Explicación: Me di cuenta de que todas las palabras tenían ick pero solo las seleccionadas lo tenían al final.
+Proceso de pensamiento: Busqué en la página web del curso y me apareció que $ servía para buscar al final de la oración.
+
+=== NIVEL: It never ends ===
+Regex usado: fu\b
+Explicación: fu es la cadena literal y \b hace lo mismo que el $
+Proceso de pensamiento: intenté hacer fu$ pero el nivel no lo permitía entonces busqué otro comando que me permitiera buscar al final de la palabra.
+
+=== NIVEL: Backrefs ===
+Regex usado: (.{3}).*\1
+Explicación: (\.{3}) es la agrupación de 3 caracteres, .* es que tiene que haber o más caracteres entre ellos y \1 es que se tiene que repetir esta secuencia una vez para que el regex lo reconozca.
+Proceso de pensamiento: le pregunté a ChatGPT sobre qué comando podría usar para buscar cadenas repetidas en una palabra con regex. De ahí encontré el \1. Después reconocí que en las palabras buscadas de repetían cadenas de 3 caracteres y de ahí obtuve la agrupación (.{3}).

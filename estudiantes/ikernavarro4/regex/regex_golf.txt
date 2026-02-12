@@ -1,0 +1,20 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: Busca las expresiones que contengan foo 
+Proceso de pensamiento:Busque que tienen en común las expresiones que tenía que matchear que no tenían la que no tenía que matchear.  
+
+=== NIVEL: Anchors ===
+Regex usado: ick$
+Explicación: "ick" selecciona las expresiones que contengan esas letras, "$" busca las expresiones que contengan esas letras solo al final.
+Proceso de pensamiento: Vi que todas las expresiones que matchear terminaban en ick pero me di cuenta que las que no tenia que matchear tambien contenian ick, por lo tanto use $ para solucionar esto, ya que sabia su funcion despues de leer la presentacion otra vez.
+
+=== NIVEL: It never ends ===
+Regex usado: fu\b
+Explicación: "fu" busca las expresionas que contengan el string "fu" y "\b" crea un boundary en otras palabras un limite de palabra.
+Proceso de pensamiento: Vi que las expresiones por matchear tenian al terminar el string "fu", sin embargo, tambien tres de cuatro palabrasde que no tenia que matchear contenian "fu", aparte el nivel nos prohibio utilizar $. Entonces investinvestigue si habia otra forma de usar el $ o un limite de palabra. 
+
+=== NIVEL: Backrefs ===
+Regex usado: (...).*\1
+Explicación: Los parentesis agrupan los strings que contiene y los hace una unidad, los "..." significan tres strings cualquiera, el punto fuera de la palabra hace que despues del parentesis hay un string cualquiera, el "*" hace que haya cero o mas strings cualquiera, y finalmente el \1 significa que despues de strings cualquiera se repita la unidad dentro del parenntesis.
+Proceso de pensamiento: Vi que en las espresiones por matchear se repetian tres strings juntos, asi que decidi usar parentesis para convertirlos en unidad, luego el punto y asterisco, para que asi cumplir con los string a contiunacion y el asterisco justamente porque habian unos que no tenian letras de separacion entre la unidad que se repetia por ejemplo "perpera". Finalmente solo busque como podia hacer que se repita la primera agrupacion para que funcione en todas las expresiones y no solo en una.
+

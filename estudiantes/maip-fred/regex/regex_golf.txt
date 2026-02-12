@@ -1,0 +1,19 @@
+=== NIVEL: [Warmup] === 
+Regex usado: foo 
+Explicación: Busca literalmente la secuencia de caracteres consecutivos "f", "o", y "o". 
+Proceso de pensamiento: Al revisar la muestra de datos, vi que la "intersección" de todas las palabras de la columna verde era que contenían la sílaba "foo". Luego, al evaluar la columna roja (el conjunto a rechazar), noté que ninguna palabra prohibida tenía esa secuencia completa (algunas tenían "fo" o "oo", pero no juntas). Tomar esa intersección fue la condición mínima necesaria para separar ambos conjuntos.
+
+=== NIVEL: [Anchors] === 
+Regex usado: k$ 
+Explicación: La k busca literalmente esa letra, y el $ es un "ancla" posicional que exige que la coincidencia ocurra estrictamente en el límite final de la cadena de texto. 
+Proceso de pensamiento: Al observar el dataset de este nivel, el patrón era que todas las palabras válidas terminaban con la letra 'k'. El problema era que las palabras prohibidas también contenían la 'k', pero siempre en medio. Para evitar que nuestro "autómata" aceptara las palabras rojas, usé el ancla $ para forzar que el estado de aceptación ocurra inmediatamente después de la 'k' y no haya más letras después.
+
+=== NIVEL: [It never ends] === 
+Regex usado: fu\b 
+Explicación: fu busca esos literales. \b significa word boundary (límite de palabra), un anclaje invisible que coincide con la posición entre un carácter alfanumérico y un no-alfanumérico (o el final del texto). 
+Proceso de pensamiento: El patrón visual era claro: todas las palabras válidas terminaban en "fu". El reto lógico era que la regla del nivel prohibía usar el ancla de final de línea $. Me quedé analizando cómo simular esa condición de parada sin romper la regla. Recordé que \b detecta dónde se corta una palabra, por lo que logra exactamente la misma exclusión lógica que $, pero usando una sintaxis permitida por el juego.
+
+=== NIVEL: [Backrefs] === 
+Regex usado: (...).*\1 
+Explicación: Los paréntesis (...) son un grupo de captura que guarda en memoria 3 caracteres cualesquiera (los tres puntos ...). El .* permite que haya cero o más caracteres de cualquier tipo de por medio. El \1 es la backreference (referencia hacia atrás), que obliga al motor a encontrar una copia exacta del texto que guardó el grupo 1. 
+Proceso de pensamiento: Este nivel requería un análisis de patrones más complejo. Al leer detenidamente palabras como "mathematic" o "allochirally", me di cuenta de que compartían una propiedad: un bloque de letras ("mat" y "all" respectivamente) se repetía más adelante dentro de la misma palabra. Aunque en teoría de la computación un autómata finito determinista (DFA) puro no tiene "memoria" infinita para recordar subcadenas arbitrarias, los motores de regex prácticos sí pueden hacerlo usando memoria de captura. Guardé un bloque de 3 letras y programé la regex para exigir que ese mismo bloque volviera a aparecer.

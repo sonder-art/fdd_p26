@@ -1,0 +1,24 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: foo: Menciona que hay foo en algún punto del texto.
+Proceso de pensamiento: Me di cuenta que foo estaba en todas las palabras que se tenían que matchear y que no aparecía en las que no, por lo que solo opté por poner foo y me dio el resultado. 
+
+=== NIVEL: Anchors ===
+Regex usado: ick$
+Explicación: ick: Menciona que hay ick en algún punto del texto.
+             $: Final de la cadena. Se pone esto para decir que después del ick no debe de haber nada más.
+Proceso de pensamiento: Empecé por darme cuenta que todas las palabras contenían ick, pero el problema era que también las que no debían de aparecer. Por lo que opté por poner ick para que se buscaran todas las palabras que contenían eso. Para finalizar, y viendo las notas de clase, vi que $ indicaba final, por lo que este era el indicador que necesitaba para que no hubiera nada después del ick. Lo que funcionó.
+
+=== NIVEL: It never ends ===
+Regex usado: fu(?!.)
+Explicación: fu: Menciona que fu debe de aparecer en la cadena de texto.
+             (?!.): En clase vimos que ?! significa negative look ahead, es decir, que no sea el siguiente pattern. Por lo que ponerle esa negación y después un punto, significa que no debe de haber ningún carácter adelante, ya que significaría que en esta posición no debería ser posible matchear un carácter.
+Proceso de pensamiento: Este regex fue mucho más complicado. Primero me di cuenta que el ejercicio era muy similar al anterior, sin embargo, no se podía utilizar el fin de la cadena. Mi primer intento fue una negación de la siguiente manera [^a-z], sin embargo, no me funcionaba y al preguntarle a un modelo LLM, la razón por la que no servía era que esa parte del regex dice que debe de haber un carácter después de la expresión, por lo que no me convenía. Por eso fui a buscar en la presentación y me di cuenta que otra forma de lograrlo era usar el negative look ahead, y de ahí dije, debido a que no debe de haber nada extra solo necesito poner el . y sirvió.
+
+=== NIVEL: Backrefs ===
+Regex usado: (...).*\1
+Explicación: (...): Captura el primer grupo de tres caracteres, que es lo que observamos que se va a repetir.
+             .*: Dice que puede haber cualquier cosa en medio, desde 0 caracteres hasta infinito. 
+             \1: Dice que se tiene que repetir el mismo texto que se capturó en el primer grupo.
+Proceso de pensamiento: Primero me tomé mi tiempo para buscar el patrón que se debería de encontrar. Luego observé que era que se repetía 1 vez los primeros tres caracteres, por lo que opté por agruparlos con () como una unidad. Después vi que podía haber cualquier cosa en medio, por lo que puse .*. Y para ver cómo repetir no sabía el cómo hacerlo. Primero intenté con {1}, pero no sirvió, ya que lo que hace {} es repetir inmediatamente lo que está antes y eso no me convenía, por lo que luego me metí a regex 101 y vi que aparecía \1, que es un backreference que va a repetir el texto que se encontró en el primer grupo, por lo que usé eso.
+

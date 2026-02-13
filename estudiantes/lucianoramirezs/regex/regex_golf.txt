@@ -1,0 +1,29 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: Nada más busca matches de "foo".
+Proceso de pensamiento: Los que queríamos todos tenían "foo".
+
+=== NIVEL: Anchors ===
+Regex usado: k$
+Explicación: $ es fin de línea
+Proceso de pensamiento: Quería todos los que acabaran con k, así que anclé la k al final.
+
+=== NIVEL: It never ends ===
+Regex usado: u\b
+Explicación: \b es un límite de palabra.
+Proceso de pensamiento: Quería anclar la u al fin de la palabra. No podía usar fin de línea
+			por lo tanto busqué en Internet una forma de poner fin de la palabra.
+
+=== NIVEL: Backrefs ===
+Regex usado: (.{3}).*\1
+Explicación:	- . es cualquier caracter
+		- {3} es de longitud 3
+		- () es el grupo de captura
+		- .* permite cero o más caracteres
+		- \1 -> es la clave del regex, es backreference. Hace que aparezca
+		  exactamente el mismo texto que capturó el grupo 1.  
+Proceso de pensamiento: Primero, me di cuenta de que todos los objetivos tenían tres letras
+			repetidas exactamente igual dos veces. Intenté muchas cosas de conjuntos
+			pero no lo logré, así que googleé cómo buscar dos veces el mismo match.
+			Fue aquí cuando me apareció el backreference y ya lo logré.
+

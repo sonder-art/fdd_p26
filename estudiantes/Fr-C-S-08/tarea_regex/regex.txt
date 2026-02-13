@@ -1,0 +1,28 @@
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: foo devuelve todas las palabras en las que se encuentra foo
+Proceso de pensamiento: Como todas de las palabras tenían foo dentro
+lo mejor solamente fue poner foo para que devolviera las palabras requeridas.
+
+=== NIVEL: Anchors ===
+Regex usado: ick$
+Explicación: ick devuelve las palabras que contengan la cadena, $ hace que solo devuelva las
+palabras que terminen con la cadena que antepongas.
+Proceso de pensamiento: ick detecta la cadena de cada una de las palabras, como había palabras 
+en las que la cadena salía a la mitad, tuve que agregarle el $ ya que solo devolvería las palabras
+que terminaran con la cadena ick.
+
+=== NIVEL: It Never Ends ===
+Regex usado: fu\b
+Explicación: fu devuelve las palabras que contengan la cadena, \b devuelve las palabras
+que terminen en la cadena que le antepongas
+Proceso de pensamiento: Busqué en internet alguna función parecida a las de $ y di con \b, entonces
+usé la misma lógica que en el ejercicio pasado y la implemente con la nueva función.
+
+=== NIVEL: BackRefs ===
+Regex usado: .(..).*\1
+Explicación: el . se come el primer carácter, (..) captura los dos siguientes como un grupo 
+.* deja pasar cualquier cosa después, y \1 obliga a que ese mismo par aparezca otra vez más adelante.
+Proceso de pensamiento: Vi que en las palabras requeridas se repetían solamente cadenas de caracteres triples
+entonces después, noté que se repetían después de recorrer casi toda la palabra, por lo tanto tendrían que volver a a parecer
+por lo tanto forcé a que se volviera a contar hasta que se volviera a encontrar la misma cadena. 

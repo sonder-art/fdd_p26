@@ -1,0 +1,7 @@
+runtime,count,time_seconds,memory_mb
+docker,10,2.00,50
+docker,20,7.76,119
+docker,50,10.70,199
+podman,10,1.04,35
+podman,20,2.05,14
+podman,50,5.28,87

@@ -1,0 +1,16 @@
+runtime,mode,rep,mb_per_sec
+bare,direct,1,448
+bare,direct,2,458
+bare,direct,3,504
+docker,overlay,1,380
+docker,overlay,2,370
+docker,overlay,3,381
+docker,volume,1,510
+docker,volume,2,499
+docker,volume,3,511
+podman,overlay,1,1700.0
+podman,overlay,2,1700.0
+podman,overlay,3,1600.0
+podman,volume,1,519
+podman,volume,2,512
+podman,volume,3,508

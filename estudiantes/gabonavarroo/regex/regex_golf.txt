@@ -1,0 +1,36 @@
+Gabriel Navarro Cerón
+218152
+
+Fuentes de Datos: Tarea Regex Golf
+
+=== NIVEL: Warmup ===
+Regex usado: foo
+Explicación: Al ser un comando tan simple, lo único que hace es buscar, de izquierda a derecha. Primero una f, luego una o, luego otra o. Al ver las tres secuencias correctamente, declara un match en todas las palabras de la columna izquierda. Ahora, del lado derecho no hay ninguna conflictiva con un "foo" en ellas que pueda estorbar, por lo que este comando es suficiente.
+Proceso de pensamiento: Buscar un regex que logre llamar a foo. Como las demás palabras no mostraban un patron específico, únicamente debía preocuparme por las palabras que contuvieran un "foo" en ella
+
+
+=== NIVEL: Anchors ===
+Regex usado: ick$
+Explicación: al buscar ick, regex busca que esté una i, c y una k juntas y que exactamente después de la k sea el final de la cadena, esto es gracias al $. Como las palabras de la columna derecha tienen un ick a la mitad de la palabra y nunca al final, al llegar al $, que debería indicar el final de la cadena y encontrar algo diferente de este final, rechaza el match.
+Proceso de pensamiento: Se puede observar que todas las palabras que debemos buscar terminan con ick y únicamente con ick. Por otro lado, las palabras de la columna derecha solo tenían ick, pero ninguna solamente al final. Entonces, debía de buscar un regex que filtre todas las páginas que terminen con ick, y únicamente tengan ick al final de la cadena.
+
+
+=== NIVEL: It never ends ===
+Regex usado: fu\b
+Explicación: Comienza buscando f y luego u, para llegar con el word boundry \b. Una vez aquí, verifica que lo siguiente a la u sea una no-palabra, ya sea un espacio, final de palabra o punto o símbolo. Como las palabras del lado izquierdo todas terminan en fu, el word boundry permite que al leer el final de cadena, sea un \b válido y por ende, hacer match. 
+Proceso de pensamiento: Nuevamente, las palabras del lado izquierdo todas terminan con "fu", mientras que la del lado derecho tienen un "fu" o solamente "u" pero nunca al final, por lo que podemos filtrar buscando esto. Una alternativa a buscar con $ es buscar con un word boundry, como \b, el cual verifica que después de una palabra, exista un signo o espacio (no-palabras). De esta manera, podremos buscar las palabras que tengan "fu" y que después de la u no tenga una palbra, ya sea punto, singo especial o espacio.
+
+
+=== NIVEL: Backrefs ===
+Regex usado: ([a-z]{3}).*\1
+Explicación: Para empezar [a-z] es el conjunto de todas las letras del alfabeto minúsculas. Ponerles el {3} sirve para señalar que quiero una cadena precisamente de longitud 3 caracteres. El agruparla en paréntesis (), dejando ([a-z]{3}) sirve para hacer un grupo, y con él lograremos agrupar a todos los fragmentos de string de longitud 3 que se forman en la cadena con letras minúsculas de la a-z. Ahora, el fragmento ".*" sirve para indicar que puede haber cualquier cosa en medio, una o cero veces, por el * y el . que es el comodín. De esta manera, se puede indicar que puede haber una letra, símbolo, espacio, o nada y que este directamente lo que buscamos después que es el "\1". Esta última combinación de caracteres permite que regex busca otra apariencia de alguna cadena formada en ([a-z]{3}), es decir, busca al mismo substring de 3 caracteres aparezca dos veces en la misma cadena, usando, como el nombre del nivel, backreference. 
+Proceso de pensamiento: Tras revisar detenidamente las cadenas del lado derecho nos podemos dar cuenta de cierto patrón: todas las palabras tienen al menos 3 letras una seguida de la otra que se repiten dos veces dentro de la misma palabra. Algunas parecen tener 4, pero para sin pérdida de generalidad, es mejor asumir únicamente 3. De esta manera, lo que tenemos que buscar es un regex que permita revisar y agrupar en grupos de 3 cadenas todas las subcadenas posibles de una  palabra y buscar aquella que se repite dos veces de manera idéntica. Sabiendo que existe la manera de buscar una agrupación de letras mínusculas [a-z] y poder especificar su longitud de {3}, ya solo falta complementar con .*\1 para indicar que puede haber 0 o más caracteres después de la cadena de 3 y que empiece ahí a buscar la cadena de 3 repetida.
+
+
+
+
+
+
+
+
+

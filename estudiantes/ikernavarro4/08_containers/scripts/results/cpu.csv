@@ -1,0 +1,10 @@
+runtime,metric,value
+bare,cpu_seconds,46.21
+bare,cpu_seconds,48.10
+bare,cpu_seconds,46.87
+docker,cpu_seconds,50.81
+docker,cpu_seconds,52.18
+docker,cpu_seconds,55.52
+podman,cpu_seconds,57.89
+podman,cpu_seconds,55.85
+podman,cpu_seconds,55.91

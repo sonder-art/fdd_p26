@@ -1,0 +1,10 @@
+runtime,metric,value
+bare,cpu_exec_seconds,4.8243
+bare,cpu_exec_seconds,4.6034
+bare,cpu_exec_seconds,5.1760
+docker,cpu_exec_seconds,5.1566
+docker,cpu_exec_seconds,4.6767
+docker,cpu_exec_seconds,4.6120
+podman,cpu_exec_seconds,5.3232
+podman,cpu_exec_seconds,5.7126
+podman,cpu_exec_seconds,5.2326

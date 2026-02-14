@@ -1,0 +1,9 @@
+runtime,count,launch_time_s,per_container_kb,total_container_kb,daemon_rss_kb
+docker,1,.347,434.2,434.2,183540
+docker,5,1.375,438.3,2191.5,183540
+docker,10,2.203,441.5,4415.8,184180
+docker,20,5.524,437.0,8741.4,188148
+podman,1,.192,102.4,102.4,1784
+podman,5,.803,98.3,491.5,8960
+podman,10,1.228,97.0,970.7,18184
+podman,20,2.742,97.4,1949.6,36628

@@ -1,0 +1,17 @@
+n_workers,method,time_s,speedup
+1,sequential,4.021,1.00
+2,sequential,8.043,1.00
+4,sequential,16.086,1.00
+8,sequential,32.172,1.00
+1,threading,4.085,0.98
+2,threading,8.341,0.97
+4,threading,16.892,0.95
+8,threading,34.211,0.94
+1,multiprocessing,4.312,0.93
+2,multiprocessing,2.241,1.80
+4,multiprocessing,1.203,3.34
+8,multiprocessing,0.712,4.52
+1,joblib,4.298,0.94
+2,joblib,2.218,1.81
+4,joblib,1.189,3.38
+8,joblib,0.701,4.59

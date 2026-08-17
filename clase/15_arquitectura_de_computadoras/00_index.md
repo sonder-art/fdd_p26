@@ -1,44 +1,52 @@
 ---
-title: "Módulo 15: Arquitectura de Computadoras"
+title: "Módulo 15: Arquitectura y hardware de computadoras"
 ---
 
-# Módulo 15: Arquitectura de Computadoras
+# Arquitectura y hardware de computadoras
 
-Entrenar un modelo de lenguaje moderno puede costar cien millones de dólares. Un chip H100 ejecuta casi cuatro mil billones de operaciones por segundo. La diferencia entre correr código en CPU o GPU puede ser de cien veces. ¿Por qué? ¿Cuándo importa?
+Un programa no trabaja en el vacío. **Calcula**, **guarda** y **mueve datos** sobre una máquina física. El desempeño aparece cuando esas tres acciones encajan; el cuello de botella aparece cuando una de ellas no alcanza a las otras.
 
-Este módulo explica la arquitectura de la computadora desde la perspectiva de quien trabaja con datos y modelos: qué hay dentro de la máquina, cómo se mueve la información, por qué algunos cómputos son baratos y otros son prohibitivos, y qué significa "cuello de botella" en términos concretos de hardware.
+![Ciudad retrofuturista vista desde arriba: una torre central de cómputo conectada por rutas luminosas a distritos de memoria y almacenamiento.](./images/hero_compute_city.webp)
 
-No es un curso de sistemas. No vas a escribir drivers ni compiladores. Pero sí vas a entender por qué tu código de NumPy es cien veces más rápido que un loop de Python, por qué `.to("cuda")` existe, y cómo se relaciona el número de parámetros de un LLM con millones de dólares en cómputo.
+*Creación original generativa para este curso, producida con OpenAI, 2026.*
 
-## Contenido
+**Lectura textual de la imagen:** el núcleo de cómputo no está aislado. Depende de capas de memoria, almacenamiento y rutas capaces de llevarle datos.
 
-| Sección | Tema | Tiempo |
-|---------|------|--------|
-| [La máquina](./01_la_maquina.md) | Von Neumann, jerarquía de memoria, CPU y GPU en el sistema | ~15 min |
-| [Los procesadores](./02_procesadores.md) | CPU vs GPU vs NPU, ARM vs x86, cores y reloj, ensamblador | ~15 min |
-| [Rendimiento y escala](./03_rendimiento_y_escala.md) | FLOPs, cuellos de botella de memoria, vectorización, LLMs | ~20 min |
+Esta unidad construye un mapa para leer una laptop, una GPU o un centro de datos con las mismas preguntas: dónde están los datos, quién los transforma, cuánto cuesta moverlos y qué recurso se satura primero.
 
-## Notebook
+## Al terminar
 
-| Notebook | Tema | Tiempo |
-|----------|------|--------|
-| [Hardware y escala](./code/01_arquitectura.ipynb) | Inspección de hardware, benchmark de vectorización, efectos de caché, escala de LLMs | ~25 min |
+Podrás explicar por qué un programa compatible necesita la ISA correcta; distinguir reloj, ciclos, latencia y throughput; razonar sobre RAM, VRAM, caché y almacenamiento; y elegir una dirección de optimización a partir de mediciones, no de slogans.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sonder-art/fdd_p26/blob/main/clase/15_arquitectura_de_computadoras/code/01_arquitectura.ipynb)
+## Ruta en dos sesiones
 
-## Prerequisitos
+**ESTIMATE (diseño docente):** la ruta completa requiere unos 125 minutos netos, repartidos en dos sesiones nominales de 90 minutos con pausas y discusión.
 
-- Módulo 9: Python completado
-- `pip install -r requirements.txt`
+### Sesión 1 — De la máquina al movimiento
 
-## Idea central del módulo
+1. **Orientación** — este mapa de la unidad (~5 min).
+2. [**Compute, instrucciones y CPU**](./01_compute_instrucciones_cpu.md) — piezas físicas, ISA, reloj, ciclos, cores, threads y SIMD (~20 min).
+3. [**Memoria y movimiento de datos**](./02_memoria_y_datos.md) — jerarquía, latencia, ancho de banda y rutas CPU↔GPU (~25 min).
 
-El hardware no es magia ni detalle de implementación: es el contrato físico que determina qué operaciones son rápidas, qué operaciones son lentas y por qué ciertos algoritmos escalan y otros no.
+### Sesión 2 — Del paralelismo a la decisión
 
-Tres principios que guían el módulo:
+1. [**Paralelismo, performance y energía**](./03_paralelismo_performance_energia.md) — CPU, GPU, aceleradores, Roofline y potencia (~43 min).
+2. [**IA, escala y selección de hardware**](./04_ai_escala_y_decision.md) — memoria de modelos, comunicación, selección y repaso final (~32 min).
 
-1. **La velocidad y el tamaño siempre se oponen.** Los registros son instantáneos pero caben en tu puño; los discos duros guardan terabytes pero son miles de veces más lentos. Todo el diseño de software eficiente vive dentro de esa tensión.
+## Siete modelos mentales
 
-2. **CPU y GPU no hacen lo mismo rápido.** No es que uno sea mejor que el otro: tienen filosofías de diseño opuestas. Entender cuál usar es tan importante como saber programar.
+1. **La computadora es un sistema de especialistas.** CPU, memoria, almacenamiento, red y aceleradores colaboran mediante interconexiones.
+2. **La ISA es un contrato.** Define qué instrucciones entiende un procesador; no es lo mismo que el lenguaje en el que escribiste el programa.
+3. **El reloj asigna pasos, no garantiza trabajo útil.** Los ciclos pueden ocuparse en cálculo, espera o coordinación.
+4. **El paralelismo tiene forma.** Pocos flujos complejos y muchos flujos regulares necesitan arquitecturas distintas.
+5. **La proximidad de los datos tiene precio.** Cerca del cómputo suele significar menor latencia, pero menor capacidad y mayor costo por byte.
+6. **El cuello de botella decide la métrica.** Más FLOPS no ayuda si faltan memoria, ancho de banda o comunicación.
+7. **Escalar amplifica movimiento y energía.** Chip, servidor, rack y centro de datos son niveles del mismo sistema.
 
-3. **La escala de la IA moderna es literalmente imposible de intuir sin números.** Los gráficos de este módulo existen para hacer concreta una magnitud que el lenguaje informal no puede transmitir.
+## Cómo leer las cifras
+
+- **FACT**: dato reportado directamente por una fuente identificada.
+- **DERIVED**: resultado reproducible a partir de datos o una fórmula mostrada.
+- **ESTIMATE**: supuesto o escenario útil, no una medición.
+
+Estas etiquetas importan: una especificación máxima, una derivación y una observación real no responden la misma pregunta.

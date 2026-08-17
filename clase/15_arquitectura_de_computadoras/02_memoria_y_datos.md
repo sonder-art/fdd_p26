@@ -8,7 +8,7 @@ La intuición central es esta: **guardar un dato y llevarlo al cómputo son trab
 
 ## Una jerarquía, no una bodega
 
-![Jerarquía de memoria desde registros y caché hasta RAM o VRAM y almacenamiento o red; las capas crecen al alejarse del cómputo.](./images/jerarquia_memoria_datos.svg)
+![Jerarquía de memoria desde registros hasta almacenamiento o red; flechas verdes llevan datos y operandos hacia arriba, y flechas ámbar llevan resultados y desalojos hacia abajo.](./images/jerarquia_memoria_datos.svg)
 
 *Diagrama propio del curso, SVG accesible, 2026.*
 
@@ -16,7 +16,7 @@ La intuición central es esta: **guardar un dato y llevarlo al cómputo son trab
 
 Cada nivel resuelve un compromiso:
 
-- **Registros:** valores inmediatos de una instrucción, dentro del core y con capacidad mínima.
+- **Registros:** operandos y resultados temporales que las unidades de ejecución usan directamente; están dentro del core y tienen capacidad mínima.
 - **Cachés:** copias de datos usados recientemente o cercanos; reducen viajes a memoria, pero no caben todos los datos.
 - **RAM:** conjunto de trabajo activo del sistema y de los procesos. Es volátil y mucho mayor que las cachés.
 - **Almacenamiento local:** SSD u otro medio persistente. Conserva más datos, pero entregarlos tarda más.

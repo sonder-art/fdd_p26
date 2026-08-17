@@ -2,11 +2,9 @@
 title: "Compute, instrucciones y CPU"
 ---
 
-# Compute, instrucciones y CPU
-
 Una CPU no “entiende Python”. Recibe instrucciones binarias, busca sus datos y transforma estado. Entre tu función y esos cambios físicos existe una cadena de contratos.
 
-El primer modelo mental es sencillo: **compute es transformar datos mediante instrucciones**. La velocidad depende tanto de ejecutar como de tener los datos correctos en el lugar correcto.
+La idea operativa de partida es sencilla: **compute es transformar datos mediante instrucciones**. La velocidad depende tanto de ejecutar como de tener los datos correctos en el lugar correcto.
 
 ## La máquina es un sistema, no un chip
 
@@ -28,7 +26,7 @@ La CPU contiene unidades de control, unidades aritméticas, registros y cachés.
 
 <img src="./images/real_macbook_m5.webp" alt="MacBook Pro de 14 pulgadas con chip M5, abierto sobre una mesa; la foto muestra el equipo M5, no las especificaciones del M5 Max." loading="lazy">
 
-* **FACT (objeto fotografiado):** MacBook Pro de 14 pulgadas con chip M5. La fotografía muestra un equipo M5; el ejemplo de especificaciones de esta unidad corresponde al M5 Max, no al equipo fotografiado. Foto de [AzureSaturn en Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MacBook_Pro_(14-inch,_M5,_Space_Black).jpg), [CC0 1.0](http://creativecommons.org/publicdomain/zero/1.0/deed.en); convertida a WebP y redimensionada para el curso.*
+**FACT (objeto fotografiado):** MacBook Pro de 14 pulgadas con chip M5. La fotografía muestra un equipo M5; el ejemplo de especificaciones de esta unidad corresponde al M5 Max, no al equipo fotografiado. Foto de [AzureSaturn en Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MacBook_Pro_(14-inch,_M5,_Space_Black).jpg), [CC0 1.0](http://creativecommons.org/publicdomain/zero/1.0/deed.en); convertida a WebP y redimensionada para el curso.
 
 Una laptop parece un solo objeto, pero bajo la carcasa conserva esa topología. En diseños *system on a chip* varias piezas comparten el mismo encapsulado o memoria física; eso acorta rutas, no elimina sus funciones.
 
@@ -62,7 +60,7 @@ Por eso “más GHz” no es una comparación suficiente. El trabajo terminado d
 
 Un **core** es un motor capaz de avanzar un flujo de instrucciones. Varios cores permiten progresar en varios trabajos a la vez cuando el problema puede separarse.
 
-Un **thread de software** es una secuencia de ejecución planificada por el sistema operativo. Un **thread de hardware** es un contexto que comparte recursos de un core con otro contexto. Agregar threads ayuda a mantener unidades ocupadas cuando existe trabajo independiente; no duplica automáticamente la capacidad del core.
+Un **thread de software** es una secuencia de ejecución planificada por el sistema operativo. Un **thread de hardware** es un contexto de ejecución que el procesador expone al sistema operativo. Cuando un core expone varios threads de hardware, esos contextos comparten buena parte de sus recursos de ejecución. Pueden aprovechar huecos cuando existe trabajo independiente, pero no duplican automáticamente la capacidad del core.
 
 **SIMD** aplica una instrucción vectorial a varios elementos organizados de forma regular. Es ideal para sumar arreglos, filtrar columnas o procesar píxeles. No reemplaza a los cores: explota paralelismo dentro de cada flujo, mientras los cores permiten varios flujos.
 

@@ -2,8 +2,6 @@
 title: "Módulo 15: Arquitectura y hardware de computadoras"
 ---
 
-# Arquitectura y hardware de computadoras
-
 Un programa no trabaja en el vacío. **Calcula**, **guarda** y **mueve datos** sobre una máquina física. El desempeño aparece cuando esas tres acciones encajan; el cuello de botella aparece cuando una de ellas no alcanza a las otras.
 
 ![Ciudad retrofuturista vista desde arriba: una torre central de cómputo conectada por rutas luminosas a distritos de memoria y almacenamiento.](./images/hero_compute_city.webp)
@@ -12,7 +10,7 @@ Un programa no trabaja en el vacío. **Calcula**, **guarda** y **mueve datos** s
 
 **Lectura textual de la imagen:** el núcleo de cómputo no está aislado. Depende de capas de memoria, almacenamiento y rutas capaces de llevarle datos.
 
-Esta unidad construye un mapa para leer una laptop, una GPU o un centro de datos con las mismas preguntas: dónde están los datos, quién los transforma, cuánto cuesta moverlos y qué recurso se satura primero.
+Esta unidad construye un mapa para leer una laptop, una GPU o un centro de datos según cuatro dimensiones: ubicación de los datos, unidad que los transforma, costo de moverlos y recurso que se satura primero.
 
 ## Al terminar
 

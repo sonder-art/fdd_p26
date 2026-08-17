@@ -2,7 +2,7 @@
 title: "Paralelismo, performance y energía"
 ---
 
-CPU, GPU y aceleradores transforman datos, pero organizan el paralelismo de maneras distintas. **El mejor procesador coincide con la forma del trabajo y el recurso que lo limita**. El pico anunciado es un techo condicionado, no el resultado de una aplicación.
+CPU, GPU y aceleradores organizan el paralelismo de formas distintas. **El procesador apropiado coincide con la forma del trabajo y el recurso que lo limita**. El pico anunciado es un techo, no el resultado de una aplicación.
 
 ## CPU y GPU intercambian flexibilidad por amplitud
 
@@ -12,9 +12,9 @@ CPU, GPU y aceleradores transforman datos, pero organizan el paralelismo de mane
 
 **Lectura textual del diagrama:** la CPU dedica más recursos a pocos flujos con decisiones y baja latencia. La GPU reúne muchas unidades para aplicar operaciones parecidas a numerosos datos. Ninguna forma sirve para todo problema.
 
-Una CPU suele resolver bien control irregular, lógica secuencial, preparación de datos y solicitudes pequeñas. Sus cores buscan avanzar cada flujo con rapidez. Una GPU favorece **throughput**: necesita suficiente trabajo independiente para mantener ocupadas muchas unidades.
+Una CPU resuelve bien control irregular, trabajo secuencial y solicitudes pequeñas. Sus cores buscan avanzar cada flujo con rapidez. Una GPU favorece **throughput**: necesita trabajo independiente para ocupar muchas unidades.
 
-La GPU ejecuta threads en grupos. Cuando divergen sus ramas o accesos, parte de la máquina espera. Lanzar kernels, sincronizar y copiar datos también cuesta. Un kernel rápido puede perder el beneficio dentro del flujo completo.
+La GPU ejecuta threads en grupos. Cuando divergen sus ramas o accesos, parte de la máquina espera. Lanzar kernels, sincronizar y copiar datos cuesta. El flujo completo puede perder el beneficio.
 
 CPU y GPU suelen cooperar. La CPU prepara y coordina; la GPU procesa lotes regulares; después ambas sincronizan resultados. El límite puede estar en cualquiera de esas etapas.
 
@@ -22,11 +22,13 @@ CPU y GPU suelen cooperar. La CPU prepara y coordina; la GPU procesa lotes regul
 
 **FACT (objeto y especificación):** la fotografía muestra una Palit GeForce RTX 5090 GameRock. NVIDIA especifica para la RTX 5090 **575 W de TGP**, una referencia de potencia de la tarjeta, no una medición del equipo completo. Foto de [PantheraLeo1359531 en Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palit_GeForce_RTX_5090_Gamerock_20250530_HOF3973-HDR_RAW-Export.png), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0); redimensionada y convertida a WebP para el curso.
 
-## NPU y TPU reducen la generalidad
+## Los aceleradores especializan el trabajo
 
-Un acelerador reserva hardware y memoria para un dominio. Una **NPU** suele ejecutar operadores neuronales definidos por el fabricante, a menudo dentro de un teléfono o laptop. Favorece inferencia local eficiente, pero un operador no soportado puede regresar a CPU o GPU.
+Un **acelerador** optimiza hardware para un dominio. Puede tener unidades y memoria propias o un diseño compartido o unificado con CPU y GPU.
 
-Una **TPU** es un ASIC orientado a operaciones tensoriales y a un ecosistema de software concreto. No es simplemente una GPU con otro nombre. **FACT (pico oficial, no benchmark):** Google publica para cada chip TPU7x Ironwood **2,307 TFLOPS BF16** y **4,614 TFLOPS FP8**, además de **192 GiB de HBM** y **7,380 GB/s** de ancho de banda HBM. Cambiar precisión cambia tanto la tasa máxima como la memoria y el comportamiento numérico; esos picos no forman un ranking directo contra cifras de otra precisión o sistema.
+**NPU** es una etiqueta amplia de la industria para operadores neuronales, no una arquitectura única. Una NPU integrada favorece inferencia local eficiente; un operador no soportado puede regresar a CPU o GPU.
+
+**TPU** nombra una familia de ASIC de Google para operaciones tensoriales, no una categoría genérica. **FACT (pico oficial, no benchmark):** Google publica por chip TPU7x Ironwood **2,307 TFLOPS BF16**, **4,614 TFLOPS FP8**, **192 GiB de HBM** y **7,380 GB/s** de ancho de banda HBM. Cambiar precisión cambia la tasa máxima, la huella y el tráfico de memoria y el comportamiento numérico; esos picos no forman un ranking contra otra precisión o sistema.
 
 Especializar puede elevar operaciones por watt, pero reduce flexibilidad. También importan operadores soportados, compilador, memoria, lote, transferencias y disponibilidad.
 
@@ -69,7 +71,7 @@ Roofline no predice por sí solo una solicitud pequeña. La latencia de acceso, 
 
 El **pico teórico** combina unidades, operaciones por ciclo y frecuencia. Puede asumir una precisión, instrucciones matriciales, datos *dense* o *sparse* y frecuencia máxima. No incluye necesariamente entrada, copias ni coordinación.
 
-Un benchmark sólo es comparable si conserva modelo o algoritmo, precisión, objetivo de calidad, escenario, tamaño de lote, software y disponibilidad del sistema. MLPerf separa escenarios y valida calidad; sus mediciones de potencia cubren el sistema completo mediante AC en la pared durante el benchmark.
+En MLPerf, una comparación válida mantiene el mismo benchmark o modelo, dataset u objetivo de calidad, escenario, métrica y división aplicable. La precisión, el tamaño de lote, el stack de software y la disponibilidad del sistema se reportan e interpretan para esa comparación; no son condiciones que todas las comparaciones mantengan idénticas. Sus mediciones de potencia cubren el sistema completo mediante AC en la pared durante el benchmark.
 
 La **aplicación observada** incluye su pipeline. Latencia, throughput, exactitud, memoria y energía o potencia deben compartir contexto.
 
@@ -89,7 +91,7 @@ TGP describe un límite o referencia de una tarjeta. TDP guía diseño térmico 
 
 ## El power wall cambió la estrategia
 
-Durante décadas, reducir transistores permitió elevar frecuencia sin aumentar igual la densidad de potencia. Al fallar ese escalamiento de voltaje, cerca de 2005, calor y potencia limitaron la frecuencia. La respuesta combinó multicore, SIMD, aceleradores y eficiencia.
+**FACT (síntesis histórica):** durante décadas, reducir el tamaño de los transistores permitió elevar frecuencia sin aumentar igual la densidad de potencia. Al fallar ese escalamiento de voltaje, cerca de 2005, calor y potencia limitaron la frecuencia. La respuesta combinó multicore, SIMD, aceleradores y eficiencia.
 
 El **power wall** no detuvo el progreso. Cambió su forma: más transistores no implican que todos puedan activarse al máximo simultáneamente. Software, paralelismo y especialización pasaron a decidir cuánto hardware resulta útil.
 

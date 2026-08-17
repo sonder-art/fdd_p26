@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="anatomia-title anatomia-desc" preserveAspectRatio="xMidYMid meet">
+  <title id="anatomia-title">Anatomía funcional de una computadora</title>
+  <desc id="anatomia-desc">CPU, memoria, almacenamiento, acelerador, red y entrada y salida conectados por un bus. La CPU coordina; los datos se mueven entre componentes especializados.</desc>
+  <defs>
+    <linearGradient id="anatomia-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#172554"/>
+    </linearGradient>
+    <filter id="anatomia-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="anatomia-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#67e8f9"/>
+    </marker>
+  </defs>
+  <style>
+    .label{font:700 30px system-ui,sans-serif;fill:#f8fafc;text-anchor:middle}
+    .hint{font:500 23px system-ui,sans-serif;fill:#cbd5e1;text-anchor:middle}
+    .box{stroke-width:3}
+    .flow{fill:none;stroke:#67e8f9;stroke-width:6;marker-end:url(#anatomia-arrow)}
+  </style>
+  <rect width="960" height="620" rx="36" fill="url(#anatomia-bg)"/>
+  <text x="480" y="56" class="label">Una máquina = piezas especializadas + movimiento</text>
+  <path class="flow" d="M180 196H338"/>
+  <path class="flow" d="M622 196H780"/>
+  <path class="flow" d="M480 292V404"/>
+  <path class="flow" d="M360 254 240 404"/>
+  <path class="flow" d="M600 254 720 404"/>
+  <rect x="338" y="112" width="284" height="180" rx="28" fill="#312e81" stroke="#a5b4fc" class="box" filter="url(#anatomia-glow)"/>
+  <rect x="375" y="146" width="74" height="74" rx="10" fill="#f59e0b"/>
+  <rect x="465" y="146" width="54" height="74" rx="10" fill="#fbbf24"/>
+  <rect x="535" y="146" width="50" height="74" rx="10" fill="#fde68a"/>
+  <text x="480" y="264" class="label">CPU · coordina</text>
+  <rect x="42" y="130" width="138" height="132" rx="22" fill="#164e63" stroke="#67e8f9" class="box"/>
+  <path d="M76 169h70M76 193h70M76 217h70" stroke="#cffafe" stroke-width="8" stroke-linecap="round"/>
+  <text x="111" y="302" class="label">RAM</text>
+  <text x="111" y="333" class="hint">trabajo activo</text>
+  <rect x="780" y="130" width="138" height="132" rx="22" fill="#4c1d95" stroke="#d8b4fe" class="box"/>
+  <circle cx="849" cy="196" r="38" fill="none" stroke="#f5d0fe" stroke-width="10"/>
+  <circle cx="849" cy="196" r="8" fill="#f5d0fe"/>
+  <text x="849" y="302" class="label">Disco</text>
+  <text x="849" y="333" class="hint">persistencia</text>
+  <rect x="52" y="404" width="238" height="130" rx="24" fill="#3f1d2e" stroke="#fda4af" class="box"/>
+  <path d="M92 444h62v50H92zM181 444h68v50h-68z" fill="none" stroke="#fecdd3" stroke-width="8"/>
+  <text x="171" y="574" class="label">Entrada / salida</text>
+  <rect x="361" y="404" width="238" height="130" rx="24" fill="#3b2f0b" stroke="#facc15" class="box"/>
+  <g fill="#fde68a">
+    <circle cx="410" cy="452" r="12"/><circle cx="450" cy="452" r="12"/><circle cx="490" cy="452" r="12"/><circle cx="530" cy="452" r="12"/><circle cx="550" cy="489" r="12"/><circle cx="510" cy="489" r="12"/><circle cx="470" cy="489" r="12"/><circle cx="430" cy="489" r="12"/>
+  </g>
+  <text x="480" y="574" class="label">Acelerador</text>
+  <rect x="670" y="404" width="238" height="130" rx="24" fill="#052e2b" stroke="#5eead4" class="box"/>
+  <circle cx="789" cy="466" r="43" fill="none" stroke="#99f6e4" stroke-width="8"/>
+  <path d="M746 466h86M789 423c-23 24-23 62 0 86M789 423c23 24 23 62 0 86" fill="none" stroke="#99f6e4" stroke-width="6"/>
+  <text x="789" y="574" class="label">Red</text>
+  <rect x="120" y="360" width="720" height="16" rx="8" fill="#22d3ee" opacity=".85"/>
+  <text x="480" y="352" class="hint">bus / interconexión: mueve bits</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="energia-title energia-desc" preserveAspectRatio="xMidYMid meet">
+  <title id="energia-title">Potencia por tiempo produce energía</title>
+  <desc id="energia-desc">La potencia en watts es una tasa instantánea. Al mantenerla durante un intervalo se acumula energía en watt-hora; la escala crece de un chip a un rack y a un centro de datos.</desc>
+  <defs><linearGradient id="energia-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#18181b"/><stop offset="1" stop-color="#3f1d2e"/></linearGradient></defs>
+  <style>.head{font:700 31px system-ui,sans-serif;fill:#fff;text-anchor:middle}.big{font:800 38px system-ui,sans-serif;fill:#fff;text-anchor:middle}.label{font:700 26px system-ui,sans-serif;fill:#fff;text-anchor:middle}.small{font:500 22px system-ui,sans-serif;fill:#e2e8f0;text-anchor:middle}.card{stroke-width:3}</style>
+  <rect width="960" height="620" rx="36" fill="url(#energia-bg)"/>
+  <text x="480" y="52" class="head">Potencia × tiempo = energía</text>
+  <rect x="72" y="100" width="236" height="154" rx="28" fill="#7c2d12" stroke="#fdba74" class="card"/>
+  <path d="M152 133h78l-34 48h42l-74 54 24-45h-44z" fill="#fde68a"/>
+  <text x="190" y="290" class="big">W · kW · MW</text><text x="190" y="324" class="small">potencia: ritmo ahora</text>
+  <text x="370" y="194" class="big">×</text>
+  <rect x="428" y="100" width="236" height="154" rx="28" fill="#3730a3" stroke="#c7d2fe" class="card"/>
+  <circle cx="546" cy="177" r="51" fill="none" stroke="#e0e7ff" stroke-width="8"/>
+  <path d="M546 177V140M546 177l30 20" stroke="#e0e7ff" stroke-width="8" stroke-linecap="round"/>
+  <text x="546" y="290" class="big">h</text><text x="546" y="324" class="small">tiempo de uso</text>
+  <text x="724" y="194" class="big">=</text>
+  <rect x="778" y="100" width="130" height="154" rx="28" fill="#0f766e" stroke="#99f6e4" class="card"/>
+  <path d="M816 218h54l-9-32 15-11-16-48h-34l-16 48 15 11z" fill="#ccfbf1"/>
+  <text x="843" y="290" class="big">Wh</text><text x="843" y="324" class="small">energía</text>
+  <path d="M100 458H858" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#fbbf24"><circle cx="150" cy="458" r="13"/><circle cx="372" cy="458" r="13"/><circle cx="610" cy="458" r="13"/><circle cx="828" cy="458" r="13"/></g>
+  <g class="label"><text x="150" y="410">Chip</text><text x="372" y="410">Servidor</text><text x="610" y="410">Rack</text><text x="828" y="410">Datacenter</text></g>
+  <g class="small"><text x="150" y="506">W</text><text x="372" y="506">kW</text><text x="610" y="506">decenas–cientos kW</text><text x="828" y="506">MW</text></g>
+  <text x="480" y="570" class="head">Potencia no es energía: el tiempo las conecta</text>
+</svg>

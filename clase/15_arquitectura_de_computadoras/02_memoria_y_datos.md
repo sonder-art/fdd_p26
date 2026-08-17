@@ -8,7 +8,7 @@ La intuición central es esta: **guardar un dato y llevarlo al cómputo son trab
 
 ## Una jerarquía, no una bodega
 
-![Jerarquía de memoria desde registros hasta almacenamiento o red; flechas verdes llevan datos y operandos hacia arriba, y flechas ámbar llevan resultados y desalojos hacia abajo.](./images/jerarquia_memoria_datos.svg)
+<img class="hardware-lead-visual" src="./images/jerarquia_memoria_datos.svg" alt="Jerarquía de memoria desde registros hasta almacenamiento o red; flechas verdes llevan datos y operandos hacia arriba, y flechas ámbar llevan resultados y desalojos hacia abajo." loading="eager" decoding="async">
 
 *Diagrama propio del curso, SVG accesible, 2026.*
 
@@ -32,6 +32,11 @@ Una transferencia pequeña y dependiente suele estar dominada por latencia. Un b
 
 La proximidad tampoco es gratuita. Memoria más cercana al cómputo suele ofrecer menos capacidad y mayor costo por byte. El sistema combina niveles para conservar mucho abajo y reutilizar arriba. Los patrones regulares ayudan a traer bloques útiles; los saltos impredecibles desperdician parte de cada bloque y expulsan datos todavía necesarios.
 
+<aside class="hardware-data-checkpoint" aria-label="Checkpoint para diagnosticar movimiento de datos">
+  <strong>Checkpoint de datos</strong>
+  <div><span><b>No cabe</b> → capacidad</span><span><b>Espera cada acceso</b> → latencia y localidad</span><span><b>Se estanca un bloque grande</b> → ancho de banda</span></div>
+</aside>
+
 ## Dos caminos hacia el cómputo
 
 En una ruta centrada en CPU, el camino conceptual es **SSD o red → RAM → cachés CPU → registros CPU → operación**.
@@ -42,7 +47,7 @@ Una GPU dedicada agrega memoria y un enlace propios: **SSD o red → RAM → int
 
 La **VRAM** es la memoria de trabajo conectada a la GPU. PCIe, NVLink u otra interconexión transporta datos entre dominios según la máquina. Dentro de la GPU también existen registros y cachés; muchas operaciones simultáneas no eliminan esa jerarquía.
 
-**FACT (especificaciones oficiales, no benchmark):** una GeForce RTX 5090 tiene **32 GB de GDDR7** y un ancho de banda de memoria reportado de **1,792 GB/s**. Esas cifras describen capacidad y ruta VRAM↔GPU, no la velocidad SSD↔GPU ni el rendimiento de cualquier programa.
+**FACT (especificaciones oficiales, no benchmark):** una GeForce RTX 5090 tiene **32 GB de GDDR7** y un ancho de banda pico de memoria de **1,792 GB/s**. Esas cifras describen capacidad y ruta VRAM↔GPU, no la velocidad SSD↔GPU ni el rendimiento de cualquier programa.
 
 La copia adicional puede dominar un trabajo corto. Agrupar transferencias y mantener resultados intermedios en VRAM suele ser más valioso que acelerar un kernel aislado. La medición debe incluir carga, copia, sincronización y devolución, no sólo el cálculo.
 
@@ -50,7 +55,7 @@ La copia adicional puede dominar un trabajo corto. Agrupar transferencias y mant
 
 Con **direct memory access** o **DMA**, un dispositivo transfiere bloques hacia o desde memoria sin que la CPU ejecute una copia por cada byte. La CPU y el driver todavía preparan buffers y direcciones, programan el dispositivo y observan la terminación. DMA reduce trabajo de copia en la CPU; no elimina control, interconexión ni sincronización.
 
-Los buffers también deben ser aptos para el dispositivo. El sistema puede fijar páginas, crear mapeos mediante una IOMMU o usar buffers temporales. Por eso “usa DMA” no determina por sí solo la ruta exacta ni su costo.
+Los buffers también deben ser aptos para el dispositivo. El sistema puede fijar páginas, usar una **IOMMU**, unidad que traduce y restringe las direcciones de memoria visibles para el dispositivo, o copiar mediante buffers temporales. Por eso “usa DMA” no determina por sí solo la ruta exacta ni su costo.
 
 ## `mmap` cambia la interfaz, no la distancia
 
@@ -70,7 +75,7 @@ En CUDA, la memoria administrada puede migrar por páginas o permitir acceso rem
 
 En Linux, `O_DIRECT` intenta reducir los efectos de la caché de páginas. Tiene restricciones de alineación y soporte por filesystem, puede fallar o degradar a I/O con buffer, y no es universalmente más rápido. Es una opción para casos medidos, no una promesa de acceso instantáneo.
 
-Tecnologías como **GPUDirect Storage** permiten, en configuraciones compatibles, DMA entre almacenamiento local o remoto y memoria GPU sin un *bounce buffer* en RAM de la CPU. Requieren GPU, drivers, filesystem, buffers y topología compatibles; existe una ruta de compatibilidad que vuelve a copiar mediante RAM. La CPU aún ejecuta el camino de control y los bytes aún cruzan dispositivos y enlaces.
+Tecnologías como **GPUDirect Storage** permiten, en configuraciones compatibles, DMA entre almacenamiento local o remoto y memoria GPU sin usar RAM de la CPU como buffer temporal intermedio. Requieren GPU, drivers, filesystem, buffers y topología compatibles; existe una ruta de compatibilidad que vuelve a copiar mediante RAM. La CPU aún ejecuta el camino de control y los bytes aún cruzan dispositivos y enlaces.
 
 El principio operativo permanece: **directo significa menos escalas, no cero movimiento**.
 

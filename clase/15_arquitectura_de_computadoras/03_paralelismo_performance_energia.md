@@ -2,39 +2,37 @@
 title: "Paralelismo, performance y energía"
 ---
 
-CPU, GPU y aceleradores organizan el paralelismo de formas distintas. **El procesador apropiado coincide con la forma del trabajo y el recurso que lo limita**. El pico anunciado es un techo, no el resultado de una aplicación.
+CPU, GPU y aceleradores organizan paralelismo distinto. **El procesador apropiado coincide con la forma del trabajo y su límite**. El pico anunciado es un techo.
 
 ## CPU y GPU intercambian flexibilidad por amplitud
 
-![Comparación conceptual: una CPU concentra pocas rutas flexibles y una GPU reúne muchas rutas paralelas para trabajo regular.](./images/cpu_vs_gpu.svg)
+<img class="hardware-lead-visual" src="./images/cpu_vs_gpu.svg" alt="Comparación conceptual: una CPU concentra pocas rutas flexibles y una GPU reúne muchas rutas paralelas para trabajo regular." loading="eager" decoding="async">
 
 *Diagrama propio del curso, SVG accesible, 2026.*
 
 **Lectura textual del diagrama:** la CPU dedica más recursos a pocos flujos con decisiones y baja latencia. La GPU reúne muchas unidades para aplicar operaciones parecidas a numerosos datos. Ninguna forma sirve para todo problema.
 
-Una CPU resuelve bien control irregular, trabajo secuencial y solicitudes pequeñas. Sus cores buscan avanzar cada flujo con rapidez. Una GPU favorece **throughput**: necesita trabajo independiente para ocupar muchas unidades.
-
-La GPU ejecuta threads en grupos. Cuando divergen sus ramas o accesos, parte de la máquina espera. Lanzar kernels, sincronizar y copiar datos cuesta. El flujo completo puede perder el beneficio.
-
-CPU y GPU suelen cooperar. La CPU prepara y coordina; la GPU procesa lotes regulares; después ambas sincronizan resultados. El límite puede estar en cualquiera de esas etapas.
+Una CPU favorece control irregular, trabajo secuencial y solicitudes pequeñas. Una GPU favorece **throughput** si hay trabajo independiente. Ramas o accesos divergentes dejan unidades esperando; lanzar kernels, copiar y sincronizar también cuesta. A menudo la CPU coordina y la GPU procesa lotes, por lo que se mide el flujo completo.
 
 <img src="./images/real_rtx_5090.webp" alt="Acercamiento de una Palit GeForce RTX 5090 GameRock: carcasa ondulada y ventiladores de la tarjeta gráfica." loading="lazy">
 
-**FACT (objeto y especificación):** la fotografía muestra una Palit GeForce RTX 5090 GameRock. NVIDIA especifica para la RTX 5090 **575 W de TGP**, una referencia de potencia de la tarjeta, no una medición del equipo completo. Foto de [PantheraLeo1359531 en Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palit_GeForce_RTX_5090_Gamerock_20250530_HOF3973-HDR_RAW-Export.png), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0); redimensionada y convertida a WebP para el curso.
+**FACT (objeto fotografiado):** Palit RTX 5090 GameRock. Foto de [PantheraLeo1359531, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Palit_GeForce_RTX_5090_Gamerock_20250530_HOF3973-HDR_RAW-Export.png), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0); redimensionada a WebP.
+
+**FACT (especificación NVIDIA de referencia):** la RTX 5090 publica **575 W TGP** para la tarjeta, no para el equipo. El diseño Palit fotografiado puede variar.
 
 ## Los aceleradores especializan el trabajo
 
-Un **acelerador** optimiza hardware para un dominio. Puede tener unidades y memoria propias o un diseño compartido o unificado con CPU y GPU.
+Un **acelerador** optimiza hardware para un dominio, con recursos propios, compartidos o unificados.
 
-**NPU** es una etiqueta amplia de la industria para operadores neuronales, no una arquitectura única. Una NPU integrada favorece inferencia local eficiente; un operador no soportado puede regresar a CPU o GPU.
+**NPU** es una etiqueta industrial para operadores neuronales, no una arquitectura única. Un operador no soportado puede volver a CPU o GPU.
 
-**TPU** nombra una familia de ASIC de Google para operaciones tensoriales, no una categoría genérica. **FACT (pico oficial, no benchmark):** Google publica por chip TPU7x Ironwood **2,307 TFLOPS BF16**, **4,614 TFLOPS FP8**, **192 GiB de HBM** y **7,380 GB/s** de ancho de banda HBM. Cambiar precisión cambia la tasa máxima, la huella y el tráfico de memoria y el comportamiento numérico; esos picos no forman un ranking contra otra precisión o sistema.
+**TPU** nombra una familia de ASIC de Google, no una categoría genérica. **FACT (pico, no benchmark):** cada TPU7x Ironwood publica **2,307 TFLOPS BF16**, **4,614 TFLOPS FP8**, **192 GiB HBM** y **7,380 GB/s** HBM. La precisión cambia tasa, memoria, tráfico y comportamiento numérico; los picos no forman un ranking entre precisiones o sistemas.
 
-Especializar puede elevar operaciones por watt, pero reduce flexibilidad. También importan operadores soportados, compilador, memoria, lote, transferencias y disponibilidad.
+Especializar intercambia flexibilidad por eficiencia; importan operadores, compilador, memoria, lote, transferencias y disponibilidad.
 
 ## FLOP es trabajo; FLOPS es tasa
 
-Un **FLOP** es una operación de punto flotante. **FLOPS** significa operaciones de punto flotante por segundo. GFLOPS, TFLOPS y PFLOPS multiplican esa tasa por $10^9$, $10^{12}$ y $10^{15}$. Un total de FLOP describe trabajo; FLOPS describe ritmo.
+Un **FLOP** es una operación de punto flotante. **FLOPS** significa operaciones de punto flotante por segundo. **FACT (convención SI decimal):** GFLOPS, TFLOPS y PFLOPS multiplican esa tasa por $10^9$, $10^{12}$ y $10^{15}$. Un total de FLOP describe trabajo; FLOPS describe ritmo.
 
 La precisión es parte de la unidad de comparación:
 
@@ -43,7 +41,7 @@ La precisión es parte de la unidad de comparación:
 - **FP16 y BF16** reducen bytes y aprovechan unidades matriciales.
 - **FP8 e INT8** reducen más tráfico, con técnicas numéricas apropiadas.
 
-Menos bits no garantiza igual calidad. También deben conservarse los calificadores **dense** y **sparse**. Un pico *sparse* supone una estructura de ceros aprovechable por el hardware; no se compara como si fuera el pico *dense* del mismo chip. TOPS enteros y FLOPS flotantes tampoco son intercambiables.
+Menos bits no garantiza calidad. Un pico *sparse* supone ceros aprovechables y no equivale al pico *dense*. TOPS enteros y FLOPS flotantes tampoco son intercambiables.
 
 ## Roofline conecta cómputo y memoria
 
@@ -65,15 +63,17 @@ $$P \leq \min(P_{pico},\ B_{memoria}\times I)$$
 
 En la pendiente conviene mover menos bytes, mejorar localidad o ancho de banda. En la meseta conviene usar mejor las unidades, aumentar paralelismo o elegir otra precisión compatible.
 
-Roofline no predice por sí solo una solicitud pequeña. La latencia de acceso, el arranque de kernels, las dependencias, las ramas y la sincronización pueden dejar el resultado observado muy por debajo del techo. Ancho de banda es volumen por tiempo; latencia es espera para una operación. Ambos se miden.
+Roofline no predice una solicitud pequeña: latencia, arranque, dependencias, ramas y sincronización pueden alejarla del techo. Ancho de banda es volumen por tiempo; latencia es espera. Ambos se miden.
 
 ## Pico, benchmark y aplicación son capas distintas
 
-El **pico teórico** combina unidades, operaciones por ciclo y frecuencia. Puede asumir una precisión, instrucciones matriciales, datos *dense* o *sparse* y frecuencia máxima. No incluye necesariamente entrada, copias ni coordinación.
+El **pico teórico** combina unidades, operaciones por ciclo y frecuencia bajo supuestos de precisión, instrucciones y densidad. Puede omitir entrada, copias y coordinación.
 
-En MLPerf, una comparación válida mantiene el mismo benchmark o modelo, dataset u objetivo de calidad, escenario, métrica y división aplicable. La precisión, el tamaño de lote, el stack de software y la disponibilidad del sistema se reportan e interpretan para esa comparación; no son condiciones que todas las comparaciones mantengan idénticas. Sus mediciones de potencia cubren el sistema completo mediante AC en la pared durante el benchmark.
+En MLPerf, una comparación válida usa el mismo benchmark: la misma tarea o modelo, el mismo dataset y el mismo objetivo de calidad. También alinea escenario, métrica y división; la división *Closed* exige el modelo de referencia, mientras *Open* permite cambios que deben interpretarse como tales.
 
-La **aplicación observada** incluye su pipeline. Latencia, throughput, exactitud, memoria y energía o potencia deben compartir contexto.
+Precisión, lote, software y disponibilidad dan contexto. Cuando una entrega incluye potencia, MLPerf mide el sistema completo mediante AC en la pared durante ese benchmark; TDP y potencia nominal de la fuente no equivalen.
+
+La **aplicación observada** incluye el pipeline; sus métricas deben compartir contexto.
 
 ## Potencia y energía responden cosas distintas
 
@@ -83,9 +83,9 @@ La **aplicación observada** incluye su pipeline. Latencia, throughput, exactitu
 
 **Lectura textual del diagrama:** watts por horas producen watt-hora. Un dispositivo suele expresarse en W, un rack en kW, un centro de datos en MW y la generación agregada puede llegar a GW. Al integrar tiempo aparecen Wh, kWh, MWh, GWh o TWh.
 
-El **watt** mide potencia, una tasa instantánea. El **watt-hora** mide energía acumulada. $1\ \mathrm{kW}=10^3\ \mathrm{W}$, $1\ \mathrm{MW}=10^6\ \mathrm{W}$ y $1\ \mathrm{GW}=10^9\ \mathrm{W}$. Mantener 1 kW durante una hora consume 1 kWh.
+El **watt** mide potencia, una tasa instantánea. El **watt-hora** mide energía acumulada. **FACT (convención SI decimal):** $1\ \mathrm{kW}=10^3\ \mathrm{W}$, $1\ \mathrm{MW}=10^6\ \mathrm{W}$ y $1\ \mathrm{GW}=10^9\ \mathrm{W}$. Mantener 1 kW durante una hora consume 1 kWh.
 
-TGP describe un límite o referencia de una tarjeta. TDP guía diseño térmico y su definición varía entre fabricantes. La potencia **AC en la pared** incluye componentes y pérdidas que TGP o TDP no cubren. Ninguna de las tres debe rotularse como si fuera la otra.
+TGP referencia una tarjeta; TDP guía diseño térmico y varía por fabricante. La potencia **AC en la pared** añade componentes y pérdidas. No son equivalentes.
 
 **DERIVED (escenario, no consumo medido):** 575 W sostenidos durante una hora equivalen a **0.575 kWh** para la tarjeta. El host y las pérdidas quedan fuera. La duración transforma una tasa en energía.
 
@@ -93,7 +93,7 @@ TGP describe un límite o referencia de una tarjeta. TDP guía diseño térmico 
 
 **FACT (síntesis histórica):** durante décadas, reducir el tamaño de los transistores permitió elevar frecuencia sin aumentar igual la densidad de potencia. Al fallar ese escalamiento de voltaje, cerca de 2005, calor y potencia limitaron la frecuencia. La respuesta combinó multicore, SIMD, aceleradores y eficiencia.
 
-El **power wall** no detuvo el progreso. Cambió su forma: más transistores no implican que todos puedan activarse al máximo simultáneamente. Software, paralelismo y especialización pasaron a decidir cuánto hardware resulta útil.
+El **power wall** cambió el progreso: más transistores no implican activarlos todos al máximo. Software, paralelismo y especialización deciden cuánto hardware resulta útil.
 
 <img src="./images/real_tsubame4_node.webp" alt="Interior de un nodo de TSUBAME 4.0 con cuatro GPU NVIDIA H100, tuberías de refrigeración y módulos de memoria." loading="lazy">
 
@@ -101,13 +101,13 @@ El **power wall** no detuvo el progreso. Cambió su forma: más transistores no 
 
 ## Del dispositivo a la generación
 
-La escala encadena dispositivo en W, servidor y rack en kW, centro de datos en MW y suministro agregado en MW o GW. Cada nivel añade red, almacenamiento, enfriamiento, conversión y redundancia.
+La escala encadena dispositivo en W, rack en kW y centro de datos en MW. Cada nivel añade red, almacenamiento, enfriamiento, conversión y redundancia.
 
 **FACT (capacidad máxima, no consumo observado):** NVIDIA documenta que un rack GB300 NVL72 integra 72 GPU y 36 CPU, usa refrigeración líquida y requiere hasta **142 kW**. **DERIVED (escenario de placa):** 142 kW constantes durante 24 horas serían **3.408 MWh**; durante 8,760 horas serían **1.244 GWh**. El cálculo supone carga constante y excluye infraestructura exterior al rack.
 
-En el nivel global se acumula energía, no sólo potencia. **ESTIMATE (escenario base IEA):** el consumo eléctrico de centros de datos alcanzaría alrededor de **945 TWh en 2030**. Es una proyección con incertidumbre, no una lectura de medidor ni una potencia instantánea.
+En el nivel global se acumula energía, no sólo potencia. **ESTIMATE (IEA 2026, proyección central):** el consumo eléctrico de centros de datos pasa de **485 TWh en 2025** a alrededor de **950 TWh en 2030**; dentro de esa proyección, el consumo de centros enfocados en IA se triplica. Son estimaciones con incertidumbre, no lecturas de medidor ni potencia instantánea.
 
-Escalar compute amplifica movimiento, refrigeración y energía. La siguiente lección lleva estas restricciones a [IA, escala y selección de hardware](./04_ai_escala_y_decision.md).
+Escalar amplifica movimiento, refrigeración y energía. Sigue [IA, escala y selección de hardware](./04_ai_escala_y_decision.md).
 
 ## Fuentes
 
@@ -118,6 +118,6 @@ Escalar compute amplifica movimiento, refrigeración y energía. La siguiente le
 - [BIPM — The International System of Units](https://www.bipm.org/en/publications/si-brochure): watt, prefijos SI y relación entre potencia y energía.
 - [Microsoft Research — Dark silicon and the end of multicore scaling](https://www.microsoft.com/en-us/research/publication/dark-silicon-and-the-end-of-multicore-scaling/): escalamiento de Dennard y límite de potencia.
 - [NVIDIA — NVL72 AI Factory, System Hardware and Components](https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html): composición, refrigeración y potencia máxima del rack GB300 NVL72.
-- [IEA — Energy demand from AI](https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai): escenario de electricidad de centros de datos.
+- [IEA — Key Questions on Energy and AI, executive summary (2026)](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary): proyección central 2025–2030 para electricidad de centros de datos y centros enfocados en IA, CC BY 4.0.
 - [Wikimedia Commons — Palit GeForce RTX 5090 GameRock](https://commons.wikimedia.org/wiki/File:Palit_GeForce_RTX_5090_Gamerock_20250530_HOF3973-HDR_RAW-Export.png): fotografía de PantheraLeo1359531, CC BY 4.0.
 - [Wikimedia Commons — TSUBAME 4.0](https://commons.wikimedia.org/wiki/File:TSUBAME4.0_P5160984.jpg): fotografía de Fukumoto, CC BY-SA 4.0.

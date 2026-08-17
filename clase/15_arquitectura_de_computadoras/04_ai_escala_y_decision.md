@@ -6,23 +6,23 @@ Un modelo de IA transforma entradas con parámetros. El hardware aloja y mueve s
 
 ## Inferencia y entrenamiento ocupan memoria distinta
 
-![Comparación categórica: inferencia usa pesos, caché KV y temporales; entrenamiento añade activaciones, gradientes y estados del optimizador.](./images/memoria_ai.svg)
+<img class="hardware-lead-visual" src="./images/memoria_ai.svg" alt="Comparación categórica: inferencia usa pesos, caché KV y temporales; entrenamiento añade activaciones, gradientes y estados del optimizador." loading="eager" decoding="async">
 
 *Diagrama propio del curso, SVG accesible, 2026. Los bloques nombran componentes; sus tamaños no están a escala.*
 
 **Lectura textual del diagrama:** inferencia necesita pesos, caché KV y temporales. Entrenamiento añade activaciones, gradientes y estados del optimizador. El runtime reserva otros buffers.
 
-En **inferencia**, el *prefill* procesa el prompt; el *decode* produce tokens sucesivos y reutiliza claves y valores mediante la **caché KV**. Evita recalcular la historia, pero ocupa memoria.
+En **inferencia**, *prefill* procesa el prompt y *decode* produce tokens reutilizando la **caché KV**. Evita recalcular la historia, pero ocupa memoria.
 
-Un **contexto más largo** conserva más tokens: crece la caché KV y aumenta el trabajo de atención. Suele empeorar latencia y throughput por solicitud; el máximo admitido no indica cuántas peticiones caben.
+Más **contexto** aumenta caché KV y atención; suele empeorar latencia y throughput por solicitud. El máximo admitido no indica cuántas peticiones caben.
 
-El **batching** procesa varias secuencias juntas. Puede aprovechar mejor el acelerador y elevar throughput agregado, pero consume más memoria y puede sumar espera. Contexto y batch se ajustan por separado con la distribución real de solicitudes.
+El **batching** agrupa secuencias: puede elevar throughput, pero consume memoria y suma espera. Contexto y batch se ajustan por separado con solicitudes reales.
 
-En **entrenamiento**, forward crea activaciones, backward obtiene gradientes y el optimizador actualiza parámetros. Recomputation intercambia memoria por cálculo; dividir estados, memoria local por comunicación.
+En **entrenamiento**, *forward* crea activaciones, *backward* gradientes y el optimizador actualiza parámetros. *Recomputation* cambia memoria por cálculo. Partir estados reduce memoria local, pero obliga a comunicarlos.
 
 ## La cuenta mínima de los pesos
 
-Para parámetros almacenados con precisión uniforme, sea $N_p$ su cantidad y $b$ sus bits. B = $10^9$ y T = $10^{12}$.
+Para parámetros almacenados con precisión uniforme, sea $N_p$ su cantidad y $b$ sus bits. **FACT (convención decimal):** B representa $10^9$ y T representa $10^{12}$; GB y TB aquí también son decimales.
 
 $$M_{pesos}=N_p\times\frac{b}{8}$$
 
@@ -32,15 +32,15 @@ $$M_{pesos}=N_p\times\frac{b}{8}$$
 - **70B:** BF16 = **140 GB**; INT8 = **70 GB**; INT4 = **35 GB**.
 - **1T:** BF16 = **2 TB**; INT8 = **1 TB**; INT4 = **0.5 TB**.
 
-Son capacidades lógicas. GB decimal y GiB binario difieren; escalas, padding, buffers y particionado agregan overhead.
+Son capacidades lógicas. GiB, escalas, *padding*, buffers y particionado cambian la memoria física.
 
-**DERIVED (piso didáctico):** mixed precision con Adam clásico usa **~18 bytes por parámetro**: 2 de pesos BF16/FP16 + 4 de copia FP32 + 4 de gradiente FP32 + 8 de estados Adam FP32. Para 7B, 70B y 1T son **126 GB**, **1.26 TB** y **18 TB**, antes de activaciones y temporales.
+**DERIVED (presupuesto base de esta receta):** *mixed precision* con Adam clásico suma **~18 bytes por parámetro**: 2 de pesos BF16/FP16 + 4 de copia FP32 + 4 de gradiente FP32 + 8 de estados Adam FP32. Para 7B, 70B y 1T son **126 GB**, **1.26 TB** y **18 TB** de estado agregado del modelo, antes de activaciones y temporales.
 
-Optimizador, precisión, sharding e implementación cambian ese piso. Activaciones y picos temporales pueden decidir el máximo real.
+No obliga a guardar 18 bytes completos en cada GPU. El **sharding** reparte estado y reduce memoria local a cambio de comunicación y buffers. Precisión, activaciones, temporales e implementación cambian el máximo real.
 
 ## Cuantizar cambia más que capacidad
 
-Cuantizar pesos reduce bytes y tráfico, pero introduce escalas y riesgo numérico. INT4 no duplica necesariamente la velocidad de INT8: requiere soporte y puede dominar otro recurso.
+Cuantizar pesos reduce bytes y tráfico, pero exige soporte y validación numérica; INT4 no duplica necesariamente la velocidad de INT8.
 
 Cuantizar pesos no reduce automáticamente caché KV ni activaciones. Valida precisión, contexto, batch y calidad en el hardware real.
 
@@ -48,10 +48,10 @@ Cuantizar pesos no reduce automáticamente caché KV ni activaciones. Valida pre
 
 Distribuir añade una segunda carga:
 
-- **Paralelismo de datos:** replica el modelo y divide batches. En entrenamiento, **all-reduce** combina gradientes de las réplicas y redistribuye el resultado antes de actualizar; en inferencia, réplicas independientes atienden solicitudes distintas.
+- **Paralelismo de datos:** replica el modelo y divide batches. En entrenamiento, **all-reduce** combina y redistribuye gradientes; en inferencia, réplicas atienden solicitudes distintas.
 - El **paralelismo de modelo** es el paraguas para dividir un modelo entre dispositivos. Sus formas incluyen tensor y pipeline.
-- **Paralelismo tensorial:** parte los tensores de cada capa. Operaciones colectivas por capa, como all-reduce o all-gather, intercambian resultados parciales y exigen enlaces rápidos.
-- **Paralelismo de pipeline:** coloca grupos consecutivos de capas en dispositivos. Envía activaciones entre etapas y puede crear burbujas de espera.
+- **Paralelismo tensorial:** parte tensores de cada capa; colectivas como all-reduce o all-gather exigen enlaces rápidos.
+- **Paralelismo de pipeline:** reparte grupos de capas; envía activaciones y puede crear burbujas.
 
 Bandwidth, latencia y topología determinan el resultado. **Más dispositivos no prometen speedup lineal.**
 
@@ -65,22 +65,14 @@ Bandwidth, latencia y topología determinan el resultado. **Más dispositivos no
 
 La cadena es **chip → board → servidor → rack → cluster → centro de datos**. Cada nivel añade memoria, red, potencia, refrigeración y operación.
 
-<img src="./images/real_tsubame4_node.webp" alt="Interior de un nodo de TSUBAME 4.0 con cuatro GPU NVIDIA H100, tuberías de refrigeración y módulos de memoria." loading="lazy">
-
-**FACT (objeto fotografiado, no ejemplo GB300):** nodo de TSUBAME 4.0 con cuatro GPU NVIDIA H100. Ilustra el nivel servidor multi-GPU; no muestra Blackwell Ultra ni un rack GB300. Foto de [Fukumoto en Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TSUBAME4.0_P5160984.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0); redimensionada y convertida a WebP para el curso.
-
 ## Cuatro ejemplos representativos, no un ranking
 
-<img src="./images/real_macbook_m5.webp" alt="MacBook Pro de 14 pulgadas con chip M5, abierto sobre una mesa; la foto muestra el equipo M5, no las especificaciones del M5 Max." loading="lazy">
-
-**FACT (objeto fotografiado):** MacBook Pro de 14 pulgadas con M5; no es el M5 Max de las especificaciones siguientes. Foto de [AzureSaturn en Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MacBook_Pro_(14-inch,_M5,_Space_Black).jpg), [CC0 1.0](http://creativecommons.org/publicdomain/zero/1.0/deed.en); redimensionada y convertida a WebP para el curso.
-
-- **FACT (límite de producto):** M5 Max admite hasta **128 GB unificados** y **614 GB/s**. Puede evitar copias RAM↔VRAM en ciertos flujos; los máximos no son benchmark ni TDP.
-- **FACT (referencia):** RTX 5090 tiene **32 GB GDDR7**, **1,792 GB/s** y **575 W TGP**. Pesos, cachés y temporales comparten capacidad; tarjetas de ensambladores pueden variar.
-- **FACT (por chip, picos oficiales):** TPU7x Ironwood ofrece **192 GiB HBM**, **7,380 GB/s**, **2,307 TFLOPS BF16** y **4,614 TFLOPS FP8**; un pod llega a **9,216 chips**. Los picos cambian con precisión y no son desempeño observado.
+- **FACT (límite de producto):** M5 Max admite hasta **128 GB unificados** y **614 GB/s**; no son benchmark ni TDP.
+- **FACT (referencia NVIDIA):** RTX 5090 tiene **32 GB GDDR7**, **1,792 GB/s de ancho de banda pico de memoria** y **575 W TGP**. Pesos, cachés y temporales comparten capacidad; tarjetas de ensambladores pueden variar.
+- **FACT (picos por chip):** TPU7x ofrece **192 GiB HBM**, **7,380 GB/s**, **2,307 TFLOPS BF16** y **4,614 TFLOPS FP8**; un pod llega a **9,216 chips**. No es desempeño observado.
 - **FACT (sistema oficial, máximos agregados):** DGX GB300 integra **72 GPU Blackwell Ultra**, **36 CPU Grace**, **20 TB de memoria GPU**, hasta **576 TB/s** HBM y **130 TB/s NVLink**. El rack usa refrigeración líquida y admite hasta **142 kW**; es capacidad máxima, no consumo medido.
 
-No son un ranking: aplicación, precisión, software y medición de extremo a extremo cambian la decisión.
+No son un ranking: la aplicación y la medición completa deciden.
 
 ## Guía de decisión
 
@@ -93,41 +85,54 @@ No son un ranking: aplicación, precisión, software y medición de extremo a ex
 
 ## Repaso conceptual
 
-1. ¿Por qué conocer sólo el tamaño de los pesos no basta para decidir si una inferencia cabe?
-2. ¿Cómo cambian contexto y batching la memoria y los objetivos de servicio?
-3. ¿Qué omite el piso didáctico de 18 bytes por parámetro?
-4. ¿Cuándo cuantizar puede ahorrar memoria sin reducir proporcionalmente la latencia?
-5. ¿Por qué el paralelismo de datos y el de modelo generan comunicación distinta?
-6. ¿Qué evidencia justificaría pasar de un servidor a un cluster?
+1. ¿Cómo puede una ISA común conservar compatibilidad mientras dos microarquitecturas entregan latencia o throughput distintos?
+2. ¿Qué mediciones distinguen un límite de latencia, ancho de banda o mala localidad, y cómo cambia el objetivo si importa throughput?
+3. ¿Qué forma de trabajo favorece una CPU y cuál una GPU, incluyendo el costo de mover y sincronizar datos?
+4. ¿Cómo usa Roofline la intensidad aritmética para separar un límite de memoria de uno de cómputo?
+5. ¿Por qué potencia en W y energía en Wh responden preguntas distintas al comparar dos ejecuciones?
+6. ¿Qué incluye un presupuesto de memoria de IA y qué medirías del all-reduce antes de escalar a un cluster?
 
 ## Escenarios de decisión
+
+Tres **grupos pequeños** resuelven un escenario cada uno **en paralelo** durante siete minutos: una sola ronda presencial.
 
 ### Escenario 1 — Asistente local
 
 Un 70B INT4 debe correr sin red. **DERIVED:** sus pesos ocupan 35 GB antes de caché KV y temporales. ¿Elegirías **32 GB FACT** de VRAM, hasta **128 GB FACT** unificados o un modelo menor? Justifica capacidad, contexto y latencia.
 
+**Modelos que combina:** presupuesto de memoria de IA + latencia, ancho de banda y localidad de datos.
+
 ### Escenario 2 — API concurrente
 
-El modelo cabe, pero más concurrencia causa OOM y peor tiempo por token. ¿Reducirías contexto o batch, cuantizarías caché, añadirías réplicas o dividirías el modelo? Propón dos mediciones.
+El modelo cabe, pero más concurrencia causa OOM y peor tiempo por token. ¿Reducirías contexto o batch, validarías cuantización de pesos, añadirías réplicas o usarías un modelo menor? Propón dos mediciones que separen capacidad, transferencia y cómputo.
+
+**Modelos que combina:** memoria de IA + forma del trabajo CPU/GPU + Roofline.
 
 ### Escenario 3 — Entrenamiento distribuido
 
 Un entrenamiento escala dentro del servidor, no entre racks; las GPU esperan sincronización. ¿Comprarías GPU, cambiarías particionado o mejorarías red? Explica el tráfico actual y cómo confirmarías la intervención.
 
+**Modelos que combina:** all-reduce y medición de extremo a extremo + Roofline + potencia y energía.
+
 ## Flashcards
 
-- **Pesos:** parámetros aprendidos que usa la inferencia.
-- **Caché KV:** claves y valores de atención conservados para no recalcular el contexto previo.
-- **Contexto:** tokens de entrada más historial y salida que el servicio debe mantener.
-- **Batching:** agrupar trabajo para elevar utilización y throughput, usando más memoria y quizá latencia.
-- **Cuantización:** representar tensores con menos bits, con requisitos de kernel y validación numérica.
-- **Activaciones:** resultados intermedios guardados para calcular gradientes.
-- **Gradiente:** señal de cambio de cada parámetro durante backward.
-- **Estado Adam:** momentos que el optimizador conserva además de pesos y gradientes.
-- **Paralelismo de datos:** réplicas procesan batches distintos y sincronizan gradientes.
-- **Paralelismo de modelo:** parámetros u operaciones se reparten entre dispositivos.
-- **All-reduce:** operación colectiva que combina y distribuye valores, por ejemplo gradientes.
-- **Regla final:** medir el cuello de botella antes de añadir escala.
+Estas flashcards son recuperación **después de clase**; no añaden minutos al bloque presencial.
+
+- **ISA:** contrato de instrucciones y estado visible que una CPU implementa.
+- **Microarquitectura:** organización interna que cumple una ISA y cambia el rendimiento.
+- **Latencia:** tiempo para terminar una unidad de trabajo.
+- **Throughput:** unidades terminadas por intervalo.
+- **Ancho de banda:** bytes transferidos por intervalo.
+- **Localidad:** reutilizar datos cerca del cómputo para evitar viajes.
+- **Forma CPU:** pocos flujos flexibles, control irregular y baja latencia.
+- **Forma GPU:** muchos flujos regulares para elevar throughput.
+- **Intensidad aritmética:** FLOP realizados por byte movido.
+- **Roofline:** mínimo entre techo de cómputo y ancho de banda por intensidad.
+- **Potencia:** tasa instantánea de uso de energía, expresada en W.
+- **Energía:** potencia integrada durante tiempo, expresada en Wh.
+- **Memoria de IA:** pesos más KV o activaciones, gradientes, optimizador y temporales.
+- **All-reduce:** colectiva que combina y redistribuye valores, como gradientes.
+- **Medición extremo a extremo:** capacidad, latencia, throughput, bytes, potencia y calidad bajo el mismo escenario.
 
 ## Fuentes
 
@@ -138,4 +143,3 @@ Un entrenamiento escala dentro del servidor, no entre racks; las GPU esperan sin
 - [NVIDIA — GeForce RTX 5090](https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/): capacidad y TGP; [arquitectura RTX Blackwell](https://images.nvidia.com/aem-dam/Solutions/geforce/blackwell/nvidia-rtx-blackwell-gpu-architecture.pdf): bandwidth.
 - [Google Cloud — TPU7x Ironwood](https://docs.cloud.google.com/tpu/docs/tpu7x): HBM, picos por precisión, interconexión y tamaño de pod.
 - [NVIDIA — DGX GB300](https://www.nvidia.com/en-us/data-center/dgx-gb300/): composición, memoria y bandwidth; [NVL72 System Components](https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html): NVLink, refrigeración y potencia máxima.
-- [Wikimedia Commons — MacBook Pro M5](https://commons.wikimedia.org/wiki/File:MacBook_Pro_(14-inch,_M5,_Space_Black).jpg): AzureSaturn, CC0 1.0; [TSUBAME 4.0](https://commons.wikimedia.org/wiki/File:TSUBAME4.0_P5160984.jpg): Fukumoto, CC BY-SA 4.0.

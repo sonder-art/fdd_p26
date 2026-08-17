@@ -8,7 +8,7 @@ La idea operativa de partida es sencilla: **compute es transformar datos mediant
 
 ## La máquina es un sistema, no un chip
 
-![Diagrama de una CPU conectada con RAM, disco, entrada y salida, red y un acelerador mediante una interconexión.](./images/anatomia_computadora.svg)
+<img class="hardware-lead-visual" src="./images/anatomia_computadora.svg" alt="Diagrama de una CPU conectada con RAM, disco, entrada y salida, red y un acelerador mediante una interconexión." loading="eager" decoding="async">
 
 *Diagrama propio del curso, SVG accesible, 2026.*
 

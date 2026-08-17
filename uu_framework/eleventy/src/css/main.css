@@ -229,6 +229,51 @@
   .card:hover {
     border-color: var(--color-accent);
   }
+
+  /* Scoped visuals for the hardware unit. Full-width on mobile; compact on desktop. */
+  .hardware-lead-visual {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 1rem auto;
+  }
+
+  .hardware-data-checkpoint {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 0.5rem;
+    background: var(--color-bg-secondary);
+  }
+
+  .hardware-data-checkpoint > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .hardware-data-checkpoint span {
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    background: var(--color-bg-tertiary);
+  }
+
+  @media (min-width: 640px) {
+    .hardware-data-checkpoint > div {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .prose > .hardware-lead-visual {
+      width: auto;
+      max-width: min(100%, 900px);
+      max-height: 56vh;
+      object-fit: contain;
+    }
+  }
 }
 
 /* ============================================

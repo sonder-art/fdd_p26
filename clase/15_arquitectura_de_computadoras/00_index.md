@@ -4,7 +4,7 @@ title: "Módulo 15: Arquitectura y hardware de computadoras"
 
 Un programa no trabaja en el vacío. **Calcula**, **guarda** y **mueve datos** sobre una máquina física. El desempeño aparece cuando esas tres acciones encajan; el cuello de botella aparece cuando una de ellas no alcanza a las otras.
 
-![Ciudad retrofuturista vista desde arriba: una torre central de cómputo conectada por rutas luminosas a distritos de memoria y almacenamiento.](./images/hero_compute_city.webp)
+<img class="hardware-lead-visual" src="./images/hero_compute_city.webp" alt="Ciudad retrofuturista vista desde arriba: una torre central de cómputo conectada por rutas luminosas a distritos de memoria y almacenamiento." loading="eager" decoding="async">
 
 *Creación original generativa para este curso, producida con OpenAI, 2026.*
 
@@ -18,7 +18,7 @@ Podrás explicar por qué un programa compatible necesita la ISA correcta; disti
 
 ## Ruta en dos sesiones
 
-**ESTIMATE (diseño docente):** la ruta completa requiere unos 125 minutos netos, repartidos en dos sesiones nominales de 90 minutos con pausas y discusión.
+**ESTIMATE (diseño docente):** la ruta requiere 125 minutos netos en dos sesiones nominales de 90. Los escenarios se trabajan en grupos pequeños y en paralelo; las flashcards quedan para después de clase.
 
 ### Sesión 1 — De la máquina al movimiento
 
@@ -36,8 +36,8 @@ Podrás explicar por qué un programa compatible necesita la ISA correcta; disti
 1. **La computadora es un sistema de especialistas.** CPU, memoria, almacenamiento, red y aceleradores colaboran mediante interconexiones.
 2. **La ISA es un contrato.** Define qué instrucciones entiende un procesador; no es lo mismo que el lenguaje en el que escribiste el programa.
 3. **El reloj asigna pasos, no garantiza trabajo útil.** Los ciclos pueden ocuparse en cálculo, espera o coordinación.
-4. **El paralelismo tiene forma.** Pocos flujos complejos y muchos flujos regulares necesitan arquitecturas distintas.
-5. **La proximidad de los datos tiene precio.** Cerca del cómputo suele significar menor latencia, pero menor capacidad y mayor costo por byte.
+4. **La proximidad de los datos tiene precio.** Cerca del cómputo suele significar menor latencia, pero menor capacidad y mayor costo por byte.
+5. **El paralelismo tiene forma.** Pocos flujos complejos y muchos flujos regulares necesitan arquitecturas distintas.
 6. **El cuello de botella decide la métrica.** Más FLOPS no ayuda si faltan memoria, ancho de banda o comunicación.
 7. **Escalar amplifica movimiento y energía.** Chip, servidor, rack y centro de datos son niveles del mismo sistema.
 

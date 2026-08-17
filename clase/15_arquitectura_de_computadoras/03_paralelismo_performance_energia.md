@@ -2,7 +2,7 @@
 title: "Paralelismo, performance y energía"
 ---
 
-CPU, GPU y aceleradores organizan paralelismo distinto. **El procesador apropiado coincide con la forma del trabajo y su límite**. El pico anunciado es un techo.
+CPU, GPU y aceleradores organizan el paralelismo de maneras distintas. **El procesador se elige por forma y límite**. El pico es un techo.
 
 ## CPU y GPU intercambian flexibilidad por amplitud
 

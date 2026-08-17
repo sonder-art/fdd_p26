@@ -85,7 +85,7 @@ No son un ranking: la aplicación y la medición completa deciden.
 
 ## Repaso conceptual
 
-1. ¿Cómo puede una ISA común conservar compatibilidad mientras dos microarquitecturas entregan latencia o throughput distintos?
+1. ¿Cómo conserva compatibilidad una ISA entre microarquitecturas, y por qué reloj/ciclos/GHz no garantizan latencia/throughput de trabajo útil?
 2. ¿Qué mediciones distinguen un límite de latencia, ancho de banda o mala localidad, y cómo cambia el objetivo si importa throughput?
 3. ¿Qué forma de trabajo favorece una CPU y cuál una GPU, incluyendo el costo de mover y sincronizar datos?
 4. ¿Cómo usa Roofline la intensidad aritmética para separar un límite de memoria de uno de cómputo?

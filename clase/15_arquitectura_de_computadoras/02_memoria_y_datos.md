@@ -93,6 +93,6 @@ Primero se mide el camino completo. Después se decide entre reducir bytes, agru
 - [Linux man-pages — `open(2)` y `O_DIRECT`](https://man7.org/linux/man-pages/man2/open.2.html): efectos de caché, alineación, soporte y cautelas de I/O directo.
 - [Apple Developer — `MTLStorageMode.shared`](https://developer.apple.com/documentation/metal/mtlstoragemode/shared): acceso compartido CPU/GPU y obligación de sincronizar.
 - [Apple Newsroom — MacBook Pro con M5 Pro y M5 Max](https://www.apple.com/newsroom/2026/03/apple-introduces-macbook-pro-with-all-new-m5-pro-and-m5-max/): capacidad y ancho de banda oficiales del M5 Max.
-- [NVIDIA — GeForce RTX 5090](https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/): capacidad GDDR7 y ancho de banda oficiales.
+- [NVIDIA — GeForce RTX 5090](https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/): capacidad GDDR7; [RTX Blackwell GPU Architecture](https://images.nvidia.com/aem-dam/Solutions/geforce/blackwell/nvidia-rtx-blackwell-gpu-architecture.pdf): ancho de banda oficial.
 - [NVIDIA — CUDA Programming Guide, Unified and System Memory](https://docs.nvidia.com/cuda/cuda-programming-guide/02-basics/understanding-memory.html): colocación, migración y variaciones de memoria administrada.
 - [NVIDIA — GPUDirect Storage Overview Guide](https://docs.nvidia.com/gpudirect-storage/overview-guide/): ruta directa, DMA, requisitos y fallback mediante memoria CPU.

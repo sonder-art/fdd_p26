@@ -66,9 +66,7 @@ Un **thread de software** es una secuencia de ejecución planificada por el sist
 
 Estas capas pueden combinarse:
 
-```text
-programa → procesos/threads → cores → instrucciones SIMD → datos
-```
+**Flujo adaptable:** programa → procesos o threads → cores → instrucciones SIMD → datos.
 
 La vectorización de NumPy suele ganar por dos razones: evita repetir la coordinación del intérprete para cada elemento y entrega un bloque regular a una biblioteca nativa que puede aprovechar SIMD. El resultado concreto depende de la operación, el tamaño y la memoria; “vectorizado” no significa “siempre paralelo”.
 

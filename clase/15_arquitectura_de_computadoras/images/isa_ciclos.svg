@@ -1,41 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="isa-title isa-desc" preserveAspectRatio="xMidYMid meet">
-  <title id="isa-title">La ISA conecta el programa con ciclos del procesador</title>
-  <desc id="isa-desc">El código se compila a instrucciones de una ISA. La CPU busca, decodifica, ejecuta y retira cada instrucción a lo largo de varios ciclos.</desc>
-  <defs>
-    <linearGradient id="isa-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#172554"/></linearGradient>
-    <marker id="isa-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#67e8f9"/></marker>
-  </defs>
-  <style>
-    .head{font:700 31px system-ui,sans-serif;fill:#f8fafc;text-anchor:middle}.label{font:700 27px system-ui,sans-serif;fill:#fff;text-anchor:middle}.small{font:500 22px system-ui,sans-serif;fill:#dbeafe;text-anchor:middle}.box{stroke-width:3}.arrow{fill:none;stroke:#67e8f9;stroke-width:6;marker-end:url(#isa-arrow)}
-  </style>
-  <rect width="960" height="620" rx="36" fill="url(#isa-bg)"/>
-  <text x="480" y="54" class="head">La ISA es el contrato; el trabajo ocurre en ciclos</text>
-  <rect x="54" y="108" width="190" height="100" rx="22" fill="#164e63" stroke="#67e8f9" class="box"/>
-  <text x="149" y="151" class="label">Código</text><text x="149" y="183" class="small">Python · C · Rust</text>
-  <path class="arrow" d="M244 158H348"/>
-  <text x="296" y="142" class="small">compila</text>
-  <rect x="348" y="92" width="264" height="132" rx="24" fill="#6d28d9" stroke="#d8b4fe" class="box"/>
-  <text x="480" y="146" class="label">ISA</text>
-  <text x="480" y="181" class="small">instrucciones + registros</text>
-  <path class="arrow" d="M612 158H716"/>
-  <rect x="716" y="108" width="190" height="100" rx="22" fill="#7c2d12" stroke="#fdba74" class="box"/>
-  <text x="811" y="151" class="label">CPU</text><text x="811" y="183" class="small">implementa la ISA</text>
-  <path d="M480 224V282" class="arrow"/>
-  <text x="480" y="273" class="small">una instrucción atraviesa etapas</text>
-  <line x1="92" y1="514" x2="868" y2="514" stroke="#94a3b8" stroke-width="4"/>
-  <g>
-    <rect x="76" y="322" width="184" height="138" rx="24" fill="#0e7490" stroke="#a5f3fc" class="box"/>
-    <text x="168" y="380" class="label">1 · Buscar</text><text x="168" y="418" class="small">lee instrucción</text>
-    <rect x="284" y="322" width="184" height="138" rx="24" fill="#4338ca" stroke="#c7d2fe" class="box"/>
-    <text x="376" y="380" class="label">2 · Decodificar</text><text x="376" y="418" class="small">entiende bits</text>
-    <rect x="492" y="322" width="184" height="138" rx="24" fill="#7e22ce" stroke="#e9d5ff" class="box"/>
-    <text x="584" y="380" class="label">3 · Ejecutar</text><text x="584" y="418" class="small">opera / accede</text>
-    <rect x="700" y="322" width="184" height="138" rx="24" fill="#b45309" stroke="#fde68a" class="box"/>
-    <text x="792" y="380" class="label">4 · Retirar</text><text x="792" y="418" class="small">confirma resultado</text>
-  </g>
-  <g fill="#67e8f9">
-    <circle cx="168" cy="514" r="10"/><circle cx="376" cy="514" r="10"/><circle cx="584" cy="514" r="10"/><circle cx="792" cy="514" r="10"/>
-  </g>
-  <text x="168" y="558" class="small">ciclo 1</text><text x="376" y="558" class="small">ciclo 2</text><text x="584" y="558" class="small">ciclo 3</text><text x="792" y="558" class="small">ciclo 4</text>
-  <text x="480" y="598" class="small">Pipeline: distintas instrucciones pueden ocupar etapas distintas al mismo tiempo.</text>
+  <title id="isa-title">La ISA conecta programas con la CPU</title>
+  <desc id="isa-desc">Los programas llegan a las instrucciones de una ISA mediante un compilador o runtime. La CPU implementa esa ISA. Buscar, decodificar y ejecutar son etapas simplificadas, no ciclos fijos.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#172554"/></linearGradient><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#67e8f9"/></marker></defs>
+  <style>.head{font:700 46px system-ui,sans-serif;fill:#f8fafc;text-anchor:middle}.label{font:700 40px system-ui,sans-serif;fill:#fff;text-anchor:middle}.box{stroke-width:4}.arrow{fill:none;stroke:#67e8f9;stroke-width:7;marker-end:url(#a)}</style>
+  <rect width="960" height="620" rx="36" fill="url(#bg)"/>
+  <text x="480" y="62" class="head">La ISA es el contrato</text>
+  <rect x="44" y="108" width="220" height="68" rx="20" fill="#164e63" stroke="#67e8f9" class="box"/><text x="154" y="153" class="label">C / Rust</text>
+  <path d="M264 142H330" class="arrow"/><rect x="330" y="108" width="286" height="68" rx="20" fill="#6d28d9" stroke="#d8b4fe" class="box"/><text x="473" y="153" class="label">compilador</text>
+  <rect x="44" y="200" width="220" height="68" rx="20" fill="#164e63" stroke="#67e8f9" class="box"/><text x="154" y="245" class="label">Python</text>
+  <path d="M264 234H330" class="arrow"/><rect x="330" y="200" width="286" height="68" rx="20" fill="#6d28d9" stroke="#d8b4fe" class="box"/><text x="473" y="245" class="label">runtime</text>
+  <path d="M616 142L680 178M616 234L680 198" class="arrow"/><rect x="680" y="142" width="236" height="92" rx="24" fill="#0e7490" stroke="#a5f3fc" class="box"/><text x="798" y="198" class="label">ISA → CPU</text>
+  <text x="480" y="332" class="head">Etapas: modelo simplificado</text>
+  <rect x="60" y="384" width="240" height="100" rx="26" fill="#0e7490" stroke="#a5f3fc" class="box"/><text x="180" y="447" class="label">Buscar</text>
+  <path d="M300 434H342" class="arrow"/><rect x="342" y="384" width="276" height="100" rx="26" fill="#4338ca" stroke="#c7d2fe" class="box"/><text x="480" y="447" class="label">Decodificar</text>
+  <path d="M618 434H660" class="arrow"/><rect x="660" y="384" width="240" height="100" rx="26" fill="#7e22ce" stroke="#e9d5ff" class="box"/><text x="780" y="447" class="label">Ejecutar</text>
+  <text x="480" y="560" class="head">No son ciclos fijos</text>
 </svg>

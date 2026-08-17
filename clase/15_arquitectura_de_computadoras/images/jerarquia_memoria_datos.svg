@@ -1,28 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="mem-title mem-desc" preserveAspectRatio="xMidYMid meet">
   <title id="mem-title">Jerarquía de memoria y camino de los datos</title>
-  <desc id="mem-desc">Los datos suben desde almacenamiento a RAM, caché y registros antes de ser calculados. Al acercarse al cómputo, la memoria es más rápida pero de menor capacidad.</desc>
-  <defs>
-    <linearGradient id="mem-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#082f49"/><stop offset="1" stop-color="#111827"/></linearGradient>
-    <marker id="mem-up" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#fbbf24"/></marker>
-    <marker id="mem-down" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#67e8f9"/></marker>
-  </defs>
-  <style>.head{font:700 31px system-ui,sans-serif;fill:#fff;text-anchor:middle}.label{font:700 27px system-ui,sans-serif;fill:#fff;text-anchor:middle}.small{font:500 22px system-ui,sans-serif;fill:#dbeafe;text-anchor:middle}.side{font:700 24px system-ui,sans-serif;fill:#fef3c7;text-anchor:middle}.box{stroke-width:3}.up{fill:none;stroke:#fbbf24;stroke-width:7;marker-end:url(#mem-up)}.down{fill:none;stroke:#67e8f9;stroke-width:7;marker-end:url(#mem-down)}</style>
-  <rect width="960" height="620" rx="36" fill="url(#mem-bg)"/>
-  <text x="480" y="54" class="head">Mover datos suele costar más que operarlos</text>
-  <path d="M480 120 620 194H340Z" fill="#be123c" stroke="#fecdd3" stroke-width="3"/>
-  <text x="480" y="171" class="label">Registros</text>
-  <path d="M340 210H620L706 286H254Z" fill="#7c3aed" stroke="#ddd6fe" stroke-width="3"/>
-  <text x="480" y="259" class="label">Caché</text>
-  <path d="M254 302H706L792 386H168Z" fill="#0369a1" stroke="#bae6fd" stroke-width="3"/>
-  <text x="480" y="354" class="label">RAM / VRAM</text>
-  <path d="M168 402H792L884 506H76Z" fill="#0f766e" stroke="#99f6e4" stroke-width="3"/>
-  <text x="480" y="460" class="label">SSD · red · almacenamiento</text>
-  <text x="480" y="492" class="small">mucha capacidad · mayor latencia</text>
-  <path d="M102 475C42 364 68 206 264 130" class="up"/>
-  <text x="98" y="294" class="side" transform="rotate(-75 98 294)">más cerca · más rápido</text>
-  <path d="M858 145C920 260 896 410 712 496" class="down"/>
-  <text x="861" y="308" class="side" transform="rotate(75 861 308)">más lejos · más capacidad</text>
-  <rect x="250" y="540" width="460" height="54" rx="27" fill="#0f172a" stroke="#fbbf24" stroke-width="3"/>
-  <path d="M310 567H650" class="up"/>
-  <text x="480" y="531" class="small">camino útil: traer → reutilizar → calcular</text>
+  <desc id="mem-desc">Los datos se acercan desde almacenamiento a RAM, caché y registros antes de ser calculados. Cerca del cómputo hay menor capacidad y mayor rapidez.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#064e3b"/></linearGradient><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#fbbf24"/></marker></defs>
+  <style>.head{font:700 46px system-ui,sans-serif;fill:#fff;text-anchor:middle}.label{font:700 42px system-ui,sans-serif;fill:#fff;text-anchor:middle}.box{stroke-width:4}.arrow{fill:none;stroke:#fbbf24;stroke-width:7;marker-end:url(#a)}</style>
+  <rect width="960" height="620" rx="36" fill="url(#bg)"/>
+  <text x="480" y="62" class="head">Mover datos suele costar más</text>
+  <rect x="350" y="110" width="260" height="86" rx="22" fill="#7c3aed" stroke="#ddd6fe" class="box"/><text x="480" y="166" class="label">Registros</text>
+  <path d="M480 196V226" class="arrow"/><rect x="290" y="226" width="380" height="92" rx="24" fill="#0e7490" stroke="#a5f3fc" class="box"/><text x="480" y="286" class="label">Caché</text>
+  <path d="M480 318V348" class="arrow"/><rect x="206" y="348" width="548" height="96" rx="24" fill="#0369a1" stroke="#bae6fd" class="box"/><text x="480" y="410" class="label">RAM / VRAM</text>
+  <path d="M480 444V474" class="arrow"/><rect x="104" y="474" width="752" height="96" rx="24" fill="#9a3412" stroke="#fed7aa" class="box"/><text x="480" y="536" class="label">SSD / red</text>
 </svg>

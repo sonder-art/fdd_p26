@@ -110,9 +110,9 @@ El modelo cabe, pero más concurrencia causa OOM y peor tiempo por token. ¿Redu
 
 ### Escenario 3 — Entrenamiento distribuido
 
-Un entrenamiento escala dentro del servidor, no entre racks; las GPU esperan sincronización. ¿Comprarías GPU, cambiarías particionado o mejorarías red? Explica el tráfico actual y cómo confirmarías la intervención.
+El entrenamiento escala dentro del servidor, no entre racks: las GPU esperan sincronización. ¿Comprarías GPU, reparticionarías o mejorarías red? Explica tráfico y validación.
 
-**Modelos que combina:** all-reduce y medición de extremo a extremo + Roofline + potencia y energía.
+**Modelos que combina:** comunicación (latencia y ancho de banda, incluido all-reduce) + medición extremo a extremo + escalar amplifica movimiento y energía.
 
 ## Flashcards
 
